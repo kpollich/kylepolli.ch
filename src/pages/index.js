@@ -15,12 +15,8 @@ const IndexPage = ({ data }) => {
           return (
             <div key={node.id} className="index-post">
               <Link to={node.fields.slug}>
-                <h2 className="index-post-title">
-                  {node.frontmatter.title}{' '}
-                  <span className="index-post-date">
-                    - {node.frontmatter.date}
-                  </span>
-                </h2>
+                <h2 className="index-post-title">{node.frontmatter.title}</h2>
+                <span className="index-post-date">{node.frontmatter.date}</span>
               </Link>
               <h3 className="index-post-subtitle">
                 {node.frontmatter.subtitle}
