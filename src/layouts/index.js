@@ -4,34 +4,28 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import './index.css'
+import 'bulma/css/bulma.css'
 
 const Header = () => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem'
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem'
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none'
-          }}
-        >
-          Gatsby
-        </Link>
-      </h1>
+  <nav className="navbar">
+    <div className="navbar-brand">
+      <a className="navbar-item" href="/">
+        <h1>Kyle Pollich</h1>
+      </a>
+
+      <div className="navbar-burger burger" data-target="navMenu">
+        <span />
+        <span />
+        <span />
+      </div>
     </div>
-  </div>
+
+    <div id="navMenu" className="navbar-menu">
+      <div classNameName="navbar-start">
+        <a classNameName="navbar-item">Test</a>
+      </div>
+    </div>
+  </nav>
 )
 
 const TemplateWrapper = ({ children }) => (
