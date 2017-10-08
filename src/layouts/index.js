@@ -4,7 +4,6 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 
 import './index.css'
-import 'bulma/css/bulma.css'
 
 const Header = () => (
   <nav className="navbar">
@@ -38,7 +37,12 @@ const TemplateWrapper = ({ children }) => (
           content: 'Kyle Pollich - Lancaster, PA Full Stack Developer'
         }
       ]}
-    />
+    >
+      <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css"
+      />
+    </Helmet>
     <Header />
     <div
       style={{
