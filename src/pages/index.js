@@ -1,9 +1,12 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+import Hero from '../components/Hero'
+
 const IndexPage = ({ data }) => {
   return (
     <div>
+      <Hero />
       <h1>Kyle Pollich</h1>
       <h2>Lancaster, PA Full Stack Developer</h2>
 

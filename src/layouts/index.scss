@@ -1,0 +1,130 @@
+@import '../vendor/nord.scss';
+
+body {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+.footer {
+  margin-top: 5em;
+  background-color: $nord5;
+}
+
+.outer {
+  flex: 1;
+  margin-top: 3em;
+}
+
+.resume-container {
+  padding: 1em;
+}
+
+.navbar {
+  background-color: $nord3;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  a {
+    color: #ecf0f1;
+    transition: background-color 0.2s;
+
+    &:hover {
+      color: $nord6;
+      background-color: $nord1;
+    }
+  }
+
+  .navbar-brand a {
+    font-size: 1.5rem;
+  }
+
+  .navbar-burger {
+    &:hover {
+      background-color: $nord1;
+    }
+
+    span {
+      background-color: $nord4;
+    }
+
+    &.is-active {
+      span {
+        background-color: $nord8;
+      }
+    }
+  }
+
+  .navbar-menu {
+    background-color: inherit;
+  }
+}
+
+.post-list {
+  li {
+    margin: 1.5em 0;
+  }
+
+  .box {
+    transition: box-shadow 0.2s;
+
+    &:hover {
+      color: initial;
+      box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 2px $nord8;
+    }
+  }
+}
+
+.post-header {
+  margin-bottom: 2em;
+}
+
+// Base link Styling
+a {
+  color: $nord10;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $nord8;
+  }
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.title {
+  font-weight: normal;
+}
+
+.project-container {
+  margin-bottom: 3em !important;
+}
+
+.icon-link {
+  height: 35px;
+  fill: $nord6;
+  margin: 0 0.5em;
+  transition: fill 0.2s;
+}
+
+.icon-link:hover {
+  fill: slategray;
+}
+
+.hero {
+  background: url('/assets/firewatch-blue.png');
+  background-position-y: center;
+}
+
+.hero-title,
+.hero-subtitle {
+  color: $nord6;
+}
+
+.gray-section {
+  background-color: $nord5;
+}
