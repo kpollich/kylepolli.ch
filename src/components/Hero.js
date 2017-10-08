@@ -3,14 +3,7 @@ import React from 'react'
 import IconLinks from './IconLinks'
 
 const Hero = () => (
-  <div
-    className="hero is-fullheight is-fullwidth has-text-centered"
-    style={{
-      backgroundImage: 'url(/static/firewatch-blue.png)',
-      backgroundPositionY: 'center',
-      backgroundRepeat: 'no-repeat'
-    }}
-  >
+  <div className="hero is-fullheight is-fullwidth has-text-centered">
     <div className="hero-body">
       <div className="container">
         <h1 className="title is-1" style={{ color: 'white' }}>

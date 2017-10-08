@@ -64,6 +64,9 @@ body {
 }
 
 .post-list {
+  list-style: none;
+  margin: 0;
+
   li {
     margin: 1.5em 0;
   }
@@ -116,7 +119,7 @@ a {
 }
 
 .hero {
-  background: url('/assets/firewatch-blue.png');
+  background: url(../images/firewatch-blue.png);
   background-position-y: center;
 }
 
