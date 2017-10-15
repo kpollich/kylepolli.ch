@@ -1,5 +1,7 @@
 import React from 'react'
 
+import PostListItem from '../components/PostListItem'
+
 const BlogPage = ({ data }) => {
   return (
     <section className="section outer">
@@ -8,13 +10,7 @@ const BlogPage = ({ data }) => {
         <hr />
         <ul className="post-list">
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <li key={node.id}>
-              <a className="box" href={node.fields.slug}>
-                <span>{node.frontmatter.date}</span>
-                <h2 className="title is-4">{node.frontmatter.title}</h2>
-                <span>{node.frontmatter.subtitle}</span>
-              </a>
-            </li>
+            <PostListItem {...node} />
           ))}
         </ul>
       </div>

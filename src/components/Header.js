@@ -36,10 +36,10 @@ class Header extends Component {
 
         <div id="navMenu" className={navMenuClassName}>
           <div className="navbar-start">
-            <Link to="#" className="navbar-item">
+            <Link to="/blog" className="navbar-item">
               Blog
             </Link>
-            <Link to="#" className="navbar-item">
+            <Link to="/projects" className="navbar-item">
               Projects
             </Link>
             <Link to="#" className="navbar-item">

@@ -1,0 +1,23 @@
+[
+  {
+    "title": "Quiz",
+    "description":
+      "A quiz for a health sciences course built with React and Redux. Based on specifications laid out as an interview question <a href=\"https://github.com/Ken-Richard/front-end-interview-skill-challenge/blob/master/readme.md\">here.</a>",
+    "github": "https://github.com/kpollich/quiz",
+    "image": "quiz-screenshot.png"
+  },
+  {
+    "title": "Street Cleaning Slack Bot",
+    "description":
+      "A Slack bot that alerts a channel on street cleaning days and responds to mentions. Intended to help avoid parking tickets.",
+    "github": "https://github.com/kpollich/street-cleaning-slack-bot",
+    "image": "slackbot.png"
+  },
+  {
+    "title": "Spotify Search",
+    "description":
+      "A simple search page that utilizes Spotify's open search API to search for artists, albums, and tracks. Built with ES6 and React. Note: Spotify has since added auth to this search endpoint and this project no longer functions",
+    "github": "https://github.com/kpollich/spotify-react",
+    "image": "spotify-search-screenshot.png"
+  }
+]
