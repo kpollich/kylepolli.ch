@@ -10,7 +10,7 @@ const BlogPage = ({ data }) => {
         <hr />
         <ul className="post-list">
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <PostListItem {...node} />
+            <PostListItem key={node.id} {...node} />
           ))}
         </ul>
       </div>
@@ -20,7 +20,10 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
   query ListPosts {
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      filter: { fields: { slug: { ne: "/resume/" } } }
+    ) {
       edges {
         node {
           id

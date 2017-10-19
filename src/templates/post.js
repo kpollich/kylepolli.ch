@@ -5,8 +5,15 @@ export default ({ data }) => {
   return (
     <section className="section outer">
       <div className="container content">
-        <h1>{post.frontmatter.title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
+        <h1 className="title is-2">{post.frontmatter.title}</h1>
+        <h2 className="subtitle is-4">{post.frontmatter.subtitle}</h2>
+        <p>
+          <time>{post.frontmatter.date}</time>
+        </p>
+        <div
+          className="content is-medium"
+          dangerouslySetInnerHTML={{ __html: post.html }}
+        />
       </div>
     </section>
   )
@@ -19,6 +26,7 @@ export const query = graphql`
       frontmatter {
         title
         subtitle
+        date(formatString: "MMMM DD, YYYY")
       }
     }
   }

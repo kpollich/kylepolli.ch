@@ -42,7 +42,7 @@ class Header extends Component {
             <Link to="/projects" className="navbar-item">
               Projects
             </Link>
-            <Link to="#" className="navbar-item">
+            <Link to="/resume" className="navbar-item">
               Resume
             </Link>
           </div>

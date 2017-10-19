@@ -32,8 +32,8 @@ const IndexPage = ({ data }) => {
             </p>
             <p>
               If you're interested in what I do, you can find an online version
-              of my resume <a href="/resume">here</a>. You can also feel free to
-              email me at{' '}
+              of my resume <Link to="/resume">here</Link>. You can also feel
+              free to email me at{' '}
               <a href="mailto:kpollich1@gmail.com">kpollich1@gmail.com</a> or
               find me on{' '}
               <a href="https://twitter.com/kylepollich" target="_blank">

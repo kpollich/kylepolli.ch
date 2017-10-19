@@ -19,6 +19,13 @@ module.exports = {
         path: `${__dirname}/src/data/`
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'resume',
+        path: `${__dirname}/src/resume/`
+      }
+    },
     'gatsby-transformer-remark',
     'gatsby-plugin-sass',
     'gatsby-transformer-json'
