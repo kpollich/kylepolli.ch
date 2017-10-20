@@ -3,14 +3,15 @@ import React from 'react'
 import PostListItem from '../components/PostListItem'
 
 const BlogPage = ({ data }) => {
+  console.log(data)
   return (
     <section className="section outer">
       <div className="container">
         <h1 className="title is-1">Blog Posts</h1>
         <hr />
         <ul className="post-list">
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <PostListItem key={node.id} {...node} />
+          {data.allContentfulPosts.edges.map(({ node }) => (
+            <PostListItem key={node.title} {...node} />
           ))}
         </ul>
       </div>
@@ -20,21 +21,13 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
   query ListPosts {
-    allMarkdownRemark(
-      sort: { fields: [frontmatter___date], order: DESC }
-      filter: { fields: { slug: { ne: "/resume/" } } }
-    ) {
+    allContentfulPosts(sort: { fields: [datePublished], order: DESC }) {
       edges {
         node {
-          id
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            subtitle
-            title
-          }
-          fields {
-            slug
-          }
+          datePublished(formatString: "MMMM DD, YYYY")
+          subtitle
+          title
+          slug
         }
       }
     }

@@ -13,7 +13,7 @@ const ResumePage = ({ data }) => {
 
 export const query = graphql`
   query ResumeContent {
-    markdownRemark(fields: { slug: { eq: "/resume/" } }) {
+    markdownRemark(fileAbsolutePath: { regex: "/resume/" }) {
       html
     }
   }

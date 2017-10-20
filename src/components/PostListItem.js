@@ -4,10 +4,10 @@ const PostListItem = props => {
   return (
     <div>
       <li>
-        <a className="box" href={props.fields.slug}>
-          <span>{props.frontmatter.date}</span>
-          <h2 className="title is-4">{props.frontmatter.title}</h2>
-          <span>{props.frontmatter.subtitle}</span>
+        <a className="box" href={props.slug}>
+          <span>{props.date}</span>
+          <h2 className="title is-4">{props.title}</h2>
+          <span>{props.subtitle}</span>
         </a>
       </li>
     </div>
