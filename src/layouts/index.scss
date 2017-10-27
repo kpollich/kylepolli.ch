@@ -131,3 +131,8 @@ a {
 .gray-section {
   background-color: $nord5;
 }
+
+.content ul li p {
+  margin-bottom: 0 !important;
+  margin-top: 1em !important;
+}
