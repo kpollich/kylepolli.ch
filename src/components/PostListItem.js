@@ -5,7 +5,7 @@ const PostListItem = props => {
     <div>
       <li>
         <a className="box" href={props.slug}>
-          <span>{props.date}</span>
+          <span>{props.datePublished}</span>
           <h2 className="title is-4">{props.title}</h2>
           <span>{props.subtitle}</span>
         </a>
