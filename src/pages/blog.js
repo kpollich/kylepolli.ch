@@ -3,7 +3,6 @@ import React from 'react'
 import PostListItem from '../components/PostListItem'
 
 const BlogPage = ({ data }) => {
-  console.log(data)
   return (
     <section className="section outer">
       <div className="container">
