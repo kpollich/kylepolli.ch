@@ -3,6 +3,8 @@ const path = require('path')
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators
+
+  // Dynamically create a page for each blog post in Contentful
   return new Promise((resolve, reject) => {
     graphql(`
       {

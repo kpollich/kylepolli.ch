@@ -3,14 +3,14 @@ import React from 'react'
 import Project from '../components/Project'
 
 const ProjectsPage = ({ data }) => {
-  const { allProjectsJson } = data
+  const { allContentfulProject } = data
 
   return (
     <section className="section outer">
       <div className="container">
         <h1 className="title is-1">My Projects</h1>
         <hr />
-        {allProjectsJson.edges.map(({ node }) => (
+        {allContentfulProject.edges.map(({ node }) => (
           <Project key={node.title} {...node} />
         ))}
       </div>
@@ -20,13 +20,24 @@ const ProjectsPage = ({ data }) => {
 
 export const query = graphql`
   query GetProjects {
-    allProjectsJson {
+    allContentfulProject {
       edges {
         node {
           title
-          description
-          github
-          image
+          gitHubLink
+          description {
+            childMarkdownRemark {
+              id
+              html
+            }
+          }
+          image {
+            responsiveResolution(width: 600) {
+              height
+              width
+              src
+            }
+          }
         }
       }
     }

@@ -6,7 +6,11 @@ const Project = props => {
       <div className="columns" style={{ marginBottom: '3em' }}>
         <div className="column is-8">
           <h2 className="title is-2">{props.title}</h2>
-          <p dangerouslySetInnerHTML={{ __html: props.description }} />
+          <p
+            dangerouslySetInnerHTML={{
+              __html: props.description.childMarkdownRemark.html
+            }}
+          />
           <br />
           <p>
             <a href={props.github}>View Source on GitHub</a>
@@ -14,7 +18,7 @@ const Project = props => {
         </div>
         <div className="column is-4">
           <figure className="image">
-            <img src={`${__PATH_PREFIX__}/images/${props.image}`} />
+            <img src={props.image.responsiveResolution.src} />
           </figure>
         </div>
       </div>
