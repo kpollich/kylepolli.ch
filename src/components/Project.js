@@ -13,7 +13,7 @@ const Project = props => {
           />
           <br />
           <p>
-            <a href={props.github}>View Source on GitHub</a>
+            <a href={props.gitHubLink}>View Source on GitHub</a>
           </p>
         </div>
         <div className="column is-4">
