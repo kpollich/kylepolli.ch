@@ -6,7 +6,7 @@ import Hero from '../components/Hero'
 const IndexPage = ({ data }) => {
   return (
     <div>
-      <Hero />
+      <Hero data={data} />
       <div className="section">
         <div className="container">
           <div className="content is-medium">
@@ -163,5 +163,20 @@ const IndexPage = ({ data }) => {
     </div>
   )
 }
+
+export const query = graphql`
+  query GetHero {
+    contentfulHero(title: { eq: "Kyle Pollich" }) {
+      title
+      subtitle
+      image {
+        resolutions(width: 1080) {
+          width
+          src
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

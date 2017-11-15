@@ -2,15 +2,15 @@ import React from 'react'
 
 import IconLinks from './IconLinks'
 
-const Hero = () => (
+const Hero = ({ data }) => (
   <div className="hero is-fullheight is-fullwidth has-text-centered">
     <div className="hero-body">
       <div className="container">
         <h1 className="title is-1" style={{ color: 'white' }}>
-          Kyle Pollich
+          {data.contentfulHero.title}
         </h1>
         <h2 className="subtitle" style={{ color: 'white' }}>
-          Lancaster, PA Full Stack Developer
+          {data.contentfulHero.subtitle}
         </h2>
         {<IconLinks />}
       </div>
