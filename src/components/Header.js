@@ -25,9 +25,9 @@ class Header extends Component {
           <div
             className={navbarBurgerClassName}
             data-target="navMenu"
-            onClick={() =>
-              this.setState({ isNavMenuOpen: !this.state.isNavMenuOpen })
-            }
+            onClick={() => {
+              this.setState({ isNavMenuOpen: !this.state.isNavMenuOpen });
+            }}
           >
             <span />
             <span />
