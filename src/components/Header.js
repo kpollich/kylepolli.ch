@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import Link from 'gatsby-link'
+import React, { Component } from "react";
+import Link from "gatsby-link";
 
 class Header extends Component {
   constructor() {
-    super()
-    this.state = { isNavMenuOpen: false }
+    super();
+    this.state = { isNavMenuOpen: false };
   }
   render() {
     const navMenuClassName = this.state.isNavMenuOpen
-      ? 'navbar-menu is-active'
-      : 'navbar-menu'
+      ? "navbar-menu is-active"
+      : "navbar-menu";
 
     const navbarBurgerClassName = this.state.isNavMenuOpen
-      ? 'navbar-burger is-active'
-      : 'navbar-burger'
+      ? "navbar-burger is-active"
+      : "navbar-burger";
 
     return (
       <nav className="navbar">
@@ -26,7 +26,8 @@ class Header extends Component {
             className={navbarBurgerClassName}
             data-target="navMenu"
             onClick={() =>
-              this.setState({ isNavMenuOpen: !this.state.isNavMenuOpen })}
+              this.setState({ isNavMenuOpen: !this.state.isNavMenuOpen })
+            }
           >
             <span />
             <span />
@@ -48,8 +49,8 @@ class Header extends Component {
           </div>
         </div>
       </nav>
-    )
+    );
   }
 }
 
-export default Header
+export default Header;

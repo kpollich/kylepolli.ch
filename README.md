@@ -1,13 +1,27 @@
-# gatsby-starter-default
-The default Gatsby starter
+# kylepollich.com
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/)
+The personal site of Kyle Pollich.
 
-Install this starter (assuming Gatsby is installed) by running from your CLI:
+Built with [Gatsby](https://github.com/gatsbyjs/gatsby) and hosted on [Netlify](https://www.netlify.com/).
+
+Content managed by [Contentful](https://www.contentful.com/) and styling done with [Bulma](https://bulma.io)
+
+## Running locally
+
+1. Install the Gatsby CLI globally
+
+```sh
+$ npm intall -g gatsby-cli
 ```
-gatsby new gatsby-example-site
+
+2. Install dependencies with [yarn](https://yarnpkg.com/)
+
+```sh
+$ yarn
 ```
 
-## Deploy
+3. Start the local development server on `localhost:8000` with `gatsby develop`
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+```sh
+$ gatsby develop
+```
