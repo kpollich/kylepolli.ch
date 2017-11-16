@@ -170,7 +170,7 @@ export const query = graphql`
       title
       subtitle
       image {
-        resolutions(width: 1080) {
+        resolutions(width: 2560) {
           width
           src
         }

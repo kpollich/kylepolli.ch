@@ -3,7 +3,12 @@ import React from 'react'
 import IconLinks from './IconLinks'
 
 const Hero = ({ data }) => (
-  <div className="hero is-fullheight is-fullwidth has-text-centered">
+  <div
+    className="hero is-fullheight is-fullwidth has-text-centered"
+    style={{
+      backgroundImage: `url("${data.contentfulHero.image.resolutions.src}")`
+    }}
+  >
     <div className="hero-body">
       <div className="container">
         <h1 className="title is-1" style={{ color: 'white' }}>
