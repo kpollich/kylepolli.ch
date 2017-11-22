@@ -38,7 +38,7 @@ const IndexPage = ({ data }) => {
               find me on{' '}
               <a href="https://twitter.com/kylepollich" target="_blank">
                 Twitter
-              </a>,
+              </a>,{' '}
               <a href="https://github.com/kpollich" target="_blank">
                 GitHub
               </a>, or{' '}
