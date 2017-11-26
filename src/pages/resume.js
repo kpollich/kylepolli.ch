@@ -1,7 +1,11 @@
 import React from 'react'
 
 const ResumePage = ({ data }) => {
-  const html = data.markdownRemark.html
+  console.log(data)
+  // GraphQL nesting can be a bit ridiculous...
+  const html =
+    data.allContentfulResume.edges[0].node.content.childMarkdownRemark.html
+
   return (
     <section className="section outer">
       <div className="container">
@@ -12,9 +16,17 @@ const ResumePage = ({ data }) => {
 }
 
 export const query = graphql`
-  query ResumeContent {
-    markdownRemark(fileAbsolutePath: { regex: "/resume/" }) {
-      html
+  query GetResume {
+    allContentfulResume {
+      edges {
+        node {
+          content {
+            childMarkdownRemark {
+              html
+            }
+          }
+        }
+      }
     }
   }
 `
