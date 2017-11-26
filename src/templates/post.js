@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 export default ({ data }) => {
-  const post = data.contentfulPosts
+  const post = data.contentfulPost
   return (
     <section className="section outer">
       <div className="container content">
@@ -23,7 +23,7 @@ export default ({ data }) => {
 
 export const query = graphql`
   query PostQuery($slug: String!) {
-    contentfulPosts(slug: { eq: $slug }) {
+    contentfulPost(slug: { eq: $slug }) {
       title
       subtitle
       datePublished(formatString: "MMMM DD, YYYY")

@@ -9,7 +9,7 @@ const BlogPage = ({ data }) => {
         <h1 className="title is-1">Blog Posts</h1>
         <hr />
         <ul className="post-list">
-          {data.allContentfulPosts.edges.map(({ node }) => (
+          {data.allContentfulPost.edges.map(({ node }) => (
             <PostListItem key={node.title} {...node} />
           ))}
         </ul>
@@ -20,7 +20,7 @@ const BlogPage = ({ data }) => {
 
 export const query = graphql`
   query ListPosts {
-    allContentfulPosts(sort: { fields: [datePublished], order: DESC }) {
+    allContentfulPost(sort: { fields: [datePublished], order: DESC }) {
       edges {
         node {
           datePublished(formatString: "MMMM DD, YYYY")
