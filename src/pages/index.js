@@ -20,15 +20,16 @@ const IndexPage = ({ data }) => {
             </p>
             <p>
               I'm also a hobby programmer,and I love dabbling in new technology
-              when I can. In my free time, I experiment with technologies like
-              React.js, static site generators, and functional programming.
+              when I can. In my free time, I experiment with new programming
+              languages and technologies like .NET Core and GraphQL.
             </p>
             <p>
               When I'm not writing code, I'm an avid guitarist and drummer as
               well as a huge fan of esports. You can usually catch me on
               weekends watching League of Legends or Counter Strike tournaments,
-              or playing some competitive strategy games myself. Or you might
-              find me relaxing with my wife Alex and our Bengal cat Sterling.
+              or playing some competitive strategy games or tactical shooters
+              myself. Or you might find me relaxing with my wife Alex and our
+              Bengal cat Sterling.
             </p>
             <p>
               If you're interested in what I do, you can find an online version
@@ -63,49 +64,61 @@ const IndexPage = ({ data }) => {
               <em>Developer (May 2017 - Present)</em>
             </h3>
             <p>
-              As a developer at Shift Lab, I work closely with a wide variety of
-              clients to provide support, make architecture recommendations, and
-              create unique web experiences for their users.
+              As a developer at <a href="http://shiftlabny.com">Shift Lab</a>, I
+              work closely with a wide variety of clients to provide support,
+              make architecture recommendations, and create unique web
+              experiences for their users.
             </p>
-            <ul>
-              <li>Full stack Ruby on Rails and JavaScript development</li>
-              <li>Maintain and support existing codebases</li>
-              <li>Create compelling e-commerce experiences</li>
-              <li>Provide DevOps and architecture support and consulting</li>
-              <li>
-                Work closely with clients and collaborate extensively with
-                remote developers
-              </li>
-            </ul>
+            <p>
+              I work to maintain inherited JavaScript and Rails codebases as
+              well as to develop greenfield applications and prototypes with
+              technologies like React, Gatsby, Node.js, and GraphQL. I also
+              create proposals and system engineering documentation for new
+              projects.
+            </p>
+            <p>
+              At Shift, I work with a semi-distributed team between Lancaster,
+              PA and NYC. Effective remote collaboration and communication are
+              built into our culture.
+            </p>
 
             <h2 className="title">Clipper Magazine</h2>
             <h3 className="subtitle is-5">
               <em>Lead Backend Developer (March 2015 - May 2017)</em>
             </h3>
             <p>
-              As a lead developer at Clipper, I worked to maintain our existing
-              C# .NET e-commerce project and to lead new projects. I led
-              development efforts on Node and Rails projects for third party
-              integrations, internal platforms, and data driven backend
-              applications.
+              As a lead developer at Clipper, I worked to maintain a legacy C#
+              .NET e-commerce project and to lead new projects with other
+              toolchains. I led development efforts on Node and Rails projects
+              for third party integrations, internal platforms, and data-driven
+              backend applications.
             </p>
-            <ul>
-              <li>Maintain and iterate on a C#/Webforms codebase</li>
-              <li>Implement and architect REST API’s in Rails and Node.js</li>
-              <li>
-                Implement a microservice-oriented Email Service Provider with
-                Node.js, Docker, and AWS
-              </li>
-              <li>Work extensively with Microsoft SQL Server and MySQL</li>
-              <li>
-                Perform extensive code review, implement development standards,
-                and manage Git repositories
-              </li>
-              <li>
-                Participate in and drive architecture and solution engineering
-                discussions
-              </li>
-            </ul>
+            <p>
+              We leveraged Node to create a highly performant, Dockerized API
+              which allowed Groupon to ingest and fulfill purchases for offers
+              through Clipper's e-commerce platform. This service had strict SLA
+              guidelines from Groupon, and accounted for a substantial increase
+              in monthly profits.
+            </p>
+            <p>
+              We also created a suite of Dockerized Node services to handle
+              transactional and high volume marketing email sends for Clipper's
+              multiple email-based marketing offerings called ScaleMail. When
+              the company couldn't find a suitable email marketing provider, we
+              rolled our own using{' '}
+              <a href="https://www.sparkpost.com/">SparkPost</a> as our
+              SMTP-as-a-service provider. We created a robust, scalable system
+              capable of validating, dynamically rendering, and sending millions
+              of emails per hour.
+            </p>
+            <p>
+              I worked to implement a JSONAPI compliant Rails API serving an
+              Ember.js frontend for a business-to-business marketing platform.
+              This project served to provide small businesses with sensible
+              methods for reaching their customers via email. The API included
+              extensive access control rules and heavy business logic, as well
+              as interfacing with our internal ScaleMail email service provider.
+            </p>
           </div>
         </div>
       </div>
