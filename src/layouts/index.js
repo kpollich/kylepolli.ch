@@ -8,6 +8,7 @@ import Footer from '../components/Footer'
 
 import 'bulma'
 import './index.scss'
+import 'prismjs/themes/prism.css'
 
 const TemplateWrapper = ({ children }) => (
   <div>
