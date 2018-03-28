@@ -94,30 +94,18 @@ const IndexPage = ({ data }) => {
               backend applications.
             </p>
             <p>
-              We leveraged Node to create a highly performant, Dockerized API
-              which allowed Groupon to ingest and fulfill purchases for offers
-              through Clipper's e-commerce platform. This service had strict SLA
-              guidelines from Groupon, and accounted for a substantial increase
-              in monthly profits.
+              We leveraged Node to create highly performant, Dockerized Hapi
+              services for a multitude of purposes. I led development efforts on
+              third party integrations with strict SLA requirements, and on a
+              highly scalable internal Email Service Provider for high volume
+              marketing email sends.
             </p>
             <p>
-              We also created a suite of Dockerized Node services to handle
-              transactional and high volume marketing email sends for Clipper's
-              multiple email-based marketing offerings called ScaleMail. When
-              the company couldn't find a suitable email marketing provider, we
-              rolled our own using{' '}
-              <a href="https://www.sparkpost.com/">SparkPost</a> as our
-              SMTP-as-a-service provider. We created a robust, scalable system
-              capable of validating, dynamically rendering, and sending millions
-              of emails per hour.
-            </p>
-            <p>
-              I worked to implement a JSONAPI compliant Rails API serving an
-              Ember.js frontend for a business-to-business marketing platform.
-              This project served to provide small businesses with sensible
-              methods for reaching their customers via email. The API included
-              extensive access control rules and heavy business logic, as well
-              as interfacing with our internal ScaleMail email service provider.
+              I also worked as a part of a team to create a JSON API compliant
+              Rails 5 API serving an Ember frontend. This application acted as a
+              client to our internal Email Service Provider, and allowed users
+              to configure and interface with personalized marketing emails for
+              their customers.
             </p>
           </div>
         </div>
