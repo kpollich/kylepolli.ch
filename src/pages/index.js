@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 import Hero from '../components/Hero'
+import Layout from '../components/Layout'
 
 const IndexPage = ({ data }) => {
   return (
-    <div>
+    <Layout>
       <Hero data={data} />
       <div className="section">
         <div className="container">
@@ -161,7 +162,7 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }
 

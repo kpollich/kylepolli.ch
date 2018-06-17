@@ -1,17 +1,19 @@
 import React from 'react'
 
+import Layout from '../components/Layout'
+
 const ResumePage = ({ data }) => {
-  console.log(data)
-  // GraphQL nesting can be a bit ridiculous...
   const html =
     data.allContentfulResume.edges[0].node.content.childMarkdownRemark.html
 
   return (
-    <section className="section outer">
-      <div className="container">
-        <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
-    </section>
+    <Layout>
+      <section className="section outer">
+        <div className="container">
+          <div className="content" dangerouslySetInnerHTML={{ __html: html }} />
+        </div>
+      </section>
+    </Layout>
   )
 }
 

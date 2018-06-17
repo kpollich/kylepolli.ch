@@ -18,7 +18,7 @@ const Project = props => {
         </div>
         <div className="column is-4">
           <figure className="image">
-            <img src={props.image.responsiveResolution.src} />
+            <img src={props.image.fixed.src} />
           </figure>
         </div>
       </div>

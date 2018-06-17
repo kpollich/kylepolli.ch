@@ -1,8 +1,7 @@
-const { createFilePath } = require('gatsby-source-filesystem')
 const path = require('path')
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
 
   // Dynamically create a page for each blog post in Contentful
   return new Promise((resolve, reject) => {

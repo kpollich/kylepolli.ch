@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import Footer from '../components/Footer'
 
 import 'bulma'
-import './index.scss'
+import '../index.scss'
 import 'prismjs/themes/prism.css'
 
 const TemplateWrapper = ({ children }) => (
@@ -21,7 +21,7 @@ const TemplateWrapper = ({ children }) => (
       ]}
     />
     <Header />
-    <div>{children()}</div>
+    <div>{children}</div>
     <Footer />
   </div>
 )
