@@ -20,9 +20,7 @@
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0"
   },
-  "keywords": [
-    "gatsby"
-  ],
+  "keywords": ["gatsby"],
   "license": "MIT",
   "main": "n/a",
   "scripts": {
@@ -34,9 +32,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
-    "*.{js,json,css}": [
-      "yarn format"
-    ]
+    "*.{js,json,css}": ["yarn format"]
   },
   "devDependencies": {
     "eslint": "^4.19.1",
