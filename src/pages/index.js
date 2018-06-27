@@ -62,7 +62,7 @@ const IndexPage = ({ data }) => {
 
             <h2 className="title">Shift Lab</h2>
             <h3 className="subtitle is-5">
-              <em>Developer (May 2017 - Present)</em>
+              <em>Developer, Lead Developer (May 2017 - Present)</em>
             </h3>
             <p>
               As a developer at <a href="http://shiftlabny.com">Shift Lab</a>, I
@@ -85,7 +85,10 @@ const IndexPage = ({ data }) => {
 
             <h2 className="title">Clipper Magazine</h2>
             <h3 className="subtitle is-5">
-              <em>Lead Backend Developer (March 2015 - May 2017)</em>
+              <em>
+                Backend Web Applications Developer, Lead Backend Developer
+                (March 2015 - May 2017)
+              </em>
             </h3>
             <p>
               As a lead developer at Clipper, I worked to maintain a legacy C#
