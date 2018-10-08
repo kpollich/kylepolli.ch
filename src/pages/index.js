@@ -40,10 +40,12 @@ const IndexPage = ({ data }) => {
               find me on{' '}
               <a href="https://twitter.com/kylepollich" target="_blank">
                 Twitter
-              </a>,{' '}
+              </a>
+              ,{' '}
               <a href="https://github.com/kpollich" target="_blank">
                 GitHub
-              </a>, or{' '}
+              </a>
+              , or{' '}
               <a
                 href="https://www.linkedin.com/in/kyle-pollich-b881a2102/"
                 target="_blank"
