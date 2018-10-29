@@ -1,6 +1,16 @@
-import React from 'react'
+import * as React from 'react'
 
-const Project = props => {
+import { GetProjects_allContentfulProject_edges_node as ProjectProps } from '../graphql-types/GetProjects'
+
+const Project: React.SFC<ProjectProps> = props => {
+  if (!props) {
+    return null
+  }
+
+  if (!props.description || !props.description.childMarkdownRemark) {
+    return null
+  }
+
   return (
     <div>
       <div className="columns" style={{ marginBottom: '3em' }}>

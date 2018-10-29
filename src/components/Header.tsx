@@ -1,11 +1,15 @@
-import React, { Component } from 'react'
+import * as React from 'react'
 import Link from 'gatsby-link'
 
-class Header extends Component {
-  constructor() {
-    super()
-    this.state = { isNavMenuOpen: false }
-  }
+const initialState = {
+  isNavMenuOpen: false
+}
+
+type State = Readonly<typeof initialState>
+
+class Header extends React.Component<{}, State> {
+  readonly state: State = initialState
+
   render() {
     const navMenuClassName = this.state.isNavMenuOpen
       ? 'navbar-menu is-active'

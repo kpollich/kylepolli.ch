@@ -1,6 +1,6 @@
-import React from 'react'
+import * as React from "react"
 
-const IconLinks = () => (
+const IconLinks: React.SFC<{}> = () => (
   <div className="icon-links container" style={{ marginTop: '2em' }}>
     <a
       href="https://github.com/kpollich"

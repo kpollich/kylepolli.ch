@@ -379,6 +379,13 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
+"@babel/plugin-syntax-typescript@^7.0.0":
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-typescript/-/plugin-syntax-typescript-7.0.0.tgz#90f4fe0a741ae9c0dcdc3017717c05a0cbbd5158"
+  integrity sha512-5fxmdqiAQVQTIS+KSvYeZuTt91wKtBTYi6JlIkvbQ6hmO+9fZE81ezxmMiFMIsxE7CdRSgzn7nQ1BChcvK9OpA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+
 "@babel/plugin-transform-arrow-functions@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-arrow-functions/-/plugin-transform-arrow-functions-7.0.0.tgz#a6c14875848c68a3b4b3163a486535ef25c7e749"
@@ -627,6 +634,14 @@
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
+"@babel/plugin-transform-typescript@^7.1.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typescript/-/plugin-transform-typescript-7.1.0.tgz#81e7b4be90e7317cbd04bf1163ebf06b2adee60b"
+  integrity sha512-TOTtVeT+fekAesiCHnPz+PSkYSdOSLyLn42DI45nxg6iCdlQY6LIj/tYqpMB0y+YicoTUiYiXqF8rG6SKfhw6Q==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-syntax-typescript" "^7.0.0"
+
 "@babel/plugin-transform-unicode-regex@^7.0.0":
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-unicode-regex/-/plugin-transform-unicode-regex-7.0.0.tgz#c6780e5b1863a76fe792d90eded9fcd5b51d68fc"
@@ -701,6 +716,14 @@
     "@babel/plugin-transform-react-jsx" "^7.0.0"
     "@babel/plugin-transform-react-jsx-self" "^7.0.0"
     "@babel/plugin-transform-react-jsx-source" "^7.0.0"
+
+"@babel/preset-typescript@^7.0.0":
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@babel/preset-typescript/-/preset-typescript-7.1.0.tgz#49ad6e2084ff0bfb5f1f7fb3b5e76c434d442c7f"
+  integrity sha512-LYveByuF9AOM8WrsNne5+N79k1YxjNB6gmpCQsnuSBAcV8QUeB+ZUxQzL7Rz7HksPbahymKkq2qBR+o36ggFZA==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.0.0"
+    "@babel/plugin-transform-typescript" "^7.1.0"
 
 "@babel/runtime@^7.0.0":
   version "7.1.2"
@@ -894,6 +917,11 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.57.tgz#eed149b2c75cdbd7b9823c3fd64ecddbdc68ed9c"
   integrity sha512-Iikf0IAus1OX++3Jrc1R2bsZggO+m22G5ee56JccYKejx5GNT3nHhY8v6J4OXId1hXXlb0n45hcaVwZwQcZZ6w==
 
+"@types/prop-types@*", "@types/prop-types@^15.5.6":
+  version "15.5.6"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.6.tgz#9c03d3fed70a8d517c191b7734da2879b50ca26c"
+  integrity sha512-ZBFR7TROLVzCkswA3Fmqq+IIJt62/T7aY/Dmz+QkU7CaW2QFqAitCE8Ups7IzmGhcN1YWMBT4Qcoc07jU9hOJQ==
+
 "@types/reach__router@^1.0.0":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/reach__router/-/reach__router-1.0.1.tgz#f927a0c6ae198e032b5990196c2b7606a9fb14a1"
@@ -902,10 +930,25 @@
     "@types/history" "*"
     "@types/react" "*"
 
+"@types/react-helmet@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@types/react-helmet/-/react-helmet-5.0.7.tgz#1cae65b2c37fe54cf56f40cd388836d4619dbc51"
+  integrity sha512-FbDibfkcGsD/N+3k47bfLcr5uAzSi64LJ2OOILz/P5vtBwT5A92KZAU5H9/7OjhUN6au5k+BbNplhVfp6IXDcQ==
+  dependencies:
+    "@types/react" "*"
+
 "@types/react@*":
   version "16.0.41"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.0.41.tgz#72146737f4d439dc95a53315de4bfb43ac8542ca"
   integrity sha512-hbAKPclom+NzM/iqB9JmP7UfWl0j/xsOIzWCB8iIJ7Dq0BlY80IeulgHwod2EOYILD5hc/DJAJvMFKfczdWBsQ==
+
+"@types/react@^16.4.16":
+  version "16.4.16"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.16.tgz#99f91b1200ae8c2062030402006d3b3c3a177043"
+  integrity sha512-lxyoipLWweAnLnSsV4Ho2NAZTKKmxeYgkTQ6PaDiPDU9JJBUY2zJVVGiK1smzYv8+ZgbqEmcm5xM74GCpunSEA==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
 
 "@types/tmp@^0.0.32":
   version "0.0.32"
@@ -3872,6 +3915,11 @@ csso@~2.3.1:
     clap "^1.0.9"
     source-map "^0.5.3"
 
+csstype@^2.2.0:
+  version "2.5.7"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.5.7.tgz#bf9235d5872141eccfb2d16d82993c6b149179ff"
+  integrity sha512-Nt5VDyOTIIV4/nRFswoCKps1R5CD1hkiyjBE9/thNaNZILLEviVw9yWQw15+O+CpNjQKB/uvdcxFFOrSflY3Yw==
+
 currently-unhandled@^0.4.1:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
@@ -6071,10 +6119,26 @@ gatsby-plugin-sharp@^2.0.16:
     sharp "^0.21.0"
     svgo "^0.7.2"
 
+<<<<<<< HEAD
 gatsby-react-router-scroll@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.0.2.tgz#d8046ce2f3bfa52ef6ec55804007d976b0bb6bef"
   integrity sha512-yT1cSKieXvnAlQKwPHHU4Ou5uVA8xXCc0rS1tdxGoxlOIC/vtXeHic64aH0fiLbgVEMFnbKI4n3I3IFQ6huzAA==
+=======
+gatsby-plugin-typescript@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.0.0.tgz#708b6a2121bd170995cc383be76071e13419571a"
+  integrity sha512-JA6x3jIAReOVHQlG8MGtHnVGQgX+L4khwGI7E4k8sxryg0z8uEtrRsKp0fckgzB9GwEddPtSJj+R8TmkhieCGg==
+  dependencies:
+    "@babel/preset-typescript" "^7.0.0"
+    "@babel/runtime" "^7.0.0"
+    babel-plugin-remove-graphql-queries "^2.0.2-rc.3"
+
+gatsby-react-router-scroll@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.0.0.tgz#fb96e9d0b4454ad819b430388539bc1762f04442"
+  integrity sha512-in58kEsdflO8BCtQNXMR9uPBh/N5yuN8XDDAcYsf6pkLfVPYq3B9U62tztLFtvcuLV41oJb34zuVUcIwbc03dg==
+>>>>>>> WIP - Experimenting with TS
   dependencies:
     "@babel/runtime" "^7.0.0"
     scroll-behavior "^0.9.9"
