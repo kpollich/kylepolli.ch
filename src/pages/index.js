@@ -177,7 +177,7 @@ export const query = graphql`
       title
       subtitle
       image {
-        fluid(toFormat: WEBP, maxWidth: 2560, quality: 80) {
+        fluid(maxWidth: 2560, quality: 80) {
           ...GatsbyContentfulFluid_withWebp
         }
       }
