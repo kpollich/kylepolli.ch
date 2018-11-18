@@ -27,7 +27,7 @@ const TemplateWrapper = ({ children }) => (
 )
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func
+  children: PropTypes.node
 }
 
 export default TemplateWrapper
