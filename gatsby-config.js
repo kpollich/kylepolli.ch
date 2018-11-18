@@ -9,9 +9,9 @@ module.exports = {
       resolve: `gatsby-source-contentful`,
       options: {
         spaceId: `st2w4t2u7h9u`,
-        // accessToken: `6ea446be4294a1b10532d55ce88067fef62df2c0d636240b524a25da7d93a353`,
-        host: `preview.contentful.com`,
-        accessToken: `9f1835d33598eca727fa497cada683cad39d0da414f020289e8f1af5c3fa8bcd`
+        accessToken: `6ea446be4294a1b10532d55ce88067fef62df2c0d636240b524a25da7d93a353`
+        // host: `preview.contentful.com`,
+        // accessToken: `9f1835d33598eca727fa497cada683cad39d0da414f020289e8f1af5c3fa8bcd`
       }
     },
     'gatsby-plugin-sass',
