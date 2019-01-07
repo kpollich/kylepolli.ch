@@ -1,6 +1,21 @@
-import React from 'react'
+import * as React from 'react'
 
-const Project = props => {
+export interface ProjectProps {
+  title: string
+  description: {
+    childMarkdownRemark: {
+      html: string
+    }
+  }
+  gitHubLink: string
+  image: {
+    fixed: {
+      src: string
+    }
+  }
+}
+
+const Project: React.FunctionComponent<ProjectProps> = props => {
   return (
     <div>
       <div className="columns" style={{ marginBottom: '3em' }}>

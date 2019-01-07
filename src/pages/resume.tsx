@@ -1,8 +1,13 @@
 import React from 'react'
 
 import Layout from '../components/Layout'
+import { graphql } from 'gatsby'
 
-const ResumePage = ({ data }) => {
+export interface ResumePageProps {
+  data: GetResumeData
+}
+
+const ResumePage: React.FunctionComponent<ResumePageProps> = ({ data }) => {
   const html =
     data.allContentfulResume.edges[0].node.content.childMarkdownRemark.html
 
@@ -17,7 +22,23 @@ const ResumePage = ({ data }) => {
   )
 }
 
-export const query = graphql`
+export interface GetResumeData {
+  allContentfulResume: {
+    edges: [
+      {
+        node: {
+          content: {
+            childMarkdownRemark: {
+              html: string
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+
+export const GetResumeQuery = graphql`
   query GetResume {
     allContentfulResume {
       edges {

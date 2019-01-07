@@ -1,6 +1,13 @@
-import React from 'react'
+import * as React from 'react'
 
-const PostListItem = props => {
+export interface PostListItemProps {
+  datePublished: String
+  title: String
+  slug: String
+  subtitle: String
+}
+
+const PostListItem: React.FunctionComponent<PostListItemProps> = props => {
   return (
     <div>
       <li>

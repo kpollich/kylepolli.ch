@@ -2,7 +2,7 @@ import React from 'react'
 
 import Layout from '../components/Layout'
 
-const NotFoundPage = () => (
+const NotFoundPage: React.FunctionComponent = () => (
   <Layout>
     <section className="section outer">
       <div className="container">

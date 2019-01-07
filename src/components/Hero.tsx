@@ -1,14 +1,20 @@
-import React from 'react'
+import * as React from 'react'
 import Img from 'gatsby-image'
 
 import IconLinks from './IconLinks'
+import { GetHeroData } from '../types/GetHeroData'
 
-const Hero = ({ data }) => (
+export interface HeroProps {
+  data: GetHeroData
+}
+
+const Hero: React.FunctionComponent<HeroProps> = ({ data }) => (
   <div className="hero is-fullheight is-fullwidth has-text-centered">
     <Img
       fluid={data.contentfulHero.image.fluid}
       style={{ height: '100vh', width: '100vw', position: 'absolute' }}
     />
+
     <div className="hero-body">
       <div className="container">
         <h1 className="title is-1" style={{ color: 'white' }}>
