@@ -7,7 +7,7 @@ export interface PostListItemProps {
   subtitle: String
 }
 
-const PostListItem: React.SFC<PostListItemProps> = props => {
+const PostListItem: React.FunctionComponent<PostListItemProps> = props => {
   return (
     <div>
       <li>

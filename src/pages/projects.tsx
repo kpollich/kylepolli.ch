@@ -2,8 +2,14 @@ import React from 'react'
 
 import Layout from '../components/Layout'
 import Project from '../components/Project'
+import { graphql } from 'gatsby'
+import { GetProjectsData } from '../types/GetProjectsData'
 
-const ProjectsPage = ({ data }) => {
+export interface ProjectsPageProps {
+  data: GetProjectsData
+}
+
+const ProjectsPage: React.FunctionComponent<ProjectsPageProps> = ({ data }) => {
   const { allContentfulProject } = data
 
   return (
@@ -21,7 +27,7 @@ const ProjectsPage = ({ data }) => {
   )
 }
 
-export const query = graphql`
+export const GetProjectsQuery = graphql`
   query GetProjects {
     allContentfulProject {
       edges {
@@ -30,7 +36,6 @@ export const query = graphql`
           gitHubLink
           description {
             childMarkdownRemark {
-              id
               html
             }
           }

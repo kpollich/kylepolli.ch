@@ -3,8 +3,14 @@ import Link from 'gatsby-link'
 
 import Hero from '../components/Hero'
 import Layout from '../components/Layout'
+import { graphql } from 'gatsby'
+import { GetHeroData } from '../types/GetHeroData'
 
-const IndexPage = ({ data }) => {
+export interface IndexPageProps {
+  data: GetHeroData
+}
+
+const IndexPage: React.FunctionComponent<IndexPageProps> = ({ data }) => {
   return (
     <Layout>
       <Hero data={data} />
@@ -56,12 +62,10 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </div>
-
       <div className="section gray-section">
         <div className="container">
           <div className="content is-medium">
             <h1 className="has-text-centered">Work</h1>
-
             <h2 className="title">Shift Lab</h2>
             <h3 className="subtitle is-5">
               <em>Developer, Lead Developer (May 2017 - Present)</em>
@@ -84,7 +88,6 @@ const IndexPage = ({ data }) => {
               PA and NYC. Effective remote collaboration and communication are
               built into our culture.
             </p>
-
             <h2 className="title">Clipper Magazine</h2>
             <h3 className="subtitle is-5">
               <em>
@@ -116,7 +119,6 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </div>
-
       <div className="section">
         <div className="container">
           <h1 className="title is-2 has-text-centered">Skills</h1>
@@ -136,7 +138,6 @@ const IndexPage = ({ data }) => {
                 <li>Continuous Integration + Continuous Deployment</li>
               </ul>
             </div>
-
             <div className="column is-6 has-text-right">
               <h2 className="title is-4 skill-title">Backend Development</h2>
             </div>
@@ -151,7 +152,6 @@ const IndexPage = ({ data }) => {
                 <li>Redis</li>
               </ul>
             </div>
-
             <div className="column is-6 has-text-right">
               <h2 className="title is-4 skill-title">Frontend Development</h2>
             </div>

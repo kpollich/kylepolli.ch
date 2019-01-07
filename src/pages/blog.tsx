@@ -1,9 +1,15 @@
 import React from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import PostListItem from '../components/PostListItem'
+import { GetBlogPostsData } from '../types/GetBlogPostsData'
 
-const BlogPage = ({ data }) => {
+export interface BlogPageProps {
+  data: GetBlogPostsData
+}
+
+const BlogPage: React.FunctionComponent<BlogPageProps> = ({ data }) => {
   return (
     <Layout>
       <section className="section outer">
@@ -22,7 +28,7 @@ const BlogPage = ({ data }) => {
 }
 
 export const query = graphql`
-  query ListPosts {
+  query GetBlogPosts {
     allContentfulPost(sort: { fields: [datePublished], order: DESC }) {
       edges {
         node {

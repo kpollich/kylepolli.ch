@@ -1,35 +1,20 @@
 import * as React from 'react'
+import Img from 'gatsby-image'
+
 import IconLinks from './IconLinks'
-
-export interface ContentfulResolutions {
-  src: String
-}
-
-export interface ContentfulImage {
-  resolutions: ContentfulResolutions
-}
-
-export interface ContentfulHero {
-  image: ContentfulImage
-  subtitle: String
-  title: String
-}
-
-export interface HeroData {
-  contentfulHero: ContentfulHero
-}
+import { GetHeroData } from '../types/GetHeroData'
 
 export interface HeroProps {
-  data: HeroData
+  data: GetHeroData
 }
 
-const Hero: React.SFC<HeroProps> = ({ data }) => (
-  <div
-    className="hero is-fullheight is-fullwidth has-text-centered"
-    style={{
-      backgroundImage: `url("${data.contentfulHero.image.resolutions.src}")`
-    }}
-  >
+const Hero: React.FunctionComponent<HeroProps> = ({ data }) => (
+  <div className="hero is-fullheight is-fullwidth has-text-centered">
+    <Img
+      fluid={data.contentfulHero.image.fluid}
+      style={{ height: '100vh', width: '100vw', position: 'absolute' }}
+    />
+
     <div className="hero-body">
       <div className="container">
         <h1 className="title is-1" style={{ color: 'white' }}>
