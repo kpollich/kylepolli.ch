@@ -1,24 +1,16 @@
+import { Edge } from './common/Edge'
+import { FixedImage } from './common/Images'
+import { MarkdownContent } from './common/MarkdownContent'
+
+export interface ProjectNode {
+  title: string
+  gitHubLink: string
+  description: MarkdownContent
+  image: FixedImage
+}
+
 export interface GetProjectsData {
   allContentfulProject: {
-    edges: [
-      {
-        node: {
-          title: string
-          gitHubLink: string
-          description: {
-            childMarkdownRemark: {
-              html: string
-            }
-          }
-          image: {
-            fixed: {
-              height: number
-              width: number
-              src: string
-            }
-          }
-        }
-      }
-    ]
+    edges: Edge<ProjectNode>[]
   }
 }

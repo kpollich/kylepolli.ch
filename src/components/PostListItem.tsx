@@ -1,13 +1,7 @@
 import * as React from 'react'
+import { BlogPostNode } from '../types/GetBlogPostsData'
 
-export interface PostListItemProps {
-  datePublished: String
-  title: String
-  slug: String
-  subtitle: String
-}
-
-const PostListItem: React.FunctionComponent<PostListItemProps> = props => {
+const PostListItem: React.FunctionComponent<BlogPostNode> = props => {
   return (
     <div>
       <li>
