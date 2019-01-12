@@ -1,15 +1,15 @@
-import * as React from "react";
-import Helmet from "react-helmet";
+import * as React from 'react'
+import Helmet from 'react-helmet'
 
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from './Header'
+import Footer from './Footer'
 
-import "bulma";
-import "../index.scss";
-import "prismjs/themes/prism.css";
+import 'bulma'
+import '../index.scss'
+import 'prismjs/themes/prism.css'
 
 export interface TemplateWrapperProps {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const Layout = ({ children }: TemplateWrapperProps) => (
@@ -18,8 +18,8 @@ const Layout = ({ children }: TemplateWrapperProps) => (
       title="Kyle Pollich - Lancaster, PA Full Stack Developer"
       meta={[
         {
-          name: "description",
-          content: "Kyle Pollich - Lancaster, PA Full Stack Developer"
+          name: 'description',
+          content: 'Kyle Pollich - Lancaster, PA Full Stack Developer'
         }
       ]}
     />
@@ -27,6 +27,6 @@ const Layout = ({ children }: TemplateWrapperProps) => (
     <div>{children}</div>
     <Footer />
   </div>
-);
+)
 
-export default Layout;
+export default Layout
