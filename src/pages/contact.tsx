@@ -42,6 +42,15 @@ interface ContactFormState {
   message: string
 }
 
+const initialState: ContactFormState = {
+  isSubmitting: false,
+  hasError: false,
+  didSucceed: false,
+  name: '',
+  email: '',
+  message: ''
+}
+
 function formReducer(
   state: ContactFormState,
   action: FormAction
@@ -53,9 +62,7 @@ function formReducer(
       return { ...state, isSubmitting: true, hasError: false }
     case formActions.receiveResponse:
       return {
-        ...state,
-        isSubmitting: false,
-        hasError: false,
+        ...initialState,
         didSucceed: true
       }
     case formActions.error:
@@ -65,15 +72,6 @@ function formReducer(
         hasError: true
       }
   }
-}
-
-const initialState: ContactFormState = {
-  isSubmitting: false,
-  hasError: false,
-  didSucceed: false,
-  name: '',
-  email: '',
-  message: ''
 }
 
 const ContactPage = () => {
@@ -131,6 +129,7 @@ const ContactPage = () => {
         onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="contact" />
+
         <div>
           <label>Your Name</label>
           <input
@@ -161,6 +160,9 @@ const ContactPage = () => {
             onChange={handleChange}
           />
         </div>
+
+        {state.didSucceed && <p>Your inquiry has been received. Thank you.</p>}
+
         <div>
           <button type="submit">Send</button>
         </div>
