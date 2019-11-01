@@ -9,12 +9,20 @@ import { Header } from './Header'
 const ContentWrapper = styled.section`
   max-width: 1024px;
   margin: auto;
-  padding: 2em;
+  padding: 2rem;
 `
 
 export const Layout: React.FunctionComponent = ({ children }) => {
   const GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+
+    html {
+      box-sizing: border-box;
+    }
+
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
 
     body {
       background-color: ${props => props.theme.colors.white};
