@@ -1,5 +1,6 @@
 import React from 'react'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import Head from 'react-helmet'
 
 import '../styles/normalize.css'
 import 'prism-theme-night-owl'
@@ -14,8 +15,6 @@ const ContentWrapper = styled.section`
 
 export const Layout: React.FunctionComponent = ({ children }) => {
   const GlobalStyle = createGlobalStyle`
-    @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
-
     html {
       box-sizing: border-box;
     }
@@ -31,7 +30,7 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     }
 
     &:not(pre)>code {
-      background-color: rgb(244, 243, 250);
+      background-color: ${props => props.theme.colors.lightgrey};
       color: ${props => props.theme.colors.black};
     }
 
@@ -47,6 +46,13 @@ export const Layout: React.FunctionComponent = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
+        <Head>
+          <link
+            href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+
         <GlobalStyle />
 
         <ContentWrapper>

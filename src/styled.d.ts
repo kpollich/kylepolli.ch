@@ -8,6 +8,7 @@ declare module 'styled-components' {
       black: string
       white: string
       blue: string
+      lightgrey: string
     }
   }
 }
