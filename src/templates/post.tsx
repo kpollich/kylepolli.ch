@@ -1,6 +1,14 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import styled from 'styled-components'
+
 import { Layout } from '../components/Layout'
+
+const MarkdownContentWrapper = styled.article`
+  img {
+    width: 100%;
+  }
+`
 
 interface Props {
   data: {
@@ -23,7 +31,9 @@ const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
 
       <time>{data.markdownRemark.frontmatter.datePublished}</time>
 
-      <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+      <MarkdownContentWrapper
+        dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
+      />
     </Layout>
   )
 }
