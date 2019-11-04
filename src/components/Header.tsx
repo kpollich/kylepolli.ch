@@ -9,7 +9,7 @@ const Nav = styled.nav`
   align-items: center;
   flex-wrap: wrap;
 
-  a {
+  span {
     flex: 1;
   }
 
@@ -28,7 +28,9 @@ export function Header() {
   return (
     <Wrapper>
       <Nav>
-        <Link to="/">Kyle Pollich</Link>
+        <span>
+          <Link to="/">Kyle Pollich</Link>
+        </span>
 
         <ul>
           <li>

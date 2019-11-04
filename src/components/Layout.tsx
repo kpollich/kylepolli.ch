@@ -58,9 +58,14 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     <ThemeProvider theme={theme}>
       <>
         <Head>
+          <title>Kyle Pollich - Full Stack Developer</title>
           <link
             href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap"
             rel="stylesheet"
+          />
+          <meta
+            name="description"
+            content="            Kyle Pollich - Lancaster, PA Full Stack Developer"
           />
         </Head>
 
