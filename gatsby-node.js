@@ -8,7 +8,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     return
   }
 
-  const fileNode = getNode(node.parent)
   const slug = createFilePath({ node, getNode, basePath: `pages` })
 
   createNodeField({
@@ -22,12 +21,19 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const result = await graphql(`
-    query {
-      allMarkdownRemark {
+    {
+      allMarkdownRemark(
+        filter: { fileAbsolutePath: { regex: "/posts/" } }
+        sort: { fields: frontmatter___datePublished, order: DESC }
+      ) {
         edges {
           node {
             fields {
               slug
+            }
+            frontmatter {
+              title
+              datePublished
             }
           }
         }

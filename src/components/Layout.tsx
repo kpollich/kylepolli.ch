@@ -27,6 +27,13 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       background-color: ${props => props.theme.colors.white};
       color: ${props => props.theme.colors.black};
       font-family: 'Inconsolata', monospace; 
+
+
+      font-size: 1.125em;
+    }
+
+    code[class*=language-], pre[class*=language-] {
+      font-family: 'Inconsolata', monospace; 
     }
 
     &:not(pre)>code {
@@ -40,6 +47,10 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       &:hover {
         color: ${props => props.theme.colors.blue};
       }
+    }
+
+    p {
+      line-height: 1.7;
     }
   `
 
