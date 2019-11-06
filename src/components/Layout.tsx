@@ -65,7 +65,7 @@ export const Layout: React.FunctionComponent = ({ children }) => {
           />
           <meta
             name="description"
-            content="            Kyle Pollich - Lancaster, PA Full Stack Developer"
+            content="Kyle Pollich - Full Stack Developer"
           />
         </Head>
 
