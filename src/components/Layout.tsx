@@ -1,17 +1,12 @@
 import React from 'react'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Head from 'react-helmet'
 
 import '../styles/normalize.css'
 import 'prism-theme-night-owl'
 import { theme } from '../styles/theme'
 import { Header } from './Header'
-
-const ContentWrapper = styled.section`
-  max-width: 1024px;
-  margin: auto;
-  padding: 2rem;
-`
+import { ContentWrapper } from './ContentWrapper'
 
 export const Layout: React.FunctionComponent = ({ children }) => {
   const GlobalStyle = createGlobalStyle`
@@ -71,10 +66,9 @@ export const Layout: React.FunctionComponent = ({ children }) => {
 
         <GlobalStyle />
 
-        <ContentWrapper>
-          <Header />
-          {children}
-        </ContentWrapper>
+        <Header />
+
+        <ContentWrapper>{children}</ContentWrapper>
       </>
     </ThemeProvider>
   )
