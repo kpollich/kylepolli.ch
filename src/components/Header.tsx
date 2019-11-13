@@ -2,28 +2,33 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { ContentWrapper } from './ContentWrapper'
+import { gradientStyles } from '../styles/theme'
 
 const Wrapper = styled.div`
-  background: rgb(232, 232, 232);
-  background: linear-gradient(
-    321deg,
-    rgba(232, 232, 232, 1) 50%,
-    rgba(115, 130, 144, 1) 50%
-  );
+  ${gradientStyles};
 `
 
 const Nav = styled.nav`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
+  color: ${props => props.theme.colors.white};
+
+  a {
+    text-decoration: none;
+
+    :hover {
+      text-decoration: underline;
+      color: inherit;
+    }
+  }
 
   span {
     flex: 1;
-    color: ${props => props.theme.colors.white};
+    margin-right: 1em;
   }
 
   ul {
-    color: ${props => props.theme.colors.black};
     padding: 0;
     list-style: none;
     display: flex;
