@@ -21,9 +21,7 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     body {
       background-color: ${props => props.theme.colors.white};
       color: ${props => props.theme.colors.black};
-      font-family: 'Inconsolata', monospace; 
-
-
+      font-family: 'Lato', 'Helvetica', sans-serif;
       font-size: 1.125em;
     }
 
@@ -54,6 +52,10 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       <>
         <Head>
           <title>Kyle Pollich - Full Stack Developer</title>
+          <link
+            href="https://fonts.googleapis.com/css?family=Lato&display=swap"
+            rel="stylesheet"
+          />
           <link
             href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap"
             rel="stylesheet"
