@@ -27,7 +27,7 @@ const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
   return (
     <Layout>
       <h1>{data.markdownRemark.frontmatter.title}</h1>
-      <h2>{data.markdownRemark.frontmatter.subtitle}</h2>
+      <h3>{data.markdownRemark.frontmatter.subtitle}</h3>
 
       <time>{data.markdownRemark.frontmatter.datePublished}</time>
 

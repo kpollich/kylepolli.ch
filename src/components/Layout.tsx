@@ -7,9 +7,12 @@ import 'prism-theme-night-owl'
 import { theme } from '../styles/theme'
 import { Header } from './Header'
 import { ContentWrapper } from './ContentWrapper'
+import { typescaleStyles } from '../styles/typescale'
 
 export const Layout: React.FunctionComponent = ({ children }) => {
   const GlobalStyle = createGlobalStyle`
+  ${typescaleStyles}
+  
     html {
       box-sizing: border-box;
     }
