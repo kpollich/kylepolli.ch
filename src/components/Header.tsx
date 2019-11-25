@@ -39,6 +39,10 @@ const Nav = styled.nav`
   }
 `
 
+const activeLinkStyles = {
+  textDecoration: 'underline'
+}
+
 export function Header() {
   return (
     <Wrapper>
@@ -50,16 +54,24 @@ export function Header() {
 
           <ul>
             <li>
-              <Link to="/blog">Blog</Link>
+              <Link to="/blog" activeStyle={activeLinkStyles}>
+                Blog
+              </Link>
             </li>
             <li>
-              <Link to="/projects">Projects</Link>
+              <Link to="/projects" activeStyle={activeLinkStyles}>
+                Projects
+              </Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/about" activeStyle={activeLinkStyles}>
+                About
+              </Link>
             </li>
             <li>
-              <Link to="/contact">Contact</Link>
+              <Link to="/contact" activeStyle={activeLinkStyles}>
+                Contact
+              </Link>
             </li>
           </ul>
         </Nav>
