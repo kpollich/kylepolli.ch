@@ -4,15 +4,14 @@ import { Link } from 'gatsby'
 import { ContentWrapper } from './ContentWrapper'
 import { gradientStyles } from '../styles/theme'
 
-const Wrapper = styled.div`
-  ${gradientStyles};
-`
+const Wrapper = styled.div``
 
 const Nav = styled.nav`
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
-  color: ${props => props.theme.colors.white};
+  align-items: flex-end;
+  border-bottom: 1px solid ${props => props.theme.colors.lightgrey};
+  padding-bottom: 0.5rem;
 
   a {
     text-decoration: none;
@@ -32,6 +31,8 @@ const Nav = styled.nav`
     padding: 0;
     list-style: none;
     display: flex;
+    align-items: flex-end;
+    margin: 0;
 
     li {
       margin-right: 1rem;
@@ -61,11 +62,6 @@ export function Header() {
             <li>
               <Link to="/projects" activeStyle={activeLinkStyles}>
                 Projects
-              </Link>
-            </li>
-            <li>
-              <Link to="/about" activeStyle={activeLinkStyles}>
-                About
               </Link>
             </li>
             <li>

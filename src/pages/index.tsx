@@ -1,10 +1,34 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-
+import { GitHub, Linkedin, Twitter } from 'react-feather'
 import { Layout } from '../components/Layout'
 
-const Intro = styled.section``
+const Intro = styled.section`
+  text-align: center;
+
+  h1 {
+    margin-bottom: 0;
+  }
+
+  h2 {
+    margin-top: 0;
+  }
+`
+
+const About = styled.section`
+  width: 70%;
+  margin: 2rem auto;
+  text-align: center;
+`
+
+const Icons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  width: 25%;
+  margin: auto;
+  border-bottom: 1px solid ${props => props.theme.colors.lightgrey};
+`
 
 const IndexPage: React.FunctionComponent = () => {
   return (
@@ -13,6 +37,37 @@ const IndexPage: React.FunctionComponent = () => {
         <h1>Kyle Pollich</h1>
         <h2>Full Stack Developer</h2>
 
+        <Icons>
+          <a
+            title="GitHub"
+            href="https://github.com/kpollich"
+            target="_blank"
+            rel="noopener"
+          >
+            <GitHub />
+          </a>
+
+          <a
+            title="LinkedIn"
+            href="https://www.linkedin.com/in/kyle-pollich/"
+            target="_blank"
+            rel="noopener"
+          >
+            <Linkedin />
+          </a>
+
+          <a
+            title="Twitter"
+            href="https://twitter.com/kylepollich"
+            target="_blank"
+            rel="noopener"
+          >
+            <Twitter />
+          </a>
+        </Icons>
+      </Intro>
+
+      <About>
         <p>
           I'm Kyle Pollich. I'm a full stack developer from Lancaster, PA. I
           work mostly with JavaScript, but I'm passionate about all facets of
@@ -27,12 +82,25 @@ const IndexPage: React.FunctionComponent = () => {
 
         <p>
           If you're interested in my professional work, head over to my{' '}
-          <a href="https://www.linkedin.com/in/kyle-pollich/">LinkedIn</a> or{' '}
-          <a href="https://www.github.com/kpollich">GitHub</a> profiles. You can
-          also take a look at some of my featured{' '}
+          <a
+            href="https://www.linkedin.com/in/kyle-pollich/"
+            target="_blank"
+            rel="noopener"
+          >
+            LinkedIn
+          </a>
+          or
+          <a
+            href="https://www.github.com/kpollich"
+            target="_blank"
+            rel="noopener"
+          >
+            GitHub
+          </a>{' '}
+          profiles. You can also take a look at some of my featured{' '}
           <Link to="projects">projects</Link>.
         </p>
-      </Intro>
+      </About>
     </Layout>
   )
 }
