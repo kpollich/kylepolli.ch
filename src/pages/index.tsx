@@ -88,8 +88,8 @@ const IndexPage: React.FunctionComponent = () => {
             rel="noopener"
           >
             LinkedIn
-          </a>
-          or
+          </a>{' '}
+          or{' '}
           <a
             href="https://www.github.com/kpollich"
             target="_blank"
