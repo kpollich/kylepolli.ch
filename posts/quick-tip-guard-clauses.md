@@ -40,11 +40,14 @@ function validateUser(user) {
     return false
   }
 
+  const hasValidEmail = validateEmail(user.email)
+  const hasValidPassword = validatePassword(user.password)
+
   return hasValidEmail && hasValidPassword
 }
 ```
 
-Now we've got a much more concise, more coherent method that's logically equivalent to our previous one. This concept of "inverting" your conditions and pulling them up to the top of the method is called a "Guard Clause". Rather than nesting logic underneath positive/assertive conditions repeatedly, we can determine the negative conditions up front and bail out of a method right away.
+Now we've got a much more concise, more coherent method that's logically equivalent (proven by some [tests](https://codesandbox.io/s/guard-clause-tests-f0ehr)) to our previous one. This concept of "inverting" your conditions and pulling them up to the top of the method is called a "Guard Clause". Rather than nesting logic underneath positive/assertive conditions repeatedly, we can determine the negative conditions up front and bail out of a method right away.
 
 When you're deep in the implementation of some logic, it can be hard to see opportunities to invert conditions like this. During code review, though, a fresh pair of eyes is great for identifying areas where this particular refactor can be made.
 
