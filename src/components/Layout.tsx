@@ -45,9 +45,12 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       }
     }
 
-    p {
-      line-height: 1.7;
-    }
+
+    blockquote {
+      border-left: 8px solid ${props => props.theme.colors.lightgrey};
+      padding-left: 1rem;
+      font-style: italic;
+    } 
   `
 
   return (
