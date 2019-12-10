@@ -8,8 +8,6 @@ imageCreditLink: https://unsplash.com/@impatrickt?utm_source=unsplash&utm_medium
 imageAlt: Cafe/Bar counter with menu boards and taps
 ---
 
-_A brief history of asynchronous programming in JavaScript_
-
 JavaScript is regularly referred to as "async by default", but the way in which async code is commonly handled has changed over JavaScript's lifetime. We've moved from **callbacks** to **promises** to **async/await** over the years, but each of these approaches in related to its predecessors in one way or another.
 
 ## Asynchronous vs Synchronous
