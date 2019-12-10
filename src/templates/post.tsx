@@ -30,11 +30,11 @@ interface Props {
         imageAlt?: string
         imageCreditText?: string
         imageCreditLink?: string
-      }
-    }
-    banner: {
-      childImageSharp: {
-        fluid: FluidObject
+        image?: {
+          childImageSharp: {
+            fluid: FluidObject
+          }
+        }
       }
     }
   }
@@ -43,10 +43,10 @@ interface Props {
 const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
   return (
     <Layout>
-      {data.banner && (
+      {data.markdownRemark.frontmatter.image && (
         <Banner>
           <Img
-            fluid={data.banner.childImageSharp.fluid}
+            fluid={data.markdownRemark.frontmatter.image.childImageSharp.fluid}
             alt={data.markdownRemark.frontmatter.imageAlt || ''}
           />
           {data.markdownRemark.frontmatter.imageCreditText && (
@@ -73,7 +73,7 @@ const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!, $image: String) {
+  query($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
@@ -83,12 +83,12 @@ export const query = graphql`
         imageCreditText
         imageCreditLink
         imageAlt
-      }
-    }
-    banner: file(relativePath: { eq: $image }) {
-      childImageSharp {
-        fluid(maxWidth: 1024, traceSVG: { color: "#8CBCB9" }) {
-          ...GatsbyImageSharpFluid_withWebp_tracedSVG
+        image {
+          childImageSharp {
+            fluid(maxWidth: 1024, traceSVG: { color: "#8CBCB9" }) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
         }
       }
     }

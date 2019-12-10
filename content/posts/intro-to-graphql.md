@@ -2,7 +2,7 @@
 title: Intro to GraphQL
 subtitle: A look at the core concepts of Facebook's API query language
 datePublished: 03-28-18
-image: unsplash-connected-rope.jpg
+image: ../images/unsplash-connected-rope.jpg
 imageCreditText: Clint Adair
 imageCreditLink: https://unsplash.com/@clintadair?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 imageAlt: Green rope connected with metal balls, imitating a network/node structure

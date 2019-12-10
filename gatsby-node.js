@@ -31,9 +31,6 @@ exports.createPages = async ({ graphql, actions }) => {
             fields {
               slug
             }
-            frontmatter {
-              image
-            }
           }
         }
       }
@@ -45,8 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/posts${node.fields.slug}`,
       component: path.resolve(`./src/templates/post.tsx`),
       context: {
-        slug: node.fields.slug,
-        image: node.frontmatter.image
+        slug: node.fields.slug
       }
     })
   })

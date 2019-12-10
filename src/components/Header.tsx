@@ -60,11 +60,6 @@ export function Header() {
               </Link>
             </li>
             <li>
-              <Link to="/projects" activeStyle={activeLinkStyles}>
-                Projects
-              </Link>
-            </li>
-            <li>
               <Link to="/contact" activeStyle={activeLinkStyles}>
                 Contact
               </Link>

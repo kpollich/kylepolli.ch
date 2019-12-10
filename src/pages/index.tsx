@@ -17,7 +17,7 @@ const Intro = styled.section`
 `
 
 const About = styled.section`
-  width: 70%;
+  width: 60%;
   margin: 2rem auto;
   text-align: center;
 `
@@ -97,8 +97,7 @@ const IndexPage: React.FunctionComponent = () => {
           >
             GitHub
           </a>{' '}
-          profiles. You can also take a look at some of my featured{' '}
-          <Link to="projects">projects</Link>.
+          profiles.
         </p>
       </About>
     </Layout>
