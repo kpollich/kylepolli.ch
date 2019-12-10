@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
+import Img, { FluidObject } from 'gatsby-image'
+
 import { Layout } from '../components/Layout'
 
 const Wrapper = styled.section`
@@ -14,7 +16,7 @@ const BlogPostList = styled.ul`
   padding: 0;
 
   li {
-    margin-bottom: 4em;
+    margin-bottom: 6em;
 
     :last-child {
       margin-bottom: 0;
@@ -30,9 +32,16 @@ interface Props {
           fields: {
             slug: string
           }
+          excerpt: string
           frontmatter: {
             title: string
             datePublished: string
+            image: {
+              childImageSharp: {
+                fluid: FluidObject
+              }
+            }
+            imageAlt: string
           }
         }
       }>
@@ -49,12 +58,19 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
         <BlogPostList>
           {data.allMarkdownRemark.edges.map(({ node: blogPost }) => (
             <li key={blogPost.fields.slug}>
+              <Link to={`/posts${blogPost.fields.slug}`}>
+                <Img
+                  fluid={blogPost.frontmatter.image.childImageSharp.fluid}
+                  alt={blogPost.frontmatter.imageAlt}
+                />
+              </Link>
               <h3>
                 <Link to={`/posts${blogPost.fields.slug}`}>
                   {blogPost.frontmatter.title}
                 </Link>
               </h3>
               <time>{blogPost.frontmatter.datePublished}</time>
+              <p>{blogPost.excerpt}</p>
             </li>
           ))}
         </BlogPostList>
@@ -74,9 +90,18 @@ export const query = graphql`
           fields {
             slug
           }
+          excerpt(pruneLength: 240)
           frontmatter {
             title
             datePublished
+            image {
+              childImageSharp {
+                fluid(maxWidth: 1024, traceSVG: { color: "#8CBCB9" }) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+              }
+            }
+            imageAlt
           }
         }
       }

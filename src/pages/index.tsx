@@ -17,7 +17,7 @@ const Intro = styled.section`
 `
 
 const About = styled.section`
-  width: 60%;
+  max-width: 720px;
   margin: 2rem auto;
   text-align: center;
 `
@@ -25,7 +25,7 @@ const About = styled.section`
 const Icons = styled.div`
   display: flex;
   justify-content: space-around;
-  width: 25%;
+  max-width: 200px;
   margin: auto;
   border-bottom: 1px solid ${props => props.theme.colors.lightgrey};
 `
