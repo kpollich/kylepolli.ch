@@ -73,7 +73,7 @@ export const query = graphql`
     }
     banner: file(relativePath: { eq: $image }) {
       childImageSharp {
-        fluid(maxWidth: 600, traceSVG: { color: "#573ede" }) {
+        fluid(maxWidth: 600, traceSVG: { color: "#8CBCB9" }) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }
