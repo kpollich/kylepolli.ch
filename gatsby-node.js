@@ -23,7 +23,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const result = await graphql(`
     {
       allMarkdownRemark(
-        filter: { fileAbsolutePath: { regex: "/posts/" } }
+        filter: { fileAbsolutePath: { regex: "/content/posts/" } }
         sort: { fields: frontmatter___datePublished, order: DESC }
       ) {
         edges {
@@ -34,6 +34,8 @@ exports.createPages = async ({ graphql, actions }) => {
             frontmatter {
               title
               datePublished
+              image
+              credit
             }
           }
         }
@@ -46,7 +48,9 @@ exports.createPages = async ({ graphql, actions }) => {
       path: `/posts${node.fields.slug}`,
       component: path.resolve(`./src/templates/post.tsx`),
       context: {
-        slug: node.fields.slug
+        slug: node.fields.slug,
+        image: node.frontmatter.image,
+        credit: node.frontmatter.credit
       }
     })
   })

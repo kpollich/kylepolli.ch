@@ -86,7 +86,7 @@ const ProjectsPage: React.FunctionComponent<Props> = ({ data }) => {
 export const query = graphql`
   query GetAllProjects {
     allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/projects/" } }
+      filter: { fileAbsolutePath: { regex: "/content/projects/" } }
       sort: { fields: frontmatter___datePublished, order: DESC }
     ) {
       edges {
