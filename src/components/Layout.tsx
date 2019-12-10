@@ -39,6 +39,7 @@ export const Layout: React.FunctionComponent = ({ children }) => {
 
     a {
       color: inherit;
+      transition: all 250ms;
 
       &:hover {
         color: ${props => props.theme.colors.blue};

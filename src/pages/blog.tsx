@@ -21,6 +21,10 @@ const BlogPostList = styled.ul`
     :last-child {
       margin-bottom: 0;
     }
+
+    a {
+      text-decoration: none;
+    }
   }
 `
 

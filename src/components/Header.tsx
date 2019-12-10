@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { ContentWrapper } from './ContentWrapper'
-import { gradientStyles } from '../styles/theme'
 
 const Wrapper = styled.div``
 
@@ -15,10 +14,11 @@ const Nav = styled.nav`
 
   a {
     text-decoration: none;
+    padding: 5px;
+    border-radius: 5px;
 
-    :hover {
-      text-decoration: underline;
-      color: inherit;
+    &.active {
+      background-color: ${props => props.theme.colors.lightgrey};
     }
   }
 
@@ -40,10 +40,6 @@ const Nav = styled.nav`
   }
 `
 
-const activeLinkStyles = {
-  textDecoration: 'underline'
-}
-
 export function Header() {
   return (
     <Wrapper>
@@ -55,12 +51,12 @@ export function Header() {
 
           <ul>
             <li>
-              <Link to="/blog" activeStyle={activeLinkStyles}>
+              <Link to="/blog" activeClassName="active">
                 Blog
               </Link>
             </li>
             <li>
-              <Link to="/contact" activeStyle={activeLinkStyles}>
+              <Link to="/contact" activeClassName="active">
                 Contact
               </Link>
             </li>

@@ -10,12 +10,3 @@ export const theme: DefaultTheme = {
     darkgrey: '#738290'
   }
 }
-
-export const gradientStyles = css`
-  background: rgb(190, 207, 218);
-  background: linear-gradient(
-    321deg,
-    rgba(190, 207, 218, 1) 0%,
-    rgba(115, 130, 144, 1) 42%
-  );
-`
