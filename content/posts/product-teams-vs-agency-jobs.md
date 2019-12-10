@@ -2,10 +2,11 @@
 title: 'Software Engineering Jobs: Product Teams vs Agencies'
 subtitle: Comparing two common engineering job archetypes
 datePublished: 12-20-18
+image: unsplash-office.jpg
+imageCreditText: Shridhar Gupta
+imageCreditLink: https://unsplash.com/@shridhar?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+imageAlt: Coworking space with people working at computer monitors
 ---
-
-![photo-1527192491265-7e15c55b1ed2](//images.ctfassets.net/st2w4t2u7h9u/6Cxu4w7H1YiSgQEuUYs0MW/3a7e5fc6838b8fc15be5093f1b231078/photo-1527192491265-7e15c55b1ed2.jpg)
-_Photo by Shridhar Gupta on Unsplash_
 
 In the software engineering industry, it's common to divide jobs into two broad classifications: product and agency. A product job involves working for a company who sells or actively develops some software product that's consumed by end users. The company owns the product, and the product in some way contributes to the company's bottom line. An agency job, conversely, involves working on a contractual basis for a multitude of clients. A development agency might specialize in a few smaller markets, but typically the work load is more broad and is spread across a number of clients.
 

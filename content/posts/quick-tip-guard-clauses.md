@@ -2,6 +2,10 @@
 title: 'Quick Tip: Guard Clauses'
 subtitle: Reducing nesting and improving readability
 datePublished: 12-6-19
+image: unsplash-shield.jpg
+imageCreditText: Paweł Czerwiński
+imageCreditLink: https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+imageAlt: Antique shield hanging on a wall
 ---
 
 There are a few things that I find come up more often than others in code review. Whether I'm the one doing the review, or I'm receiving code review from a peer, there are some things that are just more obvious to someone with an outside perspective. One of these things, I've found, is the concept of [guard clauses](https://wiki.c2.com/?GuardClause) or early returns.

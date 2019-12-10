@@ -13,6 +13,10 @@ const MarkdownContentWrapper = styled.article`
 
 const Banner = styled.div`
   margin-bottom: 2rem;
+
+  .credit {
+    color: ${props => props.theme.colors.darkgrey};
+  }
 `
 
 interface Props {
@@ -23,8 +27,9 @@ interface Props {
         title: string
         subtitle: string
         datePublished: string
-        alt?: string
-        credit?: string
+        imageAlt?: string
+        imageCreditText?: string
+        imageCreditLink?: string
       }
     }
     banner: {
@@ -42,8 +47,16 @@ const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
         <Banner>
           <Img
             fluid={data.banner.childImageSharp.fluid}
-            alt={data.markdownRemark.frontmatter.alt || ''}
+            alt={data.markdownRemark.frontmatter.imageAlt || ''}
           />
+          {data.markdownRemark.frontmatter.imageCreditText && (
+            <em className="credit">
+              Photo by{' '}
+              <a href={data.markdownRemark.frontmatter.imageCreditLink}>
+                {data.markdownRemark.frontmatter.imageCreditText}
+              </a>
+            </em>
+          )}
         </Banner>
       )}
 
@@ -67,13 +80,14 @@ export const query = graphql`
         title
         subtitle
         datePublished
-        credit
-        alt
+        imageCreditText
+        imageCreditLink
+        imageAlt
       }
     }
     banner: file(relativePath: { eq: $image }) {
       childImageSharp {
-        fluid(maxWidth: 600, traceSVG: { color: "#8CBCB9" }) {
+        fluid(maxWidth: 1024, traceSVG: { color: "#8CBCB9" }) {
           ...GatsbyImageSharpFluid_withWebp_tracedSVG
         }
       }

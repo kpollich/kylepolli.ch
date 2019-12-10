@@ -32,10 +32,7 @@ exports.createPages = async ({ graphql, actions }) => {
               slug
             }
             frontmatter {
-              title
-              datePublished
               image
-              credit
             }
           }
         }
@@ -49,8 +46,7 @@ exports.createPages = async ({ graphql, actions }) => {
       component: path.resolve(`./src/templates/post.tsx`),
       context: {
         slug: node.fields.slug,
-        image: node.frontmatter.image,
-        credit: node.frontmatter.credit
+        image: node.frontmatter.image
       }
     })
   })

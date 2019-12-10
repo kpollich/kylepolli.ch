@@ -3,8 +3,9 @@ title: Async patterns in JavaScript
 subtitle: A brief history of asynchronous programming in JavaScript
 datePublished: 03-25-18
 image: unsplash-cafe-2.jpg
-credit: Photo by Sincerely Media on Unsplash
-alt: Cafe/Bar counter with menu boards and taps
+imageCreditText: Patrick Tomasso
+imageCreditLink: https://unsplash.com/@impatrickt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+imageAlt: Cafe/Bar counter with menu boards and taps
 ---
 
 _A brief history of asynchronous programming in JavaScript_

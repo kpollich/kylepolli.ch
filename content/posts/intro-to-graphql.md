@@ -2,6 +2,10 @@
 title: Intro to GraphQL
 subtitle: A look at the core concepts of Facebook's API query language
 datePublished: 03-28-18
+image: unsplash-connected-rope.jpg
+imageCreditText: Clint Adair
+imageCreditLink: https://unsplash.com/@clintadair?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+imageAlt: Green rope connected with metal balls, imitating a network/node structure
 ---
 
 When I first heard about GraphQL, I was unconvinced about its usefulness or applicability to the way I write web applications. I had a good grap on RESTful API design and implemenation, and GraphQL didn't seem like something I'd really "need". Having had a bit more exposure to GraphQL, though, I'm really starting to see a lot of the benefits of the technology. In this post, I'll try to outline some of the core concepts of GraphQL, and to explain the problems it seeks to solve.
