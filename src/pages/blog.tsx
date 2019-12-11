@@ -80,7 +80,7 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
                 <Link
                   to={`/posts${blogPost.fields.slug}`}
                   style={{
-                    display: 'flex',
+                    display: 'inline-flex',
                     alignItems: 'center',
                     textDecoration: 'underline'
                   }}
