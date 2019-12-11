@@ -4,6 +4,7 @@ import { graphql, Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
 
 import { Layout } from '../components/Layout'
+import { ArrowRight } from 'react-feather'
 
 const Wrapper = styled.section`
   display: flex;
@@ -75,6 +76,19 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
               </h3>
               <time>{blogPost.frontmatter.datePublished}</time>
               <p>{blogPost.excerpt}</p>
+              <div>
+                <Link
+                  to={`/posts${blogPost.fields.slug}`}
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    textDecoration: 'underline'
+                  }}
+                >
+                  <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}
+                  <ArrowRight size="1.2rem" />
+                </Link>
+              </div>
             </li>
           ))}
         </BlogPostList>
@@ -94,7 +108,7 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt(pruneLength: 240)
+          excerpt(pruneLength: 300)
           frontmatter {
             title
             datePublished
