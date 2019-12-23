@@ -1,7 +1,7 @@
 ---
 title: Array Methods in JavaScript
 subtitle: Common and useful methods on JavaScript's Array prototype
-datePublished: 12-11-19
+datePublished: 12-23-19
 image: ../images/unsplash-map.jpg
 imageCreditText: Capturing the Human Heart on Unsplash
 imageCreditLink: https://unsplash.com/@dead____artist?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
