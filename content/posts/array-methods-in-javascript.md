@@ -256,19 +256,19 @@ There are a few other Array methods that are commonly used, and are a bit more s
 ```js
 // `.some` - return true as long as at least one element satisfies the condition returned by the callback
 const hasEvenNumber = [1, 2, 3, 4].some(num => num % 2 === 0)
-console.log(hasEvenNumber)
+console.log(hasEvenNumber) // true
 
 // `.every` - return true as long as ALL elements satisfy the condition returned by the callback
 const allEven = [2, 4, 6, 8].every(num => num % 2 === 0)
-console.log(allEven)
+console.log(allEven) // true
 
 // `.find` - return the first value that satifsies the condition returned by the callback
 const firstEven = [1, 2, 3, 4].find(num => num % 2 === 0)
-console.log(firstEven)
+console.log(firstEven) // 2
 
 // `.includes` - return true if the value is present in the array
 const hasTwo = [1, 2, 3, 4].includes(2)
-console.log(hasTwo)
+console.log(hasTwo) // true
 ```
 
 # Further Reading
