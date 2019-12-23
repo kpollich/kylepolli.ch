@@ -55,7 +55,7 @@ async function createPost() {
     Hello world!
   `
 
-  const filename = slugify(response.title)
+  const filename = slugify(response.title, { lower: true })
 
   fs.writeFileSync(
     path.join(__dirname, `../content/posts/${filename}.md`),

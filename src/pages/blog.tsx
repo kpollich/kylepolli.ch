@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
+import { compareDesc } from 'date-fns'
 
 import { Layout } from '../components/Layout'
 import { ArrowRight } from 'react-feather'
@@ -10,6 +11,8 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 800px;
+  margin: auto;
 `
 
 const BlogPostList = styled.ul`
@@ -61,36 +64,43 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
         <h1>Blog Posts</h1>
 
         <BlogPostList>
-          {data.allMarkdownRemark.edges.map(({ node: blogPost }) => (
-            <li key={blogPost.fields.slug}>
-              <Link to={`/posts${blogPost.fields.slug}`}>
-                <Img
-                  fluid={blogPost.frontmatter.image.childImageSharp.fluid}
-                  alt={blogPost.frontmatter.imageAlt}
-                />
-              </Link>
-              <h3>
+          {data.allMarkdownRemark.edges
+            .sort((first, second) =>
+              compareDesc(
+                new Date(first.node.frontmatter.datePublished),
+                new Date(second.node.frontmatter.datePublished)
+              )
+            )
+            .map(({ node: blogPost }) => (
+              <li key={blogPost.fields.slug}>
                 <Link to={`/posts${blogPost.fields.slug}`}>
-                  {blogPost.frontmatter.title}
+                  <Img
+                    fluid={blogPost.frontmatter.image.childImageSharp.fluid}
+                    alt={blogPost.frontmatter.imageAlt}
+                  />
                 </Link>
-              </h3>
-              <time>{blogPost.frontmatter.datePublished}</time>
-              <p>{blogPost.excerpt}</p>
-              <div>
-                <Link
-                  to={`/posts${blogPost.fields.slug}`}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    textDecoration: 'underline'
-                  }}
-                >
-                  <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}
-                  <ArrowRight size="1.2rem" />
-                </Link>
-              </div>
-            </li>
-          ))}
+                <h3>
+                  <Link to={`/posts${blogPost.fields.slug}`}>
+                    {blogPost.frontmatter.title}
+                  </Link>
+                </h3>
+                <time>{blogPost.frontmatter.datePublished}</time>
+                <p>{blogPost.excerpt}</p>
+                <div>
+                  <Link
+                    to={`/posts${blogPost.fields.slug}`}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      textDecoration: 'underline'
+                    }}
+                  >
+                    <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}
+                    <ArrowRight size="1.2rem" />
+                  </Link>
+                </div>
+              </li>
+            ))}
         </BlogPostList>
       </Wrapper>
     </Layout>

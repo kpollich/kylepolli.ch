@@ -11,6 +11,7 @@ export const typescaleStyles = css`
     font-weight: 400;
     line-height: 1.45;
     color: #333;
+    letter-spacing: 0.25px;
   }
 
   p {
