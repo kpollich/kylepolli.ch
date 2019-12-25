@@ -47,11 +47,11 @@ JavaScript's native array methods are highly _[declarative](https://tylermcginni
 
 # forEach()
 
-The first method we're going to take a look at is `.forEach`. From the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+The first method we're going to take a look at is `.forEach()`. From the [MDN docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
 
 > The forEach() method executes a provided function once for each array element.
 
-So, the `forEach` method is called on any array, and accepts a [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) that will receive each element as its first argument. It looks like this, in practice:
+So, the `forEach()` method is called on any array, and accepts a [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) that will receive each element as its first argument. It looks like this, in practice:
 
 ```js
 const toys = ['Truck', 'Doll', 'Ball']
@@ -185,7 +185,7 @@ console.log(odds) // [1, 3]
 
 # reduce()
 
-`reduce()` is perhaps the complex of these standard array methods. Here's MDN's description:
+`reduce()` is perhaps the most complex of these standard array methods. Here's MDN's description:
 
 > The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
 
