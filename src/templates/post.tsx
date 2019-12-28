@@ -2,6 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import styled from 'styled-components'
 import Img, { FluidObject } from 'gatsby-image'
+import { format } from 'date-fns'
 
 import { Layout } from '../components/Layout'
 
@@ -17,6 +18,14 @@ const Banner = styled.div`
   .credit {
     color: ${props => props.theme.colors.darkgrey};
   }
+`
+
+const Title = styled.h1`
+  margin-bottom: 0.75rem;
+`
+
+const Subtitle = styled.h3`
+  margin-top: 0;
 `
 
 interface Props {
@@ -60,10 +69,17 @@ const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
         </Banner>
       )}
 
-      <h1>{data.markdownRemark.frontmatter.title}</h1>
-      <h3>{data.markdownRemark.frontmatter.subtitle}</h3>
+      <Title>{data.markdownRemark.frontmatter.title}</Title>
+      <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
 
-      <time>{data.markdownRemark.frontmatter.datePublished}</time>
+      <time>
+        {format(
+          new Date(data.markdownRemark.frontmatter.datePublished),
+          'MMMM do, yyyy'
+        )}
+      </time>
+
+      <hr />
 
       <MarkdownContentWrapper
         dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}

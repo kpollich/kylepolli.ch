@@ -46,9 +46,18 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       }
     }
 
+    hr {
+      background-color: ${props => props.theme.colors.blue};
+      border: 0;
+      height: 1px;
+    }
+
+    time {
+      font-style: italic;
+    }
 
     blockquote {
-      border-left: 8px solid ${props => props.theme.colors.lightgrey};
+      border-left: 8px solid ${props => props.theme.colors.blue};
       padding-left: 1rem;
       font-style: italic;
     } 

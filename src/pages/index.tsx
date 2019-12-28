@@ -27,7 +27,7 @@ const Icons = styled.div`
   justify-content: space-around;
   max-width: 200px;
   margin: auto;
-  border-bottom: 1px solid ${props => props.theme.colors.lightgrey};
+  border-bottom: 2px solid ${props => props.theme.colors.blue};
 `
 
 const IndexPage: React.FunctionComponent = () => {

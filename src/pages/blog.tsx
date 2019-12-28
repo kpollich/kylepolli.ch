@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { graphql, Link } from 'gatsby'
 import Img, { FluidObject } from 'gatsby-image'
-import { compareDesc } from 'date-fns'
+import { compareDesc, format, parse } from 'date-fns'
 
 import { Layout } from '../components/Layout'
 import { ArrowRight } from 'react-feather'
@@ -84,7 +84,12 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
                     {blogPost.frontmatter.title}
                   </Link>
                 </h3>
-                <time>{blogPost.frontmatter.datePublished}</time>
+                <time>
+                  {format(
+                    new Date(blogPost.frontmatter.datePublished),
+                    'MMMM do, yyyy'
+                  )}
+                </time>
                 <p>{blogPost.excerpt}</p>
                 <div>
                   <Link
