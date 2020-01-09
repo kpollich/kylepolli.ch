@@ -10,6 +10,10 @@ const MarkdownContentWrapper = styled.article`
   img {
     width: 100%;
   }
+
+  ul {
+    word-break: break-all;
+  }
 `
 
 const Banner = styled.div`
