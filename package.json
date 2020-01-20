@@ -37,7 +37,6 @@
     "develop": "gatsby develop",
     "format": "prettier --write 'src/**/*.{ts,tsx}'",
     "lint": "eslint src --ext .ts --ext .tsx",
-    "precommit": "lint-staged",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "lint-staged": {
@@ -61,5 +60,10 @@
     "prettier": "^1.18.2",
     "prompts": "^2.3.0",
     "typescript": "^3.7.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
