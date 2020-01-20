@@ -61,6 +61,15 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       padding-left: 1rem;
       font-style: italic;
     } 
+
+
+    /*
+      Add some space below code blocks when they're immediately
+      followed by a blog header
+    */ 
+    .gatsby-highlight + h1 {
+      margin-top: 1.8rem;
+    }
   `
 
   return (

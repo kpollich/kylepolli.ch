@@ -56,32 +56,36 @@ interface Props {
 const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
   return (
     <Layout>
-      {data.markdownRemark.frontmatter.image && (
-        <Banner>
-          <Img
-            fluid={data.markdownRemark.frontmatter.image.childImageSharp.fluid}
-            alt={data.markdownRemark.frontmatter.imageAlt || ''}
-          />
-          {data.markdownRemark.frontmatter.imageCreditText && (
-            <em className="credit">
-              Photo by{' '}
-              <a href={data.markdownRemark.frontmatter.imageCreditLink}>
-                {data.markdownRemark.frontmatter.imageCreditText}
-              </a>
-            </em>
-          )}
-        </Banner>
-      )}
-
-      <Title>{data.markdownRemark.frontmatter.title}</Title>
-      <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
-
-      <time>
-        {format(
-          new Date(data.markdownRemark.frontmatter.datePublished),
-          'MMMM do, yyyy'
+      <section>
+        {data.markdownRemark.frontmatter.image && (
+          <Banner>
+            <Img
+              fluid={
+                data.markdownRemark.frontmatter.image.childImageSharp.fluid
+              }
+              alt={data.markdownRemark.frontmatter.imageAlt || ''}
+            />
+            {data.markdownRemark.frontmatter.imageCreditText && (
+              <em className="credit">
+                Photo by{' '}
+                <a href={data.markdownRemark.frontmatter.imageCreditLink}>
+                  {data.markdownRemark.frontmatter.imageCreditText}
+                </a>
+              </em>
+            )}
+          </Banner>
         )}
-      </time>
+
+        <Title>{data.markdownRemark.frontmatter.title}</Title>
+        <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
+
+        <time>
+          {format(
+            new Date(data.markdownRemark.frontmatter.datePublished),
+            'MMMM do, yyyy'
+          )}
+        </time>
+      </section>
 
       <hr />
 
