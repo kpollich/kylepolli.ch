@@ -101,7 +101,7 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
                     }}
                   >
                     <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}
-                    <ArrowRight size="1.2rem" />
+                    <ArrowRight size={20} />
                   </Link>
                 </div>
               </li>

@@ -1,7 +1,7 @@
 ---
 title: Async patterns in JavaScript
 subtitle: A brief history of asynchronous programming in JavaScript
-datePublished: 03-25-18
+datePublished: 03/25/18
 image: ../images/unsplash-cafe-2.jpg
 imageCreditText: Patrick Tomasso
 imageCreditLink: https://unsplash.com/@impatrickt?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
@@ -261,10 +261,9 @@ const mysql = require('mysql2/promise')
 async function updateUserEmail(oldEmail, newEmail) {
   const connection = await mysql.createConnection(config)
 
-  const userId = (await connection.execute(
-    'SELECT id FROM users WHERE email = ?',
-    [oldEmail]
-  ))[0].id
+  const userId = (
+    await connection.execute('SELECT id FROM users WHERE email = ?', [oldEmail])
+  )[0].id
 
   const isActive = await connection.execute(
     'SELECT is_active FROM users WHERE user_id = ?',
@@ -275,9 +274,9 @@ async function updateUserEmail(oldEmail, newEmail) {
     newEmail.userId
   ])
 
-  return (await connection.execute('SELECT * FROM users WHERE id = ?', [
-    this.userId
-  ]))[0]
+  return (
+    await connection.execute('SELECT * FROM users WHERE id = ?', [this.userId])
+  )[0]
 }
 
 // You actually can't use `await` in the top level scope, so you'd need to put this

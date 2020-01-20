@@ -1,7 +1,7 @@
 ---
 title: 'Software Engineering Jobs: Product Teams vs Agencies'
 subtitle: Comparing two common engineering job archetypes
-datePublished: 12-20-18
+datePublished: 12/20/18
 image: ../images/unsplash-office.jpg
 imageCreditText: Shridhar Gupta
 imageCreditLink: https://unsplash.com/@shridhar?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText

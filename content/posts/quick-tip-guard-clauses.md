@@ -1,7 +1,7 @@
 ---
 title: 'Quick Tip: Guard Clauses'
 subtitle: Reducing nesting and improving readability
-datePublished: 12-06-19
+datePublished: 12/06/19
 image: ../images/unsplash-shield.jpg
 imageCreditText: Paweł Czerwiński
 imageCreditLink: https://unsplash.com/@pawel_czerwinski?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
