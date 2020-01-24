@@ -12,13 +12,12 @@ const Wrapper = styled.div``
 const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: center;
   border-bottom: 1px solid ${props => props.theme.colors.lightgrey};
   padding-bottom: 0.5rem;
 
   a {
     text-decoration: none;
-    padding: 5px;
     border-radius: 5px;
 
     &.active {
@@ -45,7 +44,11 @@ const Nav = styled.nav`
         border: none;
         background: none;
         color: inherit;
-        vertical-align: middle;
+        display: flex;
+      }
+
+      a {
+        padding: 5px;
       }
     }
   }
