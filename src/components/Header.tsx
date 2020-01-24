@@ -44,6 +44,7 @@ const Nav = styled.nav`
       button {
         border: none;
         background: none;
+        color: inherit;
         vertical-align: middle;
       }
     }
@@ -83,11 +84,9 @@ export function Header() {
               >
                 {darkMode.value ? (
                   <Sun
-                    style={{
-                      color: darkMode.value
-                        ? theme.colors.white
-                        : theme.colors.black
-                    }}
+                    color={
+                      darkMode.value ? theme.colors.white : theme.colors.black
+                    }
                   />
                 ) : (
                   <Moon />
