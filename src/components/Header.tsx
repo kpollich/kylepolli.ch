@@ -83,9 +83,11 @@ export function Header() {
               >
                 {darkMode.value ? (
                   <Sun
-                    color={
-                      darkMode.value ? theme.colors.white : theme.colors.black
-                    }
+                    style={{
+                      color: darkMode.value
+                        ? theme.colors.white
+                        : theme.colors.black
+                    }}
                   />
                 ) : (
                   <Moon />
