@@ -1,6 +1,7 @@
 import React from 'react'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 import Head from 'react-helmet'
+import { lighten } from 'polished'
 
 import '../styles/normalize.css'
 import 'prism-theme-night-owl'
@@ -11,7 +12,7 @@ import { typescaleStyles } from '../styles/typescale'
 
 export const Layout: React.FunctionComponent = ({ children }) => {
   const GlobalStyle = createGlobalStyle`
-  ${typescaleStyles}
+    ${typescaleStyles}
   
     html {
       box-sizing: border-box;
@@ -26,13 +27,36 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       color: ${props => props.theme.colors.black};
       font-family: 'Lato', 'Helvetica', sans-serif;
       font-size: 1.125em;
+
+      transition: background-color 500ms;
+
+      &.dark-mode {
+        background-color: ${props => props.theme.colors.black};
+        color: ${props => props.theme.colors.white};
+
+        * > :not(pre) > code {
+          background-color: ${props =>
+            lighten(0.125, props.theme.colors.black)};
+          color: ${props => props.theme.colors.white};
+        }
+
+        .nav {
+          a.active {
+            background-color: ${props =>
+              lighten(0.125, props.theme.colors.black)}};
+          }
+
+        .credit {
+          color: ${props => props.theme.colors.lightgrey} !important;
+        }
+      }
     }
 
     code[class*=language-], pre[class*=language-] {
       font-family: 'Inconsolata', monospace; 
     }
 
-    &:not(pre)>code {
+    :not(pre) > code {
       background-color: ${props => props.theme.colors.lightgrey};
       color: ${props => props.theme.colors.black};
     }

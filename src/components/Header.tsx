@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
+import useDarkMode from 'use-dark-mode'
+import { Moon, Sun } from 'react-feather'
+
 import { ContentWrapper } from './ContentWrapper'
+import { theme } from '../styles/theme'
 
 const Wrapper = styled.div``
 
@@ -36,15 +40,23 @@ const Nav = styled.nav`
 
     li {
       margin-right: 1rem;
+
+      button {
+        border: none;
+        background: none;
+        vertical-align: middle;
+      }
     }
   }
 `
 
 export function Header() {
+  const darkMode = useDarkMode()
+
   return (
     <Wrapper>
       <ContentWrapper>
-        <Nav>
+        <Nav className="nav">
           <span>
             <Link to="/">Kyle Pollich</Link>
           </span>
@@ -59,6 +71,26 @@ export function Header() {
               <Link to="/contact" activeClassName="active">
                 Contact
               </Link>
+            </li>
+            <li>
+              <button
+                onClick={darkMode.toggle}
+                title={
+                  darkMode.value
+                    ? 'Switch to light mode'
+                    : 'Switch to dark mode'
+                }
+              >
+                {darkMode.value ? (
+                  <Sun
+                    color={
+                      darkMode.value ? theme.colors.white : theme.colors.black
+                    }
+                  />
+                ) : (
+                  <Moon />
+                )}
+              </button>
             </li>
           </ul>
         </Nav>
