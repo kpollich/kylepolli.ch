@@ -51,13 +51,13 @@ module.exports = {
         path: `${__dirname}/content/images`
       }
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'uses',
-        path: `${__dirname}/content/uses`
-      }
-    },
+    // {
+    //   resolve: 'gatsby-source-filesystem',
+    //   options: {
+    //     name: 'uses',
+    //     path: `${__dirname}/content/uses`
+    //   }
+    // },
     {
       resolve: 'gatsby-plugin-styled-components'
     }
