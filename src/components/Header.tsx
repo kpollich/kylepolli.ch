@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import useDarkMode from 'use-dark-mode'
@@ -55,7 +55,12 @@ const Nav = styled.nav`
 `
 
 export function Header() {
-  const darkMode = useDarkMode()
+  const [isDarkModeReady, setIsDarkModeReady] = useState(false)
+  const darkMode = useDarkMode(false, {
+    onChange: () => {
+      setIsDarkModeReady(true)
+    }
+  })
 
   return (
     <Wrapper>
@@ -76,25 +81,28 @@ export function Header() {
                 Contact
               </Link>
             </li>
+
             <li>
-              <button
-                onClick={darkMode.toggle}
-                title={
-                  darkMode.value
-                    ? 'Switch to light mode'
-                    : 'Switch to dark mode'
-                }
-              >
-                {darkMode.value ? (
-                  <Sun
-                    color={
-                      darkMode.value ? theme.colors.white : theme.colors.black
-                    }
-                  />
-                ) : (
-                  <Moon />
-                )}
-              </button>
+              {isDarkModeReady && (
+                <button
+                  onClick={darkMode.toggle}
+                  title={
+                    darkMode.value
+                      ? 'Switch to light mode'
+                      : 'Switch to dark mode'
+                  }
+                >
+                  {darkMode.value ? (
+                    <Sun
+                      color={
+                        darkMode.value ? theme.colors.white : theme.colors.black
+                      }
+                    />
+                  ) : (
+                    <Moon />
+                  )}
+                </button>
+              )}
             </li>
           </ul>
         </Nav>
