@@ -28,8 +28,6 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       font-family: 'Lato', 'Helvetica', sans-serif;
       font-size: 1.125em;
 
-      transition: background-color 500ms;
-
       &.dark-mode {
         background-color: ${props => props.theme.colors.black};
         color: ${props => props.theme.colors.white};
