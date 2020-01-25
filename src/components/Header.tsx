@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
-import useDarkMode from 'use-dark-mode'
 import { Moon, Sun } from 'react-feather'
+
+// @ts-ignore
+import { ThemeToggler } from 'gatsby-plugin-dark-mode'
 
 import { ContentWrapper } from './ContentWrapper'
 import { theme } from '../styles/theme'
@@ -55,8 +57,6 @@ const Nav = styled.nav`
 `
 
 export function Header() {
-  const darkMode = useDarkMode(false)
-
   return (
     <Wrapper>
       <ContentWrapper>
@@ -78,24 +78,32 @@ export function Header() {
             </li>
 
             <li>
-              <button
-                onClick={darkMode.toggle}
-                title={
-                  darkMode.value
-                    ? 'Switch to light mode'
-                    : 'Switch to dark mode'
-                }
-              >
-                {darkMode.value ? (
-                  <Sun
-                    color={
-                      darkMode.value ? theme.colors.white : theme.colors.black
+              <ThemeToggler>
+                {({ theme: siteTheme, toggleTheme }: any) => (
+                  <button
+                    onClick={() =>
+                      toggleTheme(siteTheme === 'light' ? 'dark' : 'light')
                     }
-                  />
-                ) : (
-                  <Moon />
+                    title={
+                      siteTheme === 'dark'
+                        ? 'Switch to light mode'
+                        : 'Switch to dark mode'
+                    }
+                  >
+                    {siteTheme === 'dark' ? (
+                      <Sun
+                        color={
+                          siteTheme === 'dark'
+                            ? theme.colors.white
+                            : theme.colors.black
+                        }
+                      />
+                    ) : (
+                      <Moon />
+                    )}
+                  </button>
                 )}
-              </button>
+              </ThemeToggler>
             </li>
           </ul>
         </Nav>
