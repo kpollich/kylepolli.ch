@@ -27,7 +27,7 @@ const UsesPage: React.FunctionComponent<Props> = ({ data }) => {
     <Layout>
       <section>
         <h1>Uses</h1>
-        <p style={{ width: '75%' }}>
+        <p>
           These are some of the things I use to write code. I'm always trying
           out new apps and gadgets, so don't consider this list exhaustive or
           complete.

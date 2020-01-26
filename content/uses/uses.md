@@ -1,10 +1,12 @@
 ## Editor and Terminal
 
 - [Visual Studio Code](https://code.visualstudio.com/)
-  - Themes - I change my theme a lot, but here are a few I like
+  - Themes - I change my theme a lot, but here are a few I like:
+    <ul>
     - [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
     - [Synthwave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode)
     - [Horizon](https://marketplace.visualstudio.com/items?itemName=jolaleye.horizon-theme-vscode)
+    </ul>
 - [iTerm2](https://iterm2.com/)
   - Theme: [Snazzy](https://github.com/sindresorhus/iterm2-snazzy)
   - [Oh My ZSH](https://ohmyz.sh/) with the [Spaceship](https://github.com/denysdovhan/spaceship-prompt) prompt
