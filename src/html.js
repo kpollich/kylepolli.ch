@@ -15,12 +15,6 @@ export default function HTML(props) {
       </head>
       <body {...props.bodyAttributes} className="light">
         {props.preBodyComponents}
-        <div
-          key={`body`}
-          id="___gatsby"
-          dangerouslySetInnerHTML={{ __html: props.body }}
-        />
-
         {/* From https://github.com/gaearon/overreacted.io/blob/master/src/html.js */}
         <script
           dangerouslySetInnerHTML={{
@@ -51,6 +45,11 @@ export default function HTML(props) {
               })();
             `
           }}
+        />
+        <div
+          key={`body`}
+          id="___gatsby"
+          dangerouslySetInnerHTML={{ __html: props.body }}
         />
         {props.postBodyComponents}
       </body>

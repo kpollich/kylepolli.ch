@@ -18,6 +18,9 @@ export const ColorThemeProvider: React.FunctionComponent = ({ children }) => {
 
   useEffect(() => {
     setColorTheme((window as any).__theme)
+    ;(window as any).__onThemeChange = () => {
+      setColorTheme((window as any).__theme)
+    }
   }, [])
 
   useEffect(() => {
