@@ -8,7 +8,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     'gatsby-transformer-sharp',
     'gatsby-plugin-sharp',
-    'gatsby-plugin-dark-mode',
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {

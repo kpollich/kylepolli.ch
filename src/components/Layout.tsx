@@ -9,6 +9,7 @@ import { theme } from '../styles/theme'
 import { Header } from './Header'
 import { ContentWrapper } from './ContentWrapper'
 import { typescaleStyles } from '../styles/typescale'
+import { useColorTheme } from '../context/ColorTheme'
 
 export const Layout: React.FunctionComponent = ({ children }) => {
   const GlobalStyle = createGlobalStyle`
@@ -28,7 +29,16 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       font-family: 'Lato', 'Helvetica', sans-serif;
       font-size: 1.125em;
 
-      transition: background-color 500ms;
+      .theme-transition-wrapper {
+        min-height: 100vh;
+        transition: background-color 500ms, color 500ms;
+      }
+
+      &.light {
+        .theme-transition-wrapper {
+          background-color: ${props => props.theme.colors.white};
+        }
+      }
 
       &.dark {
         background-color: ${props => props.theme.colors.black};
@@ -38,6 +48,10 @@ export const Layout: React.FunctionComponent = ({ children }) => {
           background-color: ${props =>
             lighten(0.125, props.theme.colors.black)};
           color: ${props => props.theme.colors.white};
+        }
+
+        .theme.theme-transition-wrapper {
+          background-color: ${props => props.theme.colors.black};
         }
 
         .nav {
@@ -96,6 +110,8 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     }
   `
 
+  const { colorTheme } = useColorTheme()
+
   return (
     <ThemeProvider theme={theme}>
       <>
@@ -113,13 +129,18 @@ export const Layout: React.FunctionComponent = ({ children }) => {
             name="description"
             content="Kyle Pollich - Full Stack Developer"
           />
+          <meta
+            name="theme-color"
+            content={colorTheme === 'light' ? '#FFF' : '#333'}
+          />
         </Head>
-
         <GlobalStyle />
 
-        <Header />
+        <div className="theme-transition-wrapper">
+          <Header />
 
-        <ContentWrapper>{children}</ContentWrapper>
+          <ContentWrapper>{children}</ContentWrapper>
+        </div>
       </>
     </ThemeProvider>
   )

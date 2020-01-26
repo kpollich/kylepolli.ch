@@ -1,13 +1,11 @@
-import React from 'react'
+import React, { useState, SetStateAction } from 'react'
 import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { Moon, Sun } from 'react-feather'
 
-// @ts-ignore
-import { ThemeToggler } from 'gatsby-plugin-dark-mode'
-
 import { ContentWrapper } from './ContentWrapper'
 import { theme } from '../styles/theme'
+import { useColorTheme } from '../context/ColorTheme'
 
 const Wrapper = styled.div``
 
@@ -56,7 +54,9 @@ const Nav = styled.nav`
   }
 `
 
-export function Header() {
+export const Header: React.FunctionComponent = () => {
+  const { colorTheme, setColorTheme } = useColorTheme()
+
   return (
     <Wrapper>
       <ContentWrapper>
@@ -78,32 +78,33 @@ export function Header() {
             </li>
 
             <li>
-              <ThemeToggler>
-                {({ theme: siteTheme, toggleTheme }: any) => (
-                  <button
-                    onClick={() =>
-                      toggleTheme(siteTheme === 'light' ? 'dark' : 'light')
+              <button
+                onClick={() =>
+                  setColorTheme(colorTheme === 'light' ? 'dark' : 'light')
+                }
+                title={
+                  colorTheme === 'dark'
+                    ? 'Switch to light mode'
+                    : 'Switch to dark mode'
+                }
+              >
+                {colorTheme === 'dark' ? (
+                  <Sun
+                    color={
+                      colorTheme === 'dark'
+                        ? theme.colors.white
+                        : theme.colors.black
                     }
-                    title={
-                      siteTheme === 'dark'
-                        ? 'Switch to light mode'
-                        : 'Switch to dark mode'
-                    }
-                  >
-                    {siteTheme === 'dark' ? (
-                      <Sun
-                        color={
-                          siteTheme === 'dark'
-                            ? theme.colors.white
-                            : theme.colors.black
-                        }
-                      />
-                    ) : (
-                      <Moon />
-                    )}
-                  </button>
+                  />
+                ) : (
+                  <Moon
+                    style={{
+                      opacity: colorTheme === null ? 0 : 1,
+                      transition: 'all 500ms'
+                    }}
+                  />
                 )}
-              </ThemeToggler>
+              </button>
             </li>
           </ul>
         </Nav>
