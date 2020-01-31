@@ -38,6 +38,10 @@ export const Layout: React.FunctionComponent = ({ children }) => {
         .theme-transition-wrapper {
           background-color: ${props => props.theme.colors.white};
         }
+
+        a {
+          color: ${props => props.theme.colors.black};
+        }
       }
 
       &.dark {
@@ -54,6 +58,10 @@ export const Layout: React.FunctionComponent = ({ children }) => {
           background-color: ${props => props.theme.colors.black};
         }
 
+        a {
+          color: ${props => props.theme.colors.white};
+        }
+
         .nav {
           a.active {
             background-color: ${props =>
@@ -62,6 +70,14 @@ export const Layout: React.FunctionComponent = ({ children }) => {
 
         .credit {
           color: ${props => props.theme.colors.lightgrey} !important;
+        }
+      }
+
+      a {
+        transition: color 500ms;
+
+        &:hover {
+          color: ${props => props.theme.colors.blue};
         }
       }
     }
@@ -75,14 +91,6 @@ export const Layout: React.FunctionComponent = ({ children }) => {
       color: ${props => props.theme.colors.black};
     }
 
-    a {
-      color: inherit;
-      transition: all 250ms;
-
-      &:hover {
-        color: ${props => props.theme.colors.blue};
-      }
-    }
 
     hr {
       background-color: ${props => props.theme.colors.blue};
