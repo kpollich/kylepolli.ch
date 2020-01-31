@@ -8,13 +8,14 @@
     - [Horizon](https://marketplace.visualstudio.com/items?itemName=jolaleye.horizon-theme-vscode)
     </ul>
 - [iTerm2](https://iterm2.com/)
-  - Theme: [Snazzy](https://github.com/sindresorhus/iterm2-snazzy)
+  - Theme: [Horizon](https://github.com/slavkobojanic/horizon-iterm)
   - [Oh My ZSH](https://ohmyz.sh/) with the [Spaceship](https://github.com/denysdovhan/spaceship-prompt) prompt
 - Font: [Dank Mono](https://dank.sh/)
 
 ## Software
 
-- [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)
+- [Google Chrome](https://www.google.com/chrome/)
+  - Sometimes [Firefox Developer Edition](https://www.mozilla.org/en-US/firefox/developer/)
 - [Notion](https://www.notion.so/) for notes and to-do lists
 - [Spotify](https://www.spotify.com/us/) for all my music needs
 - [Pocket Casts](https://www.pocketcasts.com/) for podcasts

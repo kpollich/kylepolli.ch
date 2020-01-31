@@ -1,5 +1,12 @@
 import React from 'react'
 
-const NotFoundPage: React.FunctionComponent = () => <div>Not Found</div>
+import { Layout } from '../components/Layout'
+
+const NotFoundPage: React.FunctionComponent = () => (
+  <Layout>
+    <h1>Page not found</h1>
+    <div>You're not supposed to be here</div>
+  </Layout>
+)
 
 export default NotFoundPage
