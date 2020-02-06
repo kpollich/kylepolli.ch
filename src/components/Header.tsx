@@ -99,8 +99,7 @@ export const Header: React.FunctionComponent = () => {
                 ) : (
                   <Moon
                     style={{
-                      opacity: colorTheme === null ? 0 : 1,
-                      transition: 'all 500ms'
+                      visibility: colorTheme === null ? 'hidden' : 'visible'
                     }}
                   />
                 )}
