@@ -7,6 +7,7 @@
     "babel-plugin-styled-components": "^1.10.6",
     "common-tags": "^1.8.0",
     "date-fns": "^2.8.1",
+    "framer-motion": "^1.8.4",
     "gatsby": "2.18.25",
     "gatsby-image": "^2.2.39",
     "gatsby-plugin-google-analytics": "^2.1.33",

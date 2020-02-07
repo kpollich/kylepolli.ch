@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 import { Link } from 'gatsby'
 import { GitHub, Linkedin, Twitter } from 'react-feather'
+
 import { Layout } from '../components/Layout'
 
 const Intro = styled.section`
@@ -31,13 +33,41 @@ const Icons = styled.div`
 `
 
 const IndexPage: React.FunctionComponent = () => {
+  const wrapperVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        delayChildren: 0.1,
+        staggerChildren: 0.15
+      }
+    }
+  }
+
+  const childVariants = {
+    hidden: {
+      opacity: 0,
+      y: 40
+    },
+    visible: {
+      opacity: 1,
+      y: 0
+    }
+  }
+
   return (
     <Layout>
-      <Intro>
-        <h1>Kyle Pollich</h1>
-        <h2>Full Stack Developer</h2>
+      <motion.div initial="hidden" animate="visible" variants={wrapperVariants}>
+        <Intro as={motion.div} variants={childVariants}>
+          <h1>Kyle Pollich</h1>
+          <h2>Full Stack Developer</h2>
+        </Intro>
 
-        <Icons>
+        <Icons as={motion.div} variants={childVariants}>
           <a
             title="GitHub"
             href="https://github.com/kpollich"
@@ -65,41 +95,41 @@ const IndexPage: React.FunctionComponent = () => {
             <Twitter />
           </a>
         </Icons>
-      </Intro>
 
-      <About>
-        <p>
-          I'm Kyle Pollich. I'm a full stack developer from Lancaster, PA. I
-          work mostly with JavaScript, but I'm passionate about all facets of
-          web development.
-        </p>
+        <About as={motion.div} variants={childVariants}>
+          <p>
+            I'm Kyle Pollich. I'm a full stack developer from Lancaster, PA. I
+            work mostly with JavaScript, but I'm passionate about all facets of
+            web development.
+          </p>
 
-        <p>
-          I'm currently a Lead Developer at{' '}
-          <a href="http://shiftlab.co">Shift Lab</a>, a development agency that
-          solves complex challenges through creative technology.
-        </p>
+          <p>
+            I'm currently a Lead Developer at{' '}
+            <a href="http://shiftlab.co">Shift Lab</a>, a development agency
+            that solves complex challenges through creative technology.
+          </p>
 
-        <p>
-          If you're interested in my professional work, head over to my{' '}
-          <a
-            href="https://www.linkedin.com/in/kyle-pollich/"
-            target="_blank"
-            rel="noopener"
-          >
-            LinkedIn
-          </a>{' '}
-          or{' '}
-          <a
-            href="https://www.github.com/kpollich"
-            target="_blank"
-            rel="noopener"
-          >
-            GitHub
-          </a>{' '}
-          profiles.
-        </p>
-      </About>
+          <p>
+            If you're interested in my professional work, head over to my{' '}
+            <a
+              href="https://www.linkedin.com/in/kyle-pollich/"
+              target="_blank"
+              rel="noopener"
+            >
+              LinkedIn
+            </a>{' '}
+            or{' '}
+            <a
+              href="https://www.github.com/kpollich"
+              target="_blank"
+              rel="noopener"
+            >
+              GitHub
+            </a>{' '}
+            profiles.
+          </p>
+        </About>
+      </motion.div>
     </Layout>
   )
 }
