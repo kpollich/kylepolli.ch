@@ -4,13 +4,16 @@
   - Themes - I change my theme a lot, but here are a few I like:
     <ul>
     - [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
+    - [One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.One-dark-pro)
     - [Synthwave '84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode)
     - [Horizon](https://marketplace.visualstudio.com/items?itemName=jolaleye.horizon-theme-vscode)
     </ul>
 - [iTerm2](https://iterm2.com/)
-  - Theme: [Horizon](https://github.com/slavkobojanic/horizon-iterm)
+  - Theme: [Snazzy](https://github.com/sindresorhus/iterm2-snazzy)
   - [Oh My ZSH](https://ohmyz.sh/) with the [Spaceship](https://github.com/denysdovhan/spaceship-prompt) prompt
 - Font: [Dank Mono](https://dank.sh/)
+
+![iTerm2 prompt + color theme](/images/terminal-screenshot.png)
 
 ## Software
 
