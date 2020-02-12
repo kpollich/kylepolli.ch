@@ -26,6 +26,6 @@
 ## Hardware
 
 - Baseline 15" MacBook Pro, 2016
-- Keyboard: [Anne Pro 2](https://annepro2.com/), Gateron Browns
+- Keyboard: [Anne Pro 2](https://annepro2.com/), Kailh Box Brown switches
 - Mouse: [Logitech MX Master 3s](https://www.logitech.com/en-us/product/mx-master-3)
 - Phone: [Pixel 3a XL](https://store.google.com/us/product/pixel_3a)
