@@ -129,7 +129,7 @@ const ContactPage = () => {
         onSubmit={handleSubmit}
       >
         <input type="hidden" name="form-name" value="contact" />
-        <input name="bot-field" />
+        <input name="bot-field" style={{ display: 'none' }} />
 
         <div>
           <label>Your Name</label>
