@@ -1,8 +1,8 @@
-import React from 'react'
-import styled from 'styled-components'
-import { graphql } from 'gatsby'
+import React from 'react';
+import styled from 'styled-components';
+import { graphql } from 'gatsby';
 
-import { Layout } from '../components/Layout'
+import { Layout } from '../components/Layout';
 
 const Content = styled.div`
   p {
@@ -12,18 +12,18 @@ const Content = styled.div`
   img {
     width: 100%;
   }
-`
+`;
 
 interface Props {
   data: {
     markdownRemark: {
-      html: string
-    }
-  }
+      html: string;
+    };
+  };
 }
 
 const UsesPage: React.FunctionComponent<Props> = ({ data }) => {
-  const { html } = data.markdownRemark
+  const { html } = data.markdownRemark;
 
   return (
     <Layout>
@@ -38,8 +38,8 @@ const UsesPage: React.FunctionComponent<Props> = ({ data }) => {
         <Content dangerouslySetInnerHTML={{ __html: html }} />
       </section>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   {
@@ -47,6 +47,6 @@ export const query = graphql`
       html
     }
   }
-`
+`;
 
-export default UsesPage
+export default UsesPage;

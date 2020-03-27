@@ -1,5 +1,5 @@
 // my-theme.ts
-import { DefaultTheme, css } from 'styled-components'
+import { DefaultTheme, css } from 'styled-components';
 
 export const theme: DefaultTheme = {
   colors: {
@@ -9,4 +9,4 @@ export const theme: DefaultTheme = {
     lightgrey: '#E8E8E8',
     darkgrey: '#738290'
   }
-}
+};

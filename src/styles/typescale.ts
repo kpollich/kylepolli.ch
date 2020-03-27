@@ -1,4 +1,4 @@
-import { css } from 'styled-components'
+import { css } from 'styled-components';
 
 export const typescaleStyles = css`
   html {
@@ -54,4 +54,4 @@ export const typescaleStyles = css`
   .text_small {
     font-size: 0.833em;
   }
-`
+`;

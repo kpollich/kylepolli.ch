@@ -1,10 +1,10 @@
-import React from 'react'
-import styled from 'styled-components'
-import { motion } from 'framer-motion'
-import { Link } from 'gatsby'
-import { GitHub, Linkedin, Twitter } from 'react-feather'
+import React from 'react';
+import styled from 'styled-components';
+import { motion } from 'framer-motion';
+import { Link } from 'gatsby';
+import { GitHub, Linkedin, Twitter } from 'react-feather';
 
-import { Layout } from '../components/Layout'
+import { Layout } from '../components/Layout';
 
 const Intro = styled.section`
   text-align: center;
@@ -16,13 +16,13 @@ const Intro = styled.section`
   h2 {
     margin-top: 0;
   }
-`
+`;
 
 const About = styled.section`
   max-width: 720px;
   margin: 2rem auto;
   text-align: center;
-`
+`;
 
 const Icons = styled.div`
   display: flex;
@@ -30,7 +30,7 @@ const Icons = styled.div`
   max-width: 200px;
   margin: auto;
   border-bottom: 2px solid ${props => props.theme.colors.blue};
-`
+`;
 
 const IndexPage: React.FunctionComponent = () => {
   const wrapperVariants = {
@@ -46,7 +46,7 @@ const IndexPage: React.FunctionComponent = () => {
         staggerChildren: 0.15
       }
     }
-  }
+  };
 
   const childVariants = {
     hidden: {
@@ -57,7 +57,7 @@ const IndexPage: React.FunctionComponent = () => {
       opacity: 1,
       y: 0
     }
-  }
+  };
 
   return (
     <Layout>
@@ -131,7 +131,7 @@ const IndexPage: React.FunctionComponent = () => {
         </About>
       </motion.div>
     </Layout>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;

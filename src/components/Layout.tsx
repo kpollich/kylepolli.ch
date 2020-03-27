@@ -1,15 +1,15 @@
-import React from 'react'
-import { createGlobalStyle, ThemeProvider } from 'styled-components'
-import Head from 'react-helmet'
-import { lighten } from 'polished'
+import React from 'react';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Head from 'react-helmet';
+import { lighten } from 'polished';
 
-import '../styles/normalize.css'
-import 'prism-theme-night-owl'
-import { theme } from '../styles/theme'
-import { Header } from './Header'
-import { ContentWrapper } from './ContentWrapper'
-import { typescaleStyles } from '../styles/typescale'
-import { useColorTheme } from '../context/ColorTheme'
+import '../styles/normalize.css';
+import 'prism-theme-night-owl';
+import { theme } from '../styles/theme';
+import { Header } from './Header';
+import { ContentWrapper } from './ContentWrapper';
+import { typescaleStyles } from '../styles/typescale';
+import { useColorTheme } from '../context/ColorTheme';
 
 export const Layout: React.FunctionComponent = ({ children }) => {
   const GlobalStyle = createGlobalStyle`
@@ -116,9 +116,9 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     .gatsby-highlight + h1 {
       margin-top: 1.8rem;
     }
-  `
+  `;
 
-  const { colorTheme } = useColorTheme()
+  const { colorTheme } = useColorTheme();
 
   return (
     <ThemeProvider theme={theme}>
@@ -151,5 +151,5 @@ export const Layout: React.FunctionComponent = ({ children }) => {
         </div>
       </>
     </ThemeProvider>
-  )
-}
+  );
+};

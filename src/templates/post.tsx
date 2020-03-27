@@ -1,10 +1,10 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import styled from 'styled-components'
-import Img, { FluidObject } from 'gatsby-image'
-import { format } from 'date-fns'
+import React from 'react';
+import { graphql } from 'gatsby';
+import styled from 'styled-components';
+import Img, { FluidObject } from 'gatsby-image';
+import { format } from 'date-fns';
 
-import { Layout } from '../components/Layout'
+import { Layout } from '../components/Layout';
 
 const MarkdownContentWrapper = styled.article`
   img {
@@ -14,7 +14,7 @@ const MarkdownContentWrapper = styled.article`
   ul {
     word-break: break-all;
   }
-`
+`;
 
 const Banner = styled.div`
   margin-bottom: 2rem;
@@ -22,35 +22,35 @@ const Banner = styled.div`
   .credit {
     color: ${props => props.theme.colors.darkgrey};
   }
-`
+`;
 
 const Title = styled.h1`
   margin-bottom: 0.75rem;
-`
+`;
 
 const Subtitle = styled.h3`
   margin-top: 0;
-`
+`;
 
 interface Props {
   data: {
     markdownRemark: {
-      html: string
+      html: string;
       frontmatter: {
-        title: string
-        subtitle: string
-        datePublished: string
-        imageAlt?: string
-        imageCreditText?: string
-        imageCreditLink?: string
+        title: string;
+        subtitle: string;
+        datePublished: string;
+        imageAlt?: string;
+        imageCreditText?: string;
+        imageCreditLink?: string;
         image?: {
           childImageSharp: {
-            fluid: FluidObject
-          }
-        }
-      }
-    }
-  }
+            fluid: FluidObject;
+          };
+        };
+      };
+    };
+  };
 }
 
 const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
@@ -93,8 +93,8 @@ const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
         dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }}
       />
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query($slug: String!) {
@@ -117,6 +117,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default PostTemplate
+export default PostTemplate;

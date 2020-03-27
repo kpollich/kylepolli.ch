@@ -1,7 +1,7 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
-import { Layout } from '../components/Layout'
+import { Layout } from '../components/Layout';
 
 const Form = styled.form`
   margin-top: 4rem;
@@ -15,11 +15,16 @@ const Form = styled.form`
     display: block;
   }
 
+  input,
+  textarea {
+    padding: 0.25rem;
+  }
+
   textarea {
     resize: vertical;
     width: 100%;
   }
-`
+`;
 
 enum formActions {
   changeField = 'CHANGE_FIELD',
@@ -29,17 +34,17 @@ enum formActions {
 }
 
 interface FormAction {
-  type: formActions
-  payload?: any
+  type: formActions;
+  payload?: any;
 }
 
 interface ContactFormState {
-  isSubmitting: boolean
-  hasError: boolean
-  didSucceed: boolean
-  name: string
-  email: string
-  message: string
+  isSubmitting: boolean;
+  hasError: boolean;
+  didSucceed: boolean;
+  name: string;
+  email: string;
+  message: string;
 }
 
 const initialState: ContactFormState = {
@@ -49,7 +54,7 @@ const initialState: ContactFormState = {
   name: '',
   email: '',
   message: ''
-}
+};
 
 function formReducer(
   state: ContactFormState,
@@ -57,45 +62,45 @@ function formReducer(
 ): ContactFormState {
   switch (action.type) {
     case formActions.changeField:
-      return { ...state, ...{ [action.payload.name]: action.payload.value } }
+      return { ...state, ...{ [action.payload.name]: action.payload.value } };
     case formActions.submit:
-      return { ...state, isSubmitting: true, hasError: false }
+      return { ...state, isSubmitting: true, hasError: false };
     case formActions.receiveResponse:
       return {
         ...initialState,
         didSucceed: true
-      }
+      };
     case formActions.error:
       return {
         ...state,
         isSubmitting: false,
         hasError: true
-      }
+      };
   }
 }
 
 const ContactPage = () => {
-  const [state, dispatch] = React.useReducer(formReducer, initialState)
+  const [state, dispatch] = React.useReducer(formReducer, initialState);
 
   const handleChange = (e: any) => {
     dispatch({
       type: formActions.changeField,
       payload: { name: e.target.name, value: e.target.value }
-    })
-  }
+    });
+  };
 
   const handleSubmit = (e: any) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    dispatch({ type: formActions.submit })
+    dispatch({ type: formActions.submit });
 
     const encode = (data: any) => {
       return Object.keys(data)
         .map(
           key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
         )
-        .join('&')
-    }
+        .join('&');
+    };
 
     fetch('/', {
       method: 'POST',
@@ -103,13 +108,13 @@ const ContactPage = () => {
       body: encode({ 'form-name': 'contact', ...state })
     })
       .then(() => {
-        dispatch({ type: formActions.receiveResponse })
+        dispatch({ type: formActions.receiveResponse });
       })
       .catch(error => {
-        console.error(error)
-        dispatch({ type: formActions.error })
-      })
-  }
+        console.error(error);
+        dispatch({ type: formActions.error });
+      });
+  };
 
   return (
     <Layout>
@@ -169,7 +174,7 @@ const ContactPage = () => {
         </div>
       </Form>
     </Layout>
-  )
-}
+  );
+};
 
-export default ContactPage
+export default ContactPage;

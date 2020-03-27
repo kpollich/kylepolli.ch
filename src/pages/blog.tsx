@@ -1,11 +1,11 @@
-import React from 'react'
-import styled from 'styled-components'
-import { graphql, Link } from 'gatsby'
-import Img, { FluidObject } from 'gatsby-image'
-import { compareDesc, format, parse } from 'date-fns'
+import React from 'react';
+import styled from 'styled-components';
+import { graphql, Link } from 'gatsby';
+import Img, { FluidObject } from 'gatsby-image';
+import { compareDesc, format, parse } from 'date-fns';
 
-import { Layout } from '../components/Layout'
-import { ArrowRight } from 'react-feather'
+import { Layout } from '../components/Layout';
+import { ArrowRight } from 'react-feather';
 
 const Wrapper = styled.section`
   display: flex;
@@ -13,7 +13,7 @@ const Wrapper = styled.section`
   align-items: center;
   max-width: 800px;
   margin: auto;
-`
+`;
 
 const BlogPostList = styled.ul`
   list-style: none;
@@ -30,7 +30,7 @@ const BlogPostList = styled.ul`
       text-decoration: none;
     }
   }
-`
+`;
 
 interface Props {
   data: {
@@ -38,23 +38,23 @@ interface Props {
       edges: Array<{
         node: {
           fields: {
-            slug: string
-          }
-          excerpt: string
+            slug: string;
+          };
+          excerpt: string;
           frontmatter: {
-            title: string
-            datePublished: string
+            title: string;
+            datePublished: string;
             image: {
               childImageSharp: {
-                fluid: FluidObject
-              }
-            }
-            imageAlt: string
-          }
-        }
-      }>
-    }
-  }
+                fluid: FluidObject;
+              };
+            };
+            imageAlt: string;
+          };
+        };
+      }>;
+    };
+  };
 }
 
 const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
@@ -109,8 +109,8 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
         </BlogPostList>
       </Wrapper>
     </Layout>
-  )
-}
+  );
+};
 
 export const query = graphql`
   query GetAllBlogPosts {
@@ -140,6 +140,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default BlogPage
+export default BlogPage;

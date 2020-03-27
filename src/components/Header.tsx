@@ -1,13 +1,13 @@
-import React, { useState, SetStateAction } from 'react'
-import styled from 'styled-components'
-import { Link } from 'gatsby'
-import { Moon, Sun } from 'react-feather'
+import React, { useState, SetStateAction } from 'react';
+import styled from 'styled-components';
+import { Link } from 'gatsby';
+import { Moon, Sun } from 'react-feather';
 
-import { ContentWrapper } from './ContentWrapper'
-import { theme } from '../styles/theme'
-import { useColorTheme } from '../context/ColorTheme'
+import { ContentWrapper } from './ContentWrapper';
+import { theme } from '../styles/theme';
+import { useColorTheme } from '../context/ColorTheme';
 
-const Wrapper = styled.div``
+const Wrapper = styled.div``;
 
 const Nav = styled.nav`
   display: flex;
@@ -52,10 +52,10 @@ const Nav = styled.nav`
       }
     }
   }
-`
+`;
 
 export const Header: React.FunctionComponent = () => {
-  const { colorTheme, setColorTheme } = useColorTheme()
+  const { colorTheme, setColorTheme } = useColorTheme();
 
   return (
     <Wrapper>
@@ -109,5 +109,5 @@ export const Header: React.FunctionComponent = () => {
         </Nav>
       </ContentWrapper>
     </Wrapper>
-  )
-}
+  );
+};
