@@ -99,8 +99,8 @@ const IndexPage: React.FunctionComponent = () => {
         <About as={motion.div} variants={childVariants}>
           <p>
             I'm Kyle Pollich. I'm a full stack developer from Lancaster, PA. I
-            work mostly with JavaScript, but I'm passionate about all facets of
-            web development.
+            love working with web technologies, and I'm particularly passionate
+            about JavaScript development.
           </p>
 
           <p>
