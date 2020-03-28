@@ -1,10 +1,10 @@
-const fs = require('fs')
-const path = require('path')
-const prompts = require('prompts')
-const { stripIndents } = require('common-tags')
-const slugify = require('slugify')
+const fs = require('fs');
+const path = require('path');
+const prompts = require('prompts');
+const { stripIndents } = require('common-tags');
+const slugify = require('slugify');
 
-createPost()
+createPost();
 
 async function createPost() {
   const response = await prompts([
@@ -43,7 +43,7 @@ async function createPost() {
       name: 'imageAlt',
       message: 'Image Alt Text'
     }
-  ])
+  ]);
 
   const postContent = stripIndents`
     ---
@@ -53,12 +53,12 @@ async function createPost() {
     ---
 
     Hello world!
-  `
+  `;
 
-  const filename = slugify(response.title, { lower: true })
+  const filename = slugify(response.title, { lower: true });
 
   fs.writeFileSync(
     path.join(__dirname, `../content/posts/${filename}.md`),
     postContent
-  )
+  );
 }
