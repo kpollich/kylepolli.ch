@@ -5,6 +5,7 @@ import { Link } from 'gatsby';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 
 import { Layout } from '../components/Layout';
+import { EnterTransition, childVariants } from '../components/EnterTransition';
 
 const Intro = styled.section`
   text-align: center;
@@ -33,35 +34,9 @@ const Icons = styled.div`
 `;
 
 const IndexPage: React.FunctionComponent = () => {
-  const wrapperVariants = {
-    hidden: {
-      opacity: 0,
-      y: 40
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delayChildren: 0.1,
-        staggerChildren: 0.15
-      }
-    }
-  };
-
-  const childVariants = {
-    hidden: {
-      opacity: 0,
-      y: 40
-    },
-    visible: {
-      opacity: 1,
-      y: 0
-    }
-  };
-
   return (
     <Layout>
-      <motion.div initial="hidden" animate="visible" variants={wrapperVariants}>
+      <EnterTransition>
         <Intro as={motion.div} variants={childVariants}>
           <h1>Kyle Pollich</h1>
           <h2>Full Stack Developer</h2>
@@ -129,7 +104,7 @@ const IndexPage: React.FunctionComponent = () => {
             profiles.
           </p>
         </About>
-      </motion.div>
+      </EnterTransition>
     </Layout>
   );
 };

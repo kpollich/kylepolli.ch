@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { graphql, Link } from 'gatsby';
 import Img, { FluidObject } from 'gatsby-image';
-import { compareDesc, format, parse } from 'date-fns';
+import { compareDesc, format } from 'date-fns';
 
 import { Layout } from '../components/Layout';
+import { EnterTransition, childVariants } from '../components/EnterTransition';
 import { ArrowRight } from 'react-feather';
+import { motion } from 'framer-motion';
 
 const Wrapper = styled.section`
   display: flex;
@@ -60,54 +62,56 @@ interface Props {
 const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
   return (
     <Layout>
-      <Wrapper>
-        <h1>Blog Posts</h1>
+      <EnterTransition>
+        <Wrapper>
+          <motion.h1 variants={childVariants}>Blog Posts</motion.h1>
 
-        <BlogPostList>
-          {data.allMarkdownRemark.edges
-            .sort((first, second) =>
-              compareDesc(
-                new Date(first.node.frontmatter.datePublished),
-                new Date(second.node.frontmatter.datePublished)
+          <BlogPostList>
+            {data.allMarkdownRemark.edges
+              .sort((first, second) =>
+                compareDesc(
+                  new Date(first.node.frontmatter.datePublished),
+                  new Date(second.node.frontmatter.datePublished)
+                )
               )
-            )
-            .map(({ node: blogPost }) => (
-              <li key={blogPost.fields.slug}>
-                <Link to={`/posts${blogPost.fields.slug}`}>
-                  <Img
-                    fluid={blogPost.frontmatter.image.childImageSharp.fluid}
-                    alt={blogPost.frontmatter.imageAlt}
-                  />
-                </Link>
-                <h3>
+              .map(({ node: blogPost }) => (
+                <motion.li variants={childVariants} key={blogPost.fields.slug}>
                   <Link to={`/posts${blogPost.fields.slug}`}>
-                    {blogPost.frontmatter.title}
+                    <Img
+                      fluid={blogPost.frontmatter.image.childImageSharp.fluid}
+                      alt={blogPost.frontmatter.imageAlt}
+                    />
                   </Link>
-                </h3>
-                <time>
-                  {format(
-                    new Date(blogPost.frontmatter.datePublished),
-                    'MMMM do, yyyy'
-                  )}
-                </time>
-                <p>{blogPost.excerpt}</p>
-                <div>
-                  <Link
-                    to={`/posts${blogPost.fields.slug}`}
-                    style={{
-                      display: 'inline-flex',
-                      alignItems: 'center',
-                      textDecoration: 'underline'
-                    }}
-                  >
-                    <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}
-                    <ArrowRight size={20} />
-                  </Link>
-                </div>
-              </li>
-            ))}
-        </BlogPostList>
-      </Wrapper>
+                  <h3>
+                    <Link to={`/posts${blogPost.fields.slug}`}>
+                      {blogPost.frontmatter.title}
+                    </Link>
+                  </h3>
+                  <time>
+                    {format(
+                      new Date(blogPost.frontmatter.datePublished),
+                      'MMMM do, yyyy'
+                    )}
+                  </time>
+                  <p>{blogPost.excerpt}</p>
+                  <div>
+                    <Link
+                      to={`/posts${blogPost.fields.slug}`}
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        textDecoration: 'underline'
+                      }}
+                    >
+                      <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}
+                      <ArrowRight size={20} />
+                    </Link>
+                  </div>
+                </motion.li>
+              ))}
+          </BlogPostList>
+        </Wrapper>
+      </EnterTransition>
     </Layout>
   );
 };

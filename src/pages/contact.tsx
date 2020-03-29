@@ -2,6 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Layout } from '../components/Layout';
+import { EnterTransition, childVariants } from '../components/EnterTransition';
+import { motion } from 'framer-motion';
 
 const Form = styled.form`
   margin-top: 4rem;
@@ -118,61 +120,69 @@ const ContactPage = () => {
 
   return (
     <Layout>
-      <h1>Contact</h1>
+      <EnterTransition>
+        <motion.h1 variants={childVariants}>Contact</motion.h1>
 
-      <p>
-        If you'd like to get in touch regarding an opportunity, or would just
-        like to ask a question, I'm happy to respond to inquiries from this
-        form.
-      </p>
+        <motion.p variants={childVariants}>
+          If you'd like to get in touch regarding an opportunity, or would just
+          like to ask a question, I'm happy to respond to inquiries from this
+          form.
+        </motion.p>
 
-      <Form
-        name="contact"
-        method="POST"
-        data-netlify="true"
-        netlify-honeypot="bot-field"
-        onSubmit={handleSubmit}
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <input name="bot-field" style={{ display: 'none' }} />
+        <Form
+          as={motion.form}
+          variants={childVariants}
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          netlify-honeypot="bot-field"
+          onSubmit={handleSubmit}
+        >
+          <input type="hidden" name="form-name" value="contact" />
+          <input name="bot-field" style={{ display: 'none' }} />
 
-        <div>
-          <label>Your Name</label>
-          <input
-            type="text"
-            name="name"
-            required
-            value={state.name}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Your Email</label>
-          <input
-            type="email"
-            name="email"
-            required
-            value={state.email}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label>Message</label>
-          <textarea
-            name="message"
-            rows={10}
-            required
-            value={state.message}
-            onChange={handleChange}
-          />
-        </div>
+          <motion.div variants={childVariants}>
+            <label>Your Name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              value={state.name}
+              onChange={handleChange}
+            />
+          </motion.div>
 
-        {state.didSucceed && <p>Your inquiry has been received. Thank you.</p>}
+          <motion.div variants={childVariants}>
+            <label>Your Email</label>
+            <input
+              type="email"
+              name="email"
+              required
+              value={state.email}
+              onChange={handleChange}
+            />
+          </motion.div>
 
-        <div>
-          <button type="submit">Send</button>
-        </div>
-      </Form>
+          <motion.div variants={childVariants}>
+            <label>Message</label>
+            <textarea
+              name="message"
+              rows={10}
+              required
+              value={state.message}
+              onChange={handleChange}
+            />
+          </motion.div>
+
+          {state.didSucceed && (
+            <p>Your inquiry has been received. Thank you.</p>
+          )}
+
+          <motion.div variants={childVariants}>
+            <button type="submit">Send</button>
+          </motion.div>
+        </Form>
+      </EnterTransition>
     </Layout>
   );
 };
