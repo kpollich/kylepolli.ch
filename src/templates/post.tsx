@@ -5,6 +5,8 @@ import Img, { FluidObject } from 'gatsby-image';
 import { format } from 'date-fns';
 
 import { Layout } from '../components/Layout';
+import { EnterTransition, childVariants } from '../components/EnterTransition';
+import { motion } from 'framer-motion';
 
 const MarkdownContentWrapper = styled.article`
   img {
@@ -56,36 +58,40 @@ interface Props {
 const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
   return (
     <Layout>
-      <section>
-        {data.markdownRemark.frontmatter.image && (
-          <Banner>
-            <Img
-              fluid={
-                data.markdownRemark.frontmatter.image.childImageSharp.fluid
-              }
-              alt={data.markdownRemark.frontmatter.imageAlt || ''}
-            />
-            {data.markdownRemark.frontmatter.imageCreditText && (
-              <em className="credit">
-                Photo by{' '}
-                <a href={data.markdownRemark.frontmatter.imageCreditLink}>
-                  {data.markdownRemark.frontmatter.imageCreditText}
-                </a>
-              </em>
-            )}
-          </Banner>
-        )}
-
-        <Title>{data.markdownRemark.frontmatter.title}</Title>
-        <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
-
-        <time>
-          {format(
-            new Date(data.markdownRemark.frontmatter.datePublished),
-            'MMMM do, yyyy'
+      <EnterTransition>
+        <section>
+          {data.markdownRemark.frontmatter.image && (
+            <Banner as={motion.div} variants={childVariants}>
+              <Img
+                fluid={
+                  data.markdownRemark.frontmatter.image.childImageSharp.fluid
+                }
+                alt={data.markdownRemark.frontmatter.imageAlt || ''}
+              />
+              {data.markdownRemark.frontmatter.imageCreditText && (
+                <em className="credit">
+                  Photo by{' '}
+                  <a href={data.markdownRemark.frontmatter.imageCreditLink}>
+                    {data.markdownRemark.frontmatter.imageCreditText}
+                  </a>
+                </em>
+              )}
+            </Banner>
           )}
-        </time>
-      </section>
+
+          <motion.div variants={childVariants}>
+            <Title>{data.markdownRemark.frontmatter.title}</Title>
+            <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
+          </motion.div>
+
+          <time>
+            {format(
+              new Date(data.markdownRemark.frontmatter.datePublished),
+              'MMMM do, yyyy'
+            )}
+          </time>
+        </section>
+      </EnterTransition>
 
       <hr />
 
