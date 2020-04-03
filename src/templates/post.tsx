@@ -83,10 +83,11 @@ const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
             <Title>{data.markdownRemark.frontmatter.title}</Title>
             <Subtitle>{data.markdownRemark.frontmatter.subtitle}</Subtitle>
           </motion.div>
+
+          <hr />
         </section>
 
         <motion.div variants={childVariants}>
-          <hr />
           <time>
             {format(
               new Date(data.markdownRemark.frontmatter.datePublished),
