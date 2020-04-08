@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import { Link } from 'gatsby';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 
 import { Layout } from '../components/Layout';
