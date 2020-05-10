@@ -13,7 +13,7 @@ const Nav = styled.nav`
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  border-bottom: 1px solid ${props => props.theme.colors.lightgrey};
+  border-bottom: 1px solid ${(props) => props.theme.colors.lightgrey};
   padding-bottom: 0.5rem;
 
   a {
@@ -21,7 +21,7 @@ const Nav = styled.nav`
     border-radius: 5px;
 
     &.active {
-      background-color: ${props => props.theme.colors.lightgrey};
+      background-color: ${(props) => props.theme.colors.lightgrey};
     }
   }
 
@@ -99,7 +99,7 @@ export const Header: React.FunctionComponent = () => {
                 ) : (
                   <Moon
                     style={{
-                      visibility: colorTheme === null ? 'hidden' : 'visible'
+                      visibility: colorTheme === null ? 'hidden' : 'visible',
                     }}
                   />
                 )}

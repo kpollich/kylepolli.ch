@@ -24,8 +24,8 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     }
 
     body {
-      background-color: ${props => props.theme.colors.white};
-      color: ${props => props.theme.colors.black};
+      background-color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.black};
       font-family: 'Lato', 'Helvetica', sans-serif;
       font-size: 1.125em;
 
@@ -36,40 +36,40 @@ export const Layout: React.FunctionComponent = ({ children }) => {
 
       &.light {
         .theme-transition-wrapper {
-          background-color: ${props => props.theme.colors.white};
+          background-color: ${(props) => props.theme.colors.white};
         }
 
         a {
-          color: ${props => props.theme.colors.black};
+          color: ${(props) => props.theme.colors.black};
         }
       }
 
       &.dark {
-        background-color: ${props => props.theme.colors.black};
-        color: ${props => props.theme.colors.white};
+        background-color: ${(props) => props.theme.colors.black};
+        color: ${(props) => props.theme.colors.white};
 
         * > :not(pre) > code {
-          background-color: ${props =>
+          background-color: ${(props) =>
             lighten(0.125, props.theme.colors.black)};
-          color: ${props => props.theme.colors.white};
+          color: ${(props) => props.theme.colors.white};
         }
 
         .theme.theme-transition-wrapper {
-          background-color: ${props => props.theme.colors.black};
+          background-color: ${(props) => props.theme.colors.black};
         }
 
         a {
-          color: ${props => props.theme.colors.white};
+          color: ${(props) => props.theme.colors.white};
         }
 
         .nav {
           a.active {
-            background-color: ${props =>
+            background-color: ${(props) =>
               lighten(0.125, props.theme.colors.black)}};
           }
 
         .credit {
-          color: ${props => props.theme.colors.lightgrey} !important;
+          color: ${(props) => props.theme.colors.lightgrey} !important;
         }
       }
 
@@ -77,7 +77,7 @@ export const Layout: React.FunctionComponent = ({ children }) => {
         transition: color 500ms;
 
         &:hover {
-          color: ${props => props.theme.colors.blue};
+          color: ${(props) => props.theme.colors.blue};
         }
       }
     }
@@ -87,13 +87,13 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     }
 
     :not(pre) > code {
-      background-color: ${props => props.theme.colors.lightgrey};
-      color: ${props => props.theme.colors.black};
+      background-color: ${(props) => props.theme.colors.lightgrey};
+      color: ${(props) => props.theme.colors.black};
     }
 
 
     hr {
-      background-color: ${props => props.theme.colors.blue};
+      background-color: ${(props) => props.theme.colors.blue};
       border: 0;
       height: 1px;
     }
@@ -103,7 +103,7 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     }
 
     blockquote {
-      border-left: 8px solid ${props => props.theme.colors.blue};
+      border-left: 8px solid ${(props) => props.theme.colors.blue};
       padding-left: 1rem;
       font-style: italic;
     } 

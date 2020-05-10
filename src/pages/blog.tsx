@@ -8,6 +8,7 @@ import { Layout } from '../components/Layout';
 import { EnterTransition, childVariants } from '../components/EnterTransition';
 import { ArrowRight } from 'react-feather';
 import { motion } from 'framer-motion';
+import { MetaTags } from '../components/MetaTags';
 
 const Wrapper = styled.section`
   display: flex;
@@ -62,6 +63,10 @@ interface Props {
 const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
   return (
     <Layout>
+      <MetaTags
+        title="Blog"
+        description="Where I blog about web technologies and software engineering culture."
+      />
       <EnterTransition>
         <Wrapper>
           <motion.h1 variants={childVariants}>Blog Posts</motion.h1>
@@ -100,7 +105,7 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
                       style={{
                         display: 'inline-flex',
                         alignItems: 'center',
-                        textDecoration: 'underline'
+                        textDecoration: 'underline',
                       }}
                     >
                       <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}

@@ -1,6 +1,11 @@
 module.exports = {
   siteMetadata: {
-    title: 'Kyle Pollich - Lancaster, PA Full Stack Developer'
+    title: 'Kyle Pollich',
+    title: '%s | Kyle Pollich',
+    image: '',
+    description: 'Lancaster, PA Full Stack Developer',
+    url: 'https://www.kylepollich.com',
+    twitterUsername: '@kylepollich',
   },
   pathPrefix: '/',
   plugins: [
@@ -12,8 +17,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-google-analytics',
       options: {
-        trackingId: 'UA-154977448-1'
-      }
+        trackingId: 'UA-154977448-1',
+      },
     },
     {
       resolve: 'gatsby-transformer-remark',
@@ -30,36 +35,36 @@ module.exports = {
               prompt: {
                 user: 'root',
                 host: 'localhost',
-                global: false
-              }
-            }
-          }
-        ]
-      }
+                global: false,
+              },
+            },
+          },
+        ],
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'posts',
-        path: `${__dirname}/content/posts`
-      }
+        path: `${__dirname}/content/posts`,
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'images',
-        path: `${__dirname}/content/images`
-      }
+        path: `${__dirname}/content/images`,
+      },
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
         name: 'uses',
-        path: `${__dirname}/content/uses`
-      }
+        path: `${__dirname}/content/uses`,
+      },
     },
     {
-      resolve: 'gatsby-plugin-styled-components'
-    }
-  ]
+      resolve: 'gatsby-plugin-styled-components',
+    },
+  ],
 };

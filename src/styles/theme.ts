@@ -7,6 +7,6 @@ export const theme: DefaultTheme = {
     white: '#FFF',
     blue: '#8CBCB9',
     lightgrey: '#E8E8E8',
-    darkgrey: '#738290'
-  }
+    darkgrey: '#738290',
+  },
 };

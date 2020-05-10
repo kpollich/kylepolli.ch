@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Layout } from '../components/Layout';
 import { EnterTransition, childVariants } from '../components/EnterTransition';
 import { motion } from 'framer-motion';
+import { MetaTags } from '../components/MetaTags';
 
 const Form = styled.form`
   margin-top: 4rem;
@@ -32,7 +33,7 @@ enum formActions {
   changeField = 'CHANGE_FIELD',
   submit = 'SUBMIT',
   receiveResponse = 'RECEIVE_RESPONSE',
-  error = 'ERROR'
+  error = 'ERROR',
 }
 
 interface FormAction {
@@ -55,7 +56,7 @@ const initialState: ContactFormState = {
   didSucceed: false,
   name: '',
   email: '',
-  message: ''
+  message: '',
 };
 
 function formReducer(
@@ -70,13 +71,13 @@ function formReducer(
     case formActions.receiveResponse:
       return {
         ...initialState,
-        didSucceed: true
+        didSucceed: true,
       };
     case formActions.error:
       return {
         ...state,
         isSubmitting: false,
-        hasError: true
+        hasError: true,
       };
   }
 }
@@ -87,7 +88,7 @@ const ContactPage = () => {
   const handleChange = (e: any) => {
     dispatch({
       type: formActions.changeField,
-      payload: { name: e.target.name, value: e.target.value }
+      payload: { name: e.target.name, value: e.target.value },
     });
   };
 
@@ -99,7 +100,7 @@ const ContactPage = () => {
     const encode = (data: any) => {
       return Object.keys(data)
         .map(
-          key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
+          (key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key])
         )
         .join('&');
     };
@@ -107,12 +108,12 @@ const ContactPage = () => {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...state })
+      body: encode({ 'form-name': 'contact', ...state }),
     })
       .then(() => {
         dispatch({ type: formActions.receiveResponse });
       })
-      .catch(error => {
+      .catch((error) => {
         console.error(error);
         dispatch({ type: formActions.error });
       });
@@ -120,6 +121,7 @@ const ContactPage = () => {
 
   return (
     <Layout>
+      <MetaTags title="Contact" description="Get in touch" />
       <EnterTransition>
         <motion.h1 variants={childVariants}>Contact</motion.h1>
 

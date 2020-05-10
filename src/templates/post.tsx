@@ -1,12 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import styled from 'styled-components';
-import Img, { FluidObject } from 'gatsby-image';
+import Img, { FluidObject, FixedObject } from 'gatsby-image';
 import { format } from 'date-fns';
 
 import { Layout } from '../components/Layout';
 import { EnterTransition, childVariants } from '../components/EnterTransition';
 import { motion } from 'framer-motion';
+import { MetaTags } from '../components/MetaTags';
 
 const MarkdownContentWrapper = styled.article`
   img {
@@ -22,7 +23,7 @@ const Banner = styled.div`
   margin-bottom: 2rem;
 
   .credit {
-    color: ${props => props.theme.colors.darkgrey};
+    color: ${(props) => props.theme.colors.darkgrey};
   }
 `;
 
@@ -50,6 +51,11 @@ interface Props {
             fluid: FluidObject;
           };
         };
+        seoImage?: {
+          childImageSharp: {
+            fixed: FixedObject;
+          };
+        };
       };
     };
   };
@@ -58,6 +64,14 @@ interface Props {
 const PostTemplate: React.FunctionComponent<Props> = ({ data }) => {
   return (
     <Layout>
+      <MetaTags
+        title={data.markdownRemark.frontmatter.title}
+        description={data.markdownRemark.frontmatter.subtitle}
+        image={
+          data.markdownRemark.frontmatter.seoImage?.childImageSharp.fixed.src
+        }
+        article
+      />
       <EnterTransition>
         <section>
           {data.markdownRemark.frontmatter.image && (
@@ -119,6 +133,13 @@ export const query = graphql`
           childImageSharp {
             fluid(maxWidth: 1024, traceSVG: { color: "#8CBCB9" }) {
               ...GatsbyImageSharpFluid_withWebp_tracedSVG
+            }
+          }
+        }
+        seoImage: image {
+          childImageSharp {
+            fixed(height: 630, width: 1200) {
+              src
             }
           }
         }

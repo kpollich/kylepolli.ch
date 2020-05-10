@@ -11,38 +11,38 @@ async function createPost() {
     {
       type: 'text',
       name: 'title',
-      message: 'Title'
+      message: 'Title',
     },
     {
       type: 'text',
       name: 'subtitle',
-      message: 'Subtitle'
+      message: 'Subtitle',
     },
     {
       type: 'text',
       name: 'datePublished',
-      message: 'Date Published'
+      message: 'Date Published',
     },
     {
       type: 'text',
       name: 'image',
-      message: 'Image Filename'
+      message: 'Image Filename',
     },
     {
       type: 'text',
       name: 'imageCreditText',
-      message: 'Image Credit Text'
+      message: 'Image Credit Text',
     },
     {
       type: 'text',
       name: 'imageCreditLink',
-      message: 'Image Credit Link (Unsplash URL)'
+      message: 'Image Credit Link (Unsplash URL)',
     },
     {
       type: 'text',
       name: 'imageAlt',
-      message: 'Image Alt Text'
-    }
+      message: 'Image Alt Text',
+    },
   ]);
 
   const postContent = stripIndents`
