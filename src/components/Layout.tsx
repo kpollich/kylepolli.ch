@@ -1,6 +1,6 @@
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import Head from 'react-helmet';
+import { Helmet } from 'react-helmet';
 import { lighten } from 'polished';
 
 import '../styles/normalize.css';
@@ -123,7 +123,7 @@ export const Layout: React.FunctionComponent = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <>
-        <Head>
+        <Helmet>
           <title>Kyle Pollich - Full Stack Developer</title>
           <link
             href="https://fonts.googleapis.com/css?family=Lato&display=swap"
@@ -141,7 +141,7 @@ export const Layout: React.FunctionComponent = ({ children }) => {
             name="theme-color"
             content={colorTheme === 'light' ? '#FFF' : '#333'}
           />
-        </Head>
+        </Helmet>
         <GlobalStyle />
 
         <div className="theme-transition-wrapper">
