@@ -2,9 +2,7 @@
 
 My personal site and blog.
 
-Built with [Gatsby](https://github.com/gatsbyjs/gatsby) and hosted on [Netlify](https://www.netlify.com/).
-
-Content managed by [Contentful](https://www.contentful.com/) and styling done with [Bulma](https://bulma.io)
+Built with [Gatsby](https://github.com/gatsbyjs/gatsby) and hosted on [Netlify](https://www.netlify.com/). For some other things I use, check out my [uses](https://kylepollich.com/uses/) page.
 
 ## Running locally
 
