@@ -44,6 +44,14 @@ export const Layout: React.FunctionComponent = ({ children }) => {
         }
       }
 
+      pre, code, img {
+        border-radius: 5px;
+      }
+
+      * > :not(pre) > code {
+        padding: 3px;
+      }
+
       &.dark {
         background-color: ${(props) => props.theme.colors.black};
         color: ${(props) => props.theme.colors.white};
@@ -103,9 +111,19 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     }
 
     blockquote {
-      border-left: 8px solid ${(props) => props.theme.colors.blue};
-      padding-left: 1rem;
       font-style: italic;
+      padding-left: 1rem;
+      position: relative;
+
+      &:before {
+        background-color: ${(props) => props.theme.colors.blue};
+        border-radius: 5px;
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        width: 0.5rem;
+      }
     } 
 
 

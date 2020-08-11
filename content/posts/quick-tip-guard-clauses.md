@@ -15,16 +15,16 @@ Let's take a look at a block of JavaScript code as an example:
 ```js
 function validateUser(user) {
   if (user.email) {
-    const hasValidEmail = validateEmail(user.email)
+    const hasValidEmail = validateEmail(user.email);
 
     if (user.password) {
-      const hasValidPassword = validatePassword(user.password)
+      const hasValidPassword = validatePassword(user.password);
 
-      return hasValidEmail && hasValidPassword
+      return hasValidEmail && hasValidPassword;
     }
   }
 
-  return false
+  return false;
 }
 ```
 
@@ -41,13 +41,13 @@ Let's see if we can translate this into code:
 ```js
 function validateUser(user) {
   if (!user.email || !user.password) {
-    return false
+    return false;
   }
 
-  const hasValidEmail = validateEmail(user.email)
-  const hasValidPassword = validatePassword(user.password)
+  const hasValidEmail = validateEmail(user.email);
+  const hasValidPassword = validatePassword(user.password);
 
-  return hasValidEmail && hasValidPassword
+  return hasValidEmail && hasValidPassword;
 }
 ```
 

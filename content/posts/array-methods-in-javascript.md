@@ -10,14 +10,14 @@ imageAlt: Map with destination pins in various locations
 
 A few months ago, I gave a Lunch and Learn talk at work about some common methods and patterns for working with arrays in JavaScript. I had noticed some common confusion among some of the junior engineers on my team when working with collections of data, so I decided to collect some patterns and present them to team at large.
 
-This post is a written adaptation of that talk. The original format for that talk was a walkthrough of the README and JavaScript files located in [this repo](https://github.com/kpollich/array-methods). There's also a quiz to test your array knowledge!
+This post is a written adaptation of that talk. The original format for that talk was a walk through of the README and JavaScript files located in [this repo](https://github.com/kpollich/array-methods). There's also a quiz to test your array knowledge!
 
 # Intro - What are arrays?
 
 If you're new to programming or JavaScript, you might not be completely sure what an array is. An array is the term that JavaScript uses for a list or collection of data. They look like this:
 
 ```js
-const fruits = ['Strawberry', 'Banana', 'Apple']
+const fruits = ['Strawberry', 'Banana', 'Apple'];
 ```
 
 Dealing with arrays is very common in JavaScript development. Whether you're working with data from a REST API endpoint or the DOM, it's very likely that you'll often be working with collections of values or objects.
@@ -27,10 +27,10 @@ Dealing with arrays is very common in JavaScript development. Whether you're wor
 JavaScript arrays have a bunch of native methods defined on the [Array prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array). Because these methods are defined on the Array prototype, any Array will have access to these methods. This is the same for properties defined on the prototype, like `.length`.
 
 ```js
-const myFriends = ['Jane', 'John', 'Joe']
+const myFriends = ['Jane', 'John', 'Joe'];
 
 // Array.prototype.length
-console.log(myFriends.length) // 3
+console.log(myFriends.length); // 3
 ```
 
 Having a working knowledge of these native methods is great for improving your effectiveness and productivity with JavaScript. I'd definitely suggest reading over the [Array docs](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) from MDN, and taking a look at all the different array methods and examples there.
@@ -39,7 +39,7 @@ Having a working knowledge of these native methods is great for improving your e
 
 ## Availability
 
-These methods are always available to you. They're like a toolbelt that comes for free whenever you're working in a JavaScript environment. JavaScript might not have a standard library ([yet](https://github.com/tc39/proposal-javascript-standard-library)), but it does provide lots of methods natively on its various protoypes like Array and Object.
+These methods are always available to you. They're like a tool belt that comes for free whenever you're working in a JavaScript environment. JavaScript might not have a standard library ([yet](https://github.com/tc39/proposal-javascript-standard-library)), but it does provide lots of methods natively on its various prototypes like Array and Object.
 
 ## Declarative
 
@@ -54,11 +54,11 @@ The first method we're going to take a look at is `.forEach()`. From the [MDN do
 So, the `forEach()` method is called on any array, and accepts a [callback function](https://developer.mozilla.org/en-US/docs/Glossary/Callback_function) that will receive each element as its first argument. It looks like this, in practice:
 
 ```js
-const toys = ['Truck', 'Doll', 'Ball']
+const toys = ['Truck', 'Doll', 'Ball'];
 
-toys.forEach(toy => {
-  console.log(`You're getting a ${toy} for your birthday this year!`)
-})
+toys.forEach((toy) => {
+  console.log(`You're getting a ${toy} for your birthday this year!`);
+});
 
 // Output:
 // You're getting a Truck for your birthday this year!
@@ -92,12 +92,12 @@ As a learning exercise, let's re-implement each array method as we go. We'll kee
 ```js
 function myForEach(array, callback) {
   for (let i = 0; i < array.length; i++) {
-    callback(array[i])
+    callback(array[i]);
   }
 }
 
-const sides = ['Fries', 'Chips', 'Salad']
-myForEach(sides, side => console.log(side))
+const sides = ['Fries', 'Chips', 'Salad'];
+myForEach(sides, (side) => console.log(side));
 
 // Output:
 // Fries
@@ -116,11 +116,11 @@ At their core, a lot of these native array methods are syntactic sugar for commo
 `map()` is most commonly used for transforming array data into a new structure, or running some sort of calculation on every element of an array. For instance, let's try doubling each number in an array with `map()`:
 
 ```js
-const numbers = [1, 2, 3, 4]
-const doubledNumbers = numbers.map(number => number * 2)
+const numbers = [1, 2, 3, 4];
+const doubledNumbers = numbers.map((number) => number * 2);
 
-console.log(doubledNumbers) // [2, 4, 6, 8]
-console.log(numbers) // [1, 2, 3, 4]
+console.log(doubledNumbers); // [2, 4, 6, 8]
+console.log(numbers); // [1, 2, 3, 4]
 ```
 
 Notice how the original `numbers` array is untouched. This is because `map` returns a new array, rather than mutating the original. Mutations are a common source of bugs or unintended behavior in programming, so avoiding mutations unless explicitly necessary is typically a good practice.
@@ -129,20 +129,20 @@ Let's write our own `map()` method like we did with `forEach()` above.
 
 ```js
 function myMap(array, callback) {
-  const results = []
+  const results = [];
 
   for (let i = 0; i < array.length; i++) {
-    const result = callback(array[i])
-    results.push(result)
+    const result = callback(array[i]);
+    results.push(result);
   }
 
-  return results
+  return results;
 }
 
-const numbers = [1, 2, 3, 4]
-const squaredNumbers = myMap(numbers, number => number * number)
+const numbers = [1, 2, 3, 4];
+const squaredNumbers = myMap(numbers, (number) => number * number);
 
-console.log(squaredNumbers) // [1, 4, 9, 16]
+console.log(squaredNumbers); // [1, 4, 9, 16]
 ```
 
 # filter()
@@ -154,33 +154,33 @@ console.log(squaredNumbers) // [1, 4, 9, 16]
 Let's stick with the list of numbers we used in our `map()` examples above, and try filtering down to only the even numbers.
 
 ```js
-const numbers = [1, 2, 3, 4]
+const numbers = [1, 2, 3, 4];
 
-const evens = numbers.filter((number = number % 2 === 0))
-console.log(evens) // [2, 4]
+const evens = numbers.filter((number = number % 2 === 0));
+console.log(evens); // [2, 4]
 ```
 
 Every time the callback function returns `true`, the element will be added to our resulting array. With that implementation in mind, let's create our own `filter()` as we did with the other array methods:
 
 ```js
 function myFilter(array, callback) {
-  const results = []
+  const results = [];
 
   for (let i = 0; i < array.length; i++) {
-    const element = array[i]
+    const element = array[i];
 
     if (callback(element)) {
-      results.push(element)
+      results.push(element);
     }
   }
 
-  return results
+  return results;
 }
 
-const numbers = [1, 2, 3, 4]
-const odds = myFilter(numbers, number => number % 2 !== 0)
+const numbers = [1, 2, 3, 4];
+const odds = myFilter(numbers, (number) => number % 2 !== 0);
 
-console.log(odds) // [1, 3]
+console.log(odds); // [1, 3]
 ```
 
 # reduce()
@@ -192,16 +192,16 @@ console.log(odds) // [1, 3]
 The most common example of a use case for "reduce" is calculating the sum of all elements in an array. In this case, we're "reducing" many elements of an array into a single value: the sum. The signature for the "reducer" callback is a `function` that accepts an "accumulator" (the current value of the resulting single value) and the current element. It's common to see these arguments represented as `acc` and `curr` or similar. `reduce()` also accepts a second argument for the initial value of the accumulator. Let's take a look at our "sum of array elements" use case in code:
 
 ```js
-const numbers = [2, 4, 6, 8]
+const numbers = [2, 4, 6, 8];
 
 const sum = numbers.reduce((acc, curr) => {
-  return acc + curr
-}, 0)
+  return acc + curr;
+}, 0);
 
 // Or, with shorthand
-const sum2 = numbers.reduce((sum, num) => sum + num, 0)
+const sum2 = numbers.reduce((sum, num) => sum + num, 0);
 
-console.log(sum) // 20
+console.log(sum); // 20
 ```
 
 `reduce()` is useful for aggregating data about an array. For instance, determining the unique values for some string, and calculating how many times each value appears. Because of its relative complexity, workflows involving `reduce()` may often be represented more coherently with standard loops or a `forEach()`. Let's compare/contract an aggregation workflow with a plain loop and `reduce()` below:
@@ -213,38 +213,38 @@ const users = [
   {
     id: 1,
     email: 'user@yahoo.com',
-    posts: [{ title: 'Nope', category: 'News' }]
+    posts: [{ title: 'Nope', category: 'News' }],
   },
   {
     id: 2,
     email: 'user@gmail.com',
     posts: [
       { title: 'Good Post', category: 'Fishing and Hunting' },
-      { title: 'Another good one', category: 'Topiaries' }
-    ]
+      { title: 'Another good one', category: 'Topiaries' },
+    ],
   },
   {
     id: 3,
     email: 'user2@gmail.com',
     posts: [
       { title: 'Best Post Ever!', category: 'Construction' },
-      { title: 'A post', category: 'Starbucks Secret Menu' }
-    ]
-  }
-]
+      { title: 'A post', category: 'Starbucks Secret Menu' },
+    ],
+  },
+];
 
 // Plain loop implementation
-const result1 = {}
+const result1 = {};
 for (const user of users) {
-  result[user.email] = user.posts
+  result[user.email] = user.posts;
 }
 
 // Reduce implementation
 const result2 = users.reduce((acc, curr) => {
-  acc[user.email] = user.posts
+  acc[user.email] = user.posts;
 
-  return acc
-}, {})
+  return acc;
+}, {});
 ```
 
 `reduce()` is definitely the array method that's most conducive to overly clever code, but for succinct workflows it can still be an expressive method.
@@ -255,20 +255,20 @@ There are a few other Array methods that are commonly used, and are a bit more s
 
 ```js
 // `.some` - return true as long as at least one element satisfies the condition returned by the callback
-const hasEvenNumber = [1, 2, 3, 4].some(num => num % 2 === 0)
-console.log(hasEvenNumber) // true
+const hasEvenNumber = [1, 2, 3, 4].some((num) => num % 2 === 0);
+console.log(hasEvenNumber); // true
 
 // `.every` - return true as long as ALL elements satisfy the condition returned by the callback
-const allEven = [2, 4, 6, 8].every(num => num % 2 === 0)
-console.log(allEven) // true
+const allEven = [2, 4, 6, 8].every((num) => num % 2 === 0);
+console.log(allEven); // true
 
 // `.find` - return the first value that satifsies the condition returned by the callback
-const firstEven = [1, 2, 3, 4].find(num => num % 2 === 0)
-console.log(firstEven) // 2
+const firstEven = [1, 2, 3, 4].find((num) => num % 2 === 0);
+console.log(firstEven); // 2
 
 // `.includes` - return true if the value is present in the array
-const hasTwo = [1, 2, 3, 4].includes(2)
-console.log(hasTwo) // true
+const hasTwo = [1, 2, 3, 4].includes(2);
+console.log(hasTwo); // true
 ```
 
 # Further Reading

@@ -8,7 +8,7 @@ imageCreditLink: https://unsplash.com/@clintadair?utm_source=unsplash&utm_medium
 imageAlt: Green rope connected with metal balls, imitating a network/node structure
 ---
 
-When I first heard about GraphQL, I was unconvinced about its usefulness or applicability to the way I write web applications. I had a good grap on RESTful API design and implemenation, and GraphQL didn't seem like something I'd really "need". Having had a bit more exposure to GraphQL, though, I'm really starting to see a lot of the benefits of the technology. In this post, I'll try to outline some of the core concepts of GraphQL, and to explain the problems it seeks to solve.
+When I first heard about GraphQL, I was unconvinced about its usefulness or applicability to the way I write web applications. I had a good grasp on RESTful API design and implementation, and GraphQL didn't seem like something I'd really "need". Having had a bit more exposure to GraphQL, though, I'm really starting to see a lot of the benefits of the technology. In this post, I'll try to outline some of the core concepts of GraphQL, and to explain the problems it seeks to solve.
 
 ## What is it?
 
@@ -153,12 +153,12 @@ My typical server-side language of choice is Node, so here's what a Node resolve
 const UserResolver = {
   Query: {
     getPlayer(parent, arguments, context) {
-      const { id } = arguments
+      const { id } = arguments;
 
-      return context.models.User.findOne({ where: { id } })
-    }
-  }
-}
+      return context.models.User.findOne({ where: { id } });
+    },
+  },
+};
 ```
 
 This resolver structure is one defined by a common server-side GraphQL environment [Apollo Server](https://www.apollographql.com/docs/graphql-tools/resolvers.html), but you can see how we might build out this structure to define function calls and business logic for each query defined in our schema.

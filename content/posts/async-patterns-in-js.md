@@ -15,12 +15,12 @@ JavaScript is regularly referred to as "async by default", but the way in which 
 To begin, let's quickly make clear the difference between asynchronous and synchronous code. When code is synchronous, it's executed in "line order", meaning each task defined by your code is executed to completion before moving onto the next task. In JavaScript, that might mean something like this.
 
 ```js
-console.log('Hello world')
+console.log('Hello world');
 
-const name = 'kyle'
-console.log("It's me, " + name)
+const name = 'kyle';
+console.log("It's me, " + name);
 
-console.log('Some lovely code :)')
+console.log('Some lovely code :)');
 ```
 
 All of this code executes synchronously - each line is executed to completion before the program moves to the next line.
@@ -46,35 +46,35 @@ Callbacks are an essential concept in JavaScript and other asynchronous language
 `setTimeout` is one of the simplest examples of a function that accepts a callback:
 
 ```js
-setTimeout(function() {
-  console.log('It has been a second!')
-}, 1000)
+setTimeout(function () {
+  console.log('It has been a second!');
+}, 1000);
 ```
 
 Here's an example of how you might implement your own method that accepts a callback:
 
 ```js
 function validateInput(input, callback) {
-  var result = { errors: [] }
+  var result = { errors: [] };
 
   if (!input.name || input.name.length < 6) {
-    result.errors.push('Invalid name')
+    result.errors.push('Invalid name');
   }
 
   if (!input.email) {
-    result.errors.push('Email must be provided')
+    result.errors.push('Email must be provided');
   }
 
-  callback(result)
+  callback(result);
 }
 
-validateInput({ name: 'Kyle', email: 'kyle@example.com' }, function(result) {
+validateInput({ name: 'Kyle', email: 'kyle@example.com' }, function (result) {
   if (result.errors.length) {
-    console.error('Whoops')
+    console.error('Whoops');
   } else {
-    console.log('Hooray')
+    console.log('Hooray');
   }
-})
+});
 ```
 
 It's very easy to fall into ["callback hell"](http://callbackhell.com/) when you have to chain several functions together that all accept callbacks. Consider some Node code where we connect to MySQL and use standard callbacks to run some queries that depend on return values from other queries.
@@ -148,42 +148,42 @@ We can instantiate a `Promise` with a constructor that takes a function like so
 ```js
 new Promise((resolve, reject) => {
   if (foo) {
-    return resolve('foo')
+    return resolve('foo');
   }
 
-  reject('not foo')
-})
+  reject('not foo');
+});
 ```
 
 Promises transition through three states: `pending`, `fulfilled`, and `rejected`. We can chain onto Promises to perform meaningful operations with the `then` method. The `catch` method is used to catch rejections.
 
 ```js
 somePromise(foo)
-  .then(data => {
-    console.log(data)
+  .then((data) => {
+    console.log(data);
   })
-  .catch(error => {
-    console.error(error)
-  })
+  .catch((error) => {
+    console.error(error);
+  });
 ```
 
 Promises can be chained, and errors will "bubble up" to a single `catch` handler at the end, which makes them very powerful for reducing nesting and unifying your scope.
 
 ```js
 somePromise(foo)
-  .then(data => {
-    return transformData(data)
+  .then((data) => {
+    return transformData(data);
   })
-  .then(newData => {
+  .then((newData) => {
     if (newData.bar) {
-      return logData(newData)
+      return logData(newData);
     }
 
-    return logSomethingElse(newData)
+    return logSomethingElse(newData);
   })
-  .catch(error => {
-    console.error(error)
-  })
+  .catch((error) => {
+    console.error(error);
+  });
 ```
 
 Promises are a powerful pattern for cleaning up callback-laden code. Here's the example with the MySQL calls from above rewritten with Promises.
@@ -218,22 +218,22 @@ updateUserEmail('kyle@example.com', 'kyle2@example.com')
 
 ## Async/Await
 
-Async/Await is a layer of syntactic sugar on top of Promises that eliminates another layer of nesting. By marking a function as `async`, we gain access to the `await` keyword. `await` lets us "unwrap" Promises inline, and treat pending Promises as if they were resolved sychronously. You can _only_ `await` functions that return Promises. If you `await` a function that does not return a `Promise`, it's result will be wrapped in a `Promise.resolve` call.
+Async/Await is a layer of syntactic sugar on top of Promises that eliminates another layer of nesting. By marking a function as `async`, we gain access to the `await` keyword. `await` lets us "unwrap" Promises inline, and treat pending Promises as if they were resolved synchronously. You can _only_ `await` functions that return Promises. If you `await` a function that does not return a `Promise`, it's result will be wrapped in a `Promise.resolve` call.
 
 ```js
 // With a Promise
 function getData() {
   return fetch('example.com/api/data')
-    .then(body => body.json())
-    .then(data => console.log(JSON.stringify(data)))
+    .then((body) => body.json())
+    .then((data) => console.log(JSON.stringify(data)));
 }
 
 // With async/await
 async function getData() {
-  const body = await fetch('example.com/api/data')
-  const data = await body.json()
+  const body = await fetch('example.com/api/data');
+  const data = await body.json();
 
-  console.log(JSON.stringify(data))
+  console.log(JSON.stringify(data));
 }
 ```
 
@@ -242,12 +242,12 @@ Catching errors in async/await blocks is a matter of using JavaScript's standard
 ```js
 async function getData() {
   try {
-    const body = await fetch('example.com/api/data')
-    const data = await body.json()
+    const body = await fetch('example.com/api/data');
+    const data = await body.json();
 
-    console.log(JSON.stringify(data))
+    console.log(JSON.stringify(data));
   } catch (error) {
-    console.error(error)
+    console.error(error);
   }
 }
 ```
@@ -255,41 +255,41 @@ async function getData() {
 Here's our MySQL example rewritten with async/await. By leveraging libraries and interfaces that return Promises (like MySQL2), you can wind up with some really concise async code.
 
 ```js
-const config = require('./config.json')
-const mysql = require('mysql2/promise')
+const config = require('./config.json');
+const mysql = require('mysql2/promise');
 
 async function updateUserEmail(oldEmail, newEmail) {
-  const connection = await mysql.createConnection(config)
+  const connection = await mysql.createConnection(config);
 
   const userId = (
     await connection.execute('SELECT id FROM users WHERE email = ?', [oldEmail])
-  )[0].id
+  )[0].id;
 
   const isActive = await connection.execute(
     'SELECT is_active FROM users WHERE user_id = ?',
     [userId]
-  )[0].is_active
+  )[0].is_active;
 
   await connection.execute('UPDATE users SET email = ? WHERE id = ?', [
-    newEmail.userId
-  ])
+    newEmail.userId,
+  ]);
 
   return (
     await connection.execute('SELECT * FROM users WHERE id = ?', [this.userId])
-  )[0]
+  )[0];
 }
 
 // You actually can't use `await` in the top level scope, so you'd need to put this
 // into a separate  `async` function or something in the real world
 try {
-  const user = await updateUserEmail('kyle@example.com', 'kyle2@example.com')
-  console.log(user)
+  const user = await updateUserEmail('kyle@example.com', 'kyle2@example.com');
+  console.log(user);
 } catch (error) {
-  console.error(error)
+  console.error(error);
 }
 ```
 
-And that's that! Now you've seen a few practical examples of asynchronous code and how JavaScript is equipped to handle these use cases. In modern JavaScript, it's helpful to have an understanding of each of these async patterns and how they relate to one another. `async/await` is definitely the most modern approach to async code, but you'll still run into plenty of callbacks, and having a good understanding of `Promises` is important to effectively utlize `async/await`.
+And that's that! Now you've seen a few practical examples of asynchronous code and how JavaScript is equipped to handle these use cases. In modern JavaScript, it's helpful to have an understanding of each of these async patterns and how they relate to one another. `async/await` is definitely the most modern approach to async code, but you'll still run into plenty of callbacks, and having a good understanding of `Promises` is important to effectively utilize `async/await`.
 
 ## Further Reading
 
