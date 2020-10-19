@@ -78,9 +78,9 @@ const IndexPage: React.FunctionComponent = () => {
           </p>
 
           <p>
-            I'm currently a Lead Developer at{' '}
-            <a href="http://shiftlab.co">Shift Lab</a>, a development agency
-            that solves complex challenges through creative technology.
+            I'm currently a Software Engineer at{' '}
+            <a href="https://ridwell.com">Ridwell</a>, a Seattle-based startup
+            that makes it easy to recyle more and waste less.
           </p>
 
           <p>
