@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { GitHub, Linkedin, Twitter } from 'react-feather';

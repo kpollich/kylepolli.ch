@@ -1,16 +1,20 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import Head from 'next/head';
+import {
+  InjectPerfectDarkMode,
+  usePerfectDarkMode,
+} from 'next-plugin-perfect-dark-mode';
 
 import { Header } from '../components/Header';
 import { ContentWrapper } from '../components/ContentWrapper';
-import { useColorTheme } from '../context/ColorTheme';
 
 export const Layout: React.FunctionComponent = ({ children }) => {
-  const { colorTheme } = useColorTheme();
+  const { mode } = usePerfectDarkMode();
 
   return (
     <>
-      <Helmet>
+      <InjectPerfectDarkMode />
+
+      <Head>
         <title>Kyle Pollich - Full Stack Developer</title>
         <link
           href="https://fonts.googleapis.com/css?family=Lato&display=swap"
@@ -24,11 +28,8 @@ export const Layout: React.FunctionComponent = ({ children }) => {
           name="description"
           content="Kyle Pollich - Full Stack Developer"
         />
-        <meta
-          name="theme-color"
-          content={colorTheme === 'light' ? '#FFF' : '#333'}
-        />
-      </Helmet>
+        <meta name="theme-color" content={mode === 'light' ? '#FFF' : '#333'} />
+      </Head>
 
       <div className="theme-transition-wrapper">
         <Header />

@@ -2,16 +2,44 @@
 import type { AppProps /*, AppContext */ } from 'next/app';
 import { lighten } from 'polished';
 import 'prism-theme-night-owl';
-import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
-import { ColorThemeProvider } from '../context/ColorTheme';
 import '../styles/normalize.css';
 import { theme } from '../styles/theme';
 import { typescaleStyles } from '../styles/typescale';
 
 const GlobalStyle = createGlobalStyle`
   ${typescaleStyles}
+
+  @media (prefers-color-scheme: light) {
+    :root {
+      --color: ${(props) => props.theme.colors.black};
+      --background: ${(props) => props.theme.colors.white};
+      --inline-code-background: ${(props) => props.theme.colors.lightgrey};
+    }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --color: ${(props) => props.theme.colors.white};
+      --background: ${(props) => props.theme.colors.black};
+      --inline-code-background: ${(props) =>
+        lighten(0.125, props.theme.colors.black)}
+    }
+  }
+
+  .pdm-light {
+    --color: ${(props) => props.theme.colors.black};
+    --background: ${(props) => props.theme.colors.white};
+    --inline-code-background: ${(props) => props.theme.colors.lightgrey};
+  }
+
+  .pdm-dark {
+    --color: ${(props) => props.theme.colors.white};
+    --background: ${(props) => props.theme.colors.black};
+    --inline-code-background: ${(props) =>
+      lighten(0.125, props.theme.colors.black)}
+  }
 
   html {
     box-sizing: border-box;
@@ -22,24 +50,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${(props) => props.theme.colors.white};
-    color: ${(props) => props.theme.colors.black};
+    background-color: var(--background);
+    color: var(--color);
     font-family: 'Lato', 'Helvetica', sans-serif;
     font-size: 1.125em;
 
     .theme-transition-wrapper {
       min-height: 100vh;
       transition: background-color 500ms, color 500ms;
-    }
-
-    &.light {
-      .theme-transition-wrapper {
-        background-color: ${(props) => props.theme.colors.white};
-      }
-
-      a {
-        color: ${(props) => props.theme.colors.black};
-      }
     }
 
     pre, code, img {
@@ -50,36 +68,18 @@ const GlobalStyle = createGlobalStyle`
       padding: 3px;
     }
 
-    &.dark {
-      background-color: ${(props) => props.theme.colors.black};
-      color: ${(props) => props.theme.colors.white};
 
-      * > :not(pre) > code {
-        background-color: ${(props) =>
-          lighten(0.125, props.theme.colors.black)};
-        color: ${(props) => props.theme.colors.white};
-      }
+    * > :not(pre) > code {
+      background-color: var(--inline-code-background);
+      color: var(--color);
+    }
 
-      .theme.theme-transition-wrapper {
-        background-color: ${(props) => props.theme.colors.black};
-      }
-
-      a {
-        color: ${(props) => props.theme.colors.white};
-      }
-
-      .nav {
-        a.active {
-          background-color: ${(props) =>
-            lighten(0.125, props.theme.colors.black)}};
-        }
-
-      .credit {
-        color: ${(props) => props.theme.colors.lightgrey} !important;
-      }
+    .theme.theme-transition-wrapper {
+      background-color: var(--background);
     }
 
     a {
+      color: var(--color);
       transition: color 500ms;
 
       &:hover {
@@ -138,9 +138,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <ColorThemeProvider>
-        <Component {...pageProps} />
-      </ColorThemeProvider>
+      <Component {...pageProps} />
     </ThemeProvider>
   );
 }

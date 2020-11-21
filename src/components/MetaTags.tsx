@@ -1,11 +1,10 @@
-import { useRouter } from 'next/dist/client/router';
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import { useRouter } from 'next/router';
+import Head from 'next/head';
 
 const SITE_URL = 'https://www.kylepollich.com';
 
 const defaults = {
-  title: '%s | Kyle Pollich',
+  title: 'Kyle Pollich',
   image: '',
   description: 'Lancaster, PA Full Stack Developer',
   twitterUsername: '@kylepollich',
@@ -34,7 +33,8 @@ export const MetaTags: React.FC<Props> = ({
   };
 
   return (
-    <Helmet title={seo.title} titleTemplate={defaults.title}>
+    <Head>
+      <title>Kyle Pollich | {title}</title>
       <meta name="description" content={seo.description} />
 
       <meta name="image" content={seo.image} />
@@ -64,6 +64,6 @@ export const MetaTags: React.FC<Props> = ({
       )}
 
       {seo.image && <meta name="twitter:image" content={seo.image} />}
-    </Helmet>
+    </Head>
   );
 };

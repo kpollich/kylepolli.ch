@@ -1,12 +1,11 @@
 import matter from 'gray-matter';
-import React from 'react';
 import styled from 'styled-components';
 import hydrate from 'next-mdx-remote/hydrate';
 import renderToString from 'next-mdx-remote/render-to-string';
 
 import { Layout } from '../layouts';
 import { MetaTags } from '../components/MetaTags';
-import { getUsesContent, renderMdxForPostSlug } from '../utils';
+import { getUsesContent } from '../utils';
 
 const Content = styled.div`
   p {

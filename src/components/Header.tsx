@@ -1,11 +1,11 @@
-import React, { useState, SetStateAction } from 'react';
+import { FunctionComponent } from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
 import { Moon, Sun } from 'react-feather';
 
 import { ContentWrapper } from './ContentWrapper';
 import { theme } from '../styles/theme';
-import { useColorTheme } from '../context/ColorTheme';
+import { usePerfectDarkMode } from 'next-plugin-perfect-dark-mode';
 
 const Wrapper = styled.div``;
 
@@ -54,8 +54,8 @@ const Nav = styled.nav`
   }
 `;
 
-export const Header: React.FunctionComponent = () => {
-  const { colorTheme, setColorTheme } = useColorTheme();
+export const Header: FunctionComponent = () => {
+  const { mode, updateMode } = usePerfectDarkMode();
 
   return (
     <Wrapper>
@@ -82,26 +82,24 @@ export const Header: React.FunctionComponent = () => {
             <li>
               <button
                 onClick={() =>
-                  setColorTheme(colorTheme === 'light' ? 'dark' : 'light')
+                  updateMode((mode) => (mode === 'dark' ? 'light' : 'dark'))
                 }
                 title={
-                  colorTheme === 'dark'
+                  mode === 'dark'
                     ? 'Switch to light mode'
                     : 'Switch to dark mode'
                 }
               >
-                {colorTheme === 'dark' ? (
+                {mode === 'dark' ? (
                   <Sun
                     color={
-                      colorTheme === 'dark'
-                        ? theme.colors.white
-                        : theme.colors.black
+                      mode === 'dark' ? theme.colors.white : theme.colors.black
                     }
                   />
                 ) : (
                   <Moon
                     style={{
-                      visibility: colorTheme === null ? 'hidden' : 'visible',
+                      visibility: mode === undefined ? 'hidden' : 'visible',
                     }}
                   />
                 )}

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useReducer } from 'react';
 import styled from 'styled-components';
 
 import { Layout } from '../layouts';
@@ -83,7 +83,7 @@ function formReducer(
 }
 
 const ContactPage = () => {
-  const [state, dispatch] = React.useReducer(formReducer, initialState);
+  const [state, dispatch] = useReducer(formReducer, initialState);
 
   const handleChange = (e: any) => {
     dispatch({

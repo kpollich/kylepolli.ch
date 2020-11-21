@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { compareDesc, format } from 'date-fns';
 import Link from 'next/link';

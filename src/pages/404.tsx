@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { Layout } from '../layouts';
 
 const NotFoundPage: React.FunctionComponent = () => (
