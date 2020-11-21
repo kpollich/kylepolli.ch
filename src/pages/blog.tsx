@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { graphql, Link } from 'gatsby';
-import Img, { FluidObject } from 'gatsby-image';
 import { compareDesc, format } from 'date-fns';
+import Link from 'next/link';
+import Image from 'next/image';
 
-import { Layout } from '../components/Layout';
+import { Layout } from '../layouts';
 import { EnterTransition, childVariants } from '../components/EnterTransition';
 import { ArrowRight } from 'react-feather';
 import { motion } from 'framer-motion';
 import { MetaTags } from '../components/MetaTags';
+import { getAllPostSlugs, renderMdxForPostSlug } from '../utils';
 
 const Wrapper = styled.section`
   display: flex;
@@ -36,31 +37,22 @@ const BlogPostList = styled.ul`
 `;
 
 interface Props {
-  data: {
-    allMarkdownRemark: {
-      edges: Array<{
-        node: {
-          fields: {
-            slug: string;
-          };
-          excerpt: string;
-          frontmatter: {
-            title: string;
-            datePublished: string;
-            image: {
-              childImageSharp: {
-                fluid: FluidObject;
-              };
-            };
-            imageAlt: string;
-          };
-        };
-      }>;
+  posts: Array<{
+    slug: string;
+    frontMatter: {
+      title: string;
+      subtitle: string;
+      datePublished: string;
+      imageAlt?: string;
+      imageCreditText?: string;
+      imageCreditLink?: string;
+      image?: string;
+      seoImage?: string;
     };
-  };
+  }>;
 }
 
-const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
+const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
   return (
     <Layout>
       <MetaTags
@@ -72,44 +64,49 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
           <motion.h1 variants={childVariants}>Blog Posts</motion.h1>
 
           <BlogPostList>
-            {data.allMarkdownRemark.edges
+            {posts
               .sort((first, second) =>
                 compareDesc(
-                  new Date(first.node.frontmatter.datePublished),
-                  new Date(second.node.frontmatter.datePublished)
+                  new Date(first.frontMatter.datePublished),
+                  new Date(second.frontMatter.datePublished)
                 )
               )
-              .map(({ node: blogPost }) => (
-                <motion.li variants={childVariants} key={blogPost.fields.slug}>
-                  <Link to={`/posts${blogPost.fields.slug}`}>
-                    <Img
-                      fluid={blogPost.frontmatter.image.childImageSharp.fluid}
-                      alt={blogPost.frontmatter.imageAlt}
-                    />
+              .map((post) => (
+                <motion.li variants={childVariants} key={post.slug}>
+                  <Link href={`/posts/${post.slug}`}>
+                    <a>
+                      <Image
+                        src={post.frontMatter.image ?? ''}
+                        alt={post.frontMatter.imageAlt}
+                        width={800}
+                        height={450}
+                      />
+                    </a>
                   </Link>
                   <h3>
-                    <Link to={`/posts${blogPost.fields.slug}`}>
-                      {blogPost.frontmatter.title}
+                    <Link href={`/posts/${post.slug}`}>
+                      <a>{post.frontMatter.title}</a>
                     </Link>
                   </h3>
                   <time>
                     {format(
-                      new Date(blogPost.frontmatter.datePublished),
+                      new Date(post.frontMatter.datePublished),
                       'MMMM do, yyyy'
                     )}
                   </time>
-                  <p>{blogPost.excerpt}</p>
+                  <p>{post.frontMatter.subtitle}</p>
                   <div>
-                    <Link
-                      to={`/posts${blogPost.fields.slug}`}
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        textDecoration: 'underline',
-                      }}
-                    >
-                      <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}
-                      <ArrowRight size={20} />
+                    <Link href={`/posts/${post.slug}`}>
+                      <a
+                        style={{
+                          display: 'inline-flex',
+                          alignItems: 'center',
+                          textDecoration: 'underline',
+                        }}
+                      >
+                        <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}
+                        <ArrowRight size={20} />
+                      </a>
                     </Link>
                   </div>
                 </motion.li>
@@ -121,34 +118,22 @@ const BlogPage: React.FunctionComponent<Props> = ({ data }) => {
   );
 };
 
-export const query = graphql`
-  query GetAllBlogPosts {
-    allMarkdownRemark(
-      filter: { fileAbsolutePath: { regex: "/posts/" } }
-      sort: { fields: frontmatter___datePublished, order: DESC }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-          }
-          excerpt(pruneLength: 300)
-          frontmatter {
-            title
-            datePublished
-            image {
-              childImageSharp {
-                fluid(maxWidth: 1024, traceSVG: { color: "#8CBCB9" }) {
-                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                }
-              }
-            }
-            imageAlt
-          }
-        }
-      }
-    }
-  }
-`;
+export async function getStaticProps() {
+  const slugs = getAllPostSlugs();
+
+  const posts = await Promise.all(
+    slugs.map(async (slug) => {
+      const { frontMatter } = await renderMdxForPostSlug(slug);
+
+      return { slug, frontMatter };
+    })
+  );
+
+  return {
+    props: {
+      posts,
+    },
+  };
+}
 
 export default BlogPage;

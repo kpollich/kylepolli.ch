@@ -1,7 +1,15 @@
+import { useRouter } from 'next/dist/client/router';
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { useLocation } from '@reach/router';
-import { useStaticQuery, graphql } from 'gatsby';
+
+const SITE_URL = 'https://www.kylepollich.com';
+
+const defaults = {
+  title: '%s | Kyle Pollich',
+  image: '',
+  description: 'Lancaster, PA Full Stack Developer',
+  twitterUsername: '@kylepollich',
+};
 
 interface Props {
   title: string;
@@ -10,46 +18,23 @@ interface Props {
   article?: boolean;
 }
 
-interface SiteMetadataQueryData {
-  site: {
-    siteMetadata: {
-      defaultTitle: string;
-      titleTemplate: string;
-      defaultDescription: string;
-      siteUrl: string;
-      defaultImage: string;
-      twitterUsername: string;
-    };
-  };
-}
-
 export const MetaTags: React.FC<Props> = ({
   title,
   description,
   image,
   article = false,
 }) => {
-  const { pathname } = useLocation();
-  const { site } = useStaticQuery<SiteMetadataQueryData>(query);
-
-  const {
-    defaultTitle,
-    titleTemplate,
-    defaultDescription,
-    siteUrl,
-    defaultImage,
-    twitterUsername,
-  } = site.siteMetadata;
+  const { pathname } = useRouter();
 
   const seo = {
-    title: title || defaultTitle,
-    description: description || defaultDescription,
-    image: `${siteUrl}${image || defaultImage}`,
-    url: `${siteUrl}${pathname}`,
+    title: title || defaults.title,
+    description: description || defaults.description,
+    image: `${SITE_URL}${image || defaults.image}`,
+    url: `${SITE_URL}${pathname}`,
   };
 
   return (
-    <Helmet title={seo.title} titleTemplate={titleTemplate}>
+    <Helmet title={seo.title} titleTemplate={defaults.title}>
       <meta name="description" content={seo.description} />
 
       <meta name="image" content={seo.image} />
@@ -68,8 +53,8 @@ export const MetaTags: React.FC<Props> = ({
 
       <meta name="twitter:card" content="summary_large_image" />
 
-      {twitterUsername && (
-        <meta name="twitter:creator" content={twitterUsername} />
+      {defaults.twitterUsername && (
+        <meta name="twitter:creator" content={defaults.twitterUsername} />
       )}
 
       {seo.title && <meta name="twitter:title" content={seo.title} />}
@@ -82,17 +67,3 @@ export const MetaTags: React.FC<Props> = ({
     </Helmet>
   );
 };
-
-const query = graphql`
-  query SEO {
-    site {
-      siteMetadata {
-        defaultTitle: title
-        defaultDescription: description
-        siteUrl: url
-        defaultImage: image
-        twitterUsername
-      }
-    }
-  }
-`;

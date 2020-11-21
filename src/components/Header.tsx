@@ -1,6 +1,6 @@
 import React, { useState, SetStateAction } from 'react';
 import styled from 'styled-components';
-import { Link } from 'gatsby';
+import Link from 'next/link';
 import { Moon, Sun } from 'react-feather';
 
 import { ContentWrapper } from './ContentWrapper';
@@ -62,18 +62,20 @@ export const Header: React.FunctionComponent = () => {
       <ContentWrapper>
         <Nav className="nav">
           <span>
-            <Link to="/">Kyle Pollich</Link>
+            <Link href="/">
+              <a>Kyle Pollich</a>
+            </Link>
           </span>
 
           <ul>
             <li>
-              <Link to="/blog" activeClassName="active">
-                Blog
+              <Link href="/blog">
+                <a>Blog</a>
               </Link>
             </li>
             <li>
-              <Link to="/contact" activeClassName="active">
-                Contact
+              <Link href="/contact">
+                <a>Contact</a>
               </Link>
             </li>
 

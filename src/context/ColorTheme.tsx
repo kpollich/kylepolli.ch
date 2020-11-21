@@ -17,7 +17,17 @@ export const ColorThemeProvider: React.FunctionComponent = ({ children }) => {
   const localStorageKey = 'theme';
 
   useEffect(() => {
-    setColorTheme((window as any).__theme);
+    let theme;
+    const windowTheme = (window as any).__theme;
+
+    if (!windowTheme) {
+      theme = 'dark';
+    } else {
+      theme = windowTheme;
+    }
+
+    setColorTheme(theme);
+
     (window as any).__onThemeChange = () => {
       setColorTheme((window as any).__theme);
     };

@@ -1,9 +1,12 @@
+import matter from 'gray-matter';
 import React from 'react';
 import styled from 'styled-components';
-import { graphql } from 'gatsby';
+import hydrate from 'next-mdx-remote/hydrate';
+import renderToString from 'next-mdx-remote/render-to-string';
 
-import { Layout } from '../components/Layout';
+import { Layout } from '../layouts';
 import { MetaTags } from '../components/MetaTags';
+import { getUsesContent, renderMdxForPostSlug } from '../utils';
 
 const Content = styled.div`
   p {
@@ -16,15 +19,12 @@ const Content = styled.div`
 `;
 
 interface Props {
-  data: {
-    markdownRemark: {
-      html: string;
-    };
-  };
+  source: any;
+  frontMatter: any;
 }
 
-const UsesPage: React.FunctionComponent<Props> = ({ data }) => {
-  const { html } = data.markdownRemark;
+const UsesPage: React.FunctionComponent<Props> = ({ source }) => {
+  const mdxContent = hydrate(source, { components: {} });
 
   return (
     <Layout>
@@ -42,18 +42,24 @@ const UsesPage: React.FunctionComponent<Props> = ({ data }) => {
           and gadgets, so don't consider this list exhaustive or complete.
         </p>
 
-        <Content dangerouslySetInnerHTML={{ __html: html }} />
+        <Content>{mdxContent}</Content>
       </section>
     </Layout>
   );
 };
 
-export const query = graphql`
-  {
-    markdownRemark(fileAbsolutePath: { regex: "/content/uses/" }) {
-      html
-    }
-  }
-`;
+export async function getStaticProps() {
+  const usesContent = getUsesContent();
+
+  const { content, data } = matter(usesContent);
+  const mdxContent = await renderToString(content, {
+    scope: data,
+    mdxOptions: {
+      remarkPlugins: [require('remark-prism'), require('remark-slug')],
+    },
+  });
+
+  return { props: { source: mdxContent, frontMatter: data } };
+}
 
 export default UsesPage;

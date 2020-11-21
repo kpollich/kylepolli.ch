@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 
-import { Layout } from '../components/Layout';
+import { Layout } from '../layouts';
 import { EnterTransition, childVariants } from '../components/EnterTransition';
 
 const Intro = styled.section`
