@@ -2,7 +2,6 @@ import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
 import Image from 'next/image';
-import styled from 'styled-components';
 import hydrate from 'next-mdx-remote/hydrate';
 
 import {
@@ -12,32 +11,6 @@ import {
 import { MetaTags } from '../../components/MetaTags';
 import { Layout } from '../../layouts';
 import { getAllPostSlugs, renderMdxForPostSlug } from '../../content';
-
-const MarkdownContentWrapper = styled.article`
-  img {
-    width: 100%;
-  }
-
-  ul {
-    word-break: break-all;
-  }
-`;
-
-const Banner = styled.div`
-  margin-bottom: 2rem;
-
-  .credit {
-    color: ${(props) => props.theme.colors.darkgrey};
-  }
-`;
-
-const Title = styled.h1`
-  margin-bottom: 0.75rem;
-`;
-
-const Subtitle = styled.h3`
-  margin-top: 0;
-`;
 
 interface Props {
   content: any;
@@ -67,7 +40,7 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
       <EnterTransition>
         <section>
           {frontMatter.image && (
-            <Banner as={motion.div} variants={childVariants}>
+            <motion.div variants={childVariants} className="mb-4">
               <Image
                 src={frontMatter.image}
                 alt={frontMatter.imageAlt}
@@ -75,19 +48,22 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
                 width={1024}
               />
               {frontMatter.imageCreditText && (
-                <em className="credit">
+                <em className="text-gray-500">
                   Photo by{' '}
-                  <a href={frontMatter.imageCreditLink}>
+                  <a
+                    className="text-gray-500 no-underline"
+                    href={frontMatter.imageCreditLink}
+                  >
                     {frontMatter.imageCreditText}
                   </a>
                 </em>
               )}
-            </Banner>
+            </motion.div>
           )}
 
           <motion.div variants={childVariants}>
-            <Title>{frontMatter.title}</Title>
-            <Subtitle>{frontMatter.subtitle}</Subtitle>
+            <h1 className="mb-3">{frontMatter.title}</h1>
+            <h2 className="mt-0">{frontMatter.subtitle}</h2>
 
             <time>
               {format(new Date(frontMatter.datePublished), 'MMMM do, yyyy')}
@@ -98,7 +74,7 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
         </section>
 
         <motion.div variants={childVariants}>
-          <MarkdownContentWrapper>{mdxContent}</MarkdownContentWrapper>
+          <article>{mdxContent}</article>
         </motion.div>
       </EnterTransition>
     </Layout>

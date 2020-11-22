@@ -4,8 +4,8 @@ import {
   usePerfectDarkMode,
 } from 'next-plugin-perfect-dark-mode';
 
+import ContentWrapper from '../components/ContentWrapper';
 import { Header } from '../components/Header';
-import { ContentWrapper } from '../components/ContentWrapper';
 
 export const Layout: React.FunctionComponent = ({ children }) => {
   const { mode } = usePerfectDarkMode();

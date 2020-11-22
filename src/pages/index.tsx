@@ -1,46 +1,22 @@
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { GitHub, Linkedin, Twitter } from 'react-feather';
 
 import { Layout } from '../layouts';
 import { EnterTransition, childVariants } from '../components/EnterTransition';
 
-const Intro = styled.section`
-  text-align: center;
-
-  h1 {
-    margin-bottom: 0;
-  }
-
-  h2 {
-    margin-top: 0;
-  }
-`;
-
-const About = styled.section`
-  max-width: 720px;
-  margin: 2rem auto;
-  text-align: center;
-`;
-
-const Icons = styled.div`
-  display: flex;
-  justify-content: space-around;
-  max-width: 200px;
-  margin: auto;
-  border-bottom: 2px solid ${(props) => props.theme.colors.blue};
-`;
-
 const IndexPage: React.FunctionComponent = () => {
   return (
     <Layout>
       <EnterTransition>
-        <Intro as={motion.div} variants={childVariants}>
-          <h1>Kyle Pollich</h1>
-          <h2>Full Stack Developer</h2>
-        </Intro>
+        <motion.section variants={childVariants} className="text-center">
+          <h1 className="mb-0">Kyle Pollich</h1>
+          <h2 className="mt-0">Full Stack Developer</h2>
+        </motion.section>
 
-        <Icons as={motion.div} variants={childVariants}>
+        <motion.div
+          variants={childVariants}
+          className="flex content-around max-w-lg m-auto border-b-2 border-blue-400"
+        >
           <a
             title="GitHub"
             href="https://github.com/kpollich"
@@ -67,9 +43,12 @@ const IndexPage: React.FunctionComponent = () => {
           >
             <Twitter />
           </a>
-        </Icons>
+        </motion.div>
 
-        <About as={motion.div} variants={childVariants}>
+        <motion.section
+          variants={childVariants}
+          className="max-w-xl mx-4 my-auto"
+        >
           <p>
             I'm Kyle Pollich. I'm a full stack developer from Lancaster, PA. I
             love working with web technologies, and I'm particularly passionate
@@ -101,7 +80,7 @@ const IndexPage: React.FunctionComponent = () => {
             </a>{' '}
             profiles.
           </p>
-        </About>
+        </motion.section>
       </EnterTransition>
     </Layout>
   );

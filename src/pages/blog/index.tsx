@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'react-feather';
 
-import styled from 'styled-components';
 import {
   childVariants,
   EnterTransition,
@@ -12,31 +11,6 @@ import {
 import { MetaTags } from '../../components/MetaTags';
 import { getAllPostData } from '../../content';
 import { Layout } from '../../layouts';
-
-const Wrapper = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  max-width: 800px;
-  margin: auto;
-`;
-
-const BlogPostList = styled.ul`
-  list-style: none;
-  padding: 0;
-
-  li {
-    margin-bottom: 6em;
-
-    :last-child {
-      margin-bottom: 0;
-    }
-
-    a {
-      text-decoration: none;
-    }
-  }
-`;
 
 interface Props {
   posts: Array<{
@@ -63,10 +37,10 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
         description="Where I blog about web technologies and software engineering culture."
       />
       <EnterTransition>
-        <Wrapper>
+        <section className="flex flex-col items-center max-w-xl m-auto">
           <motion.h1 variants={childVariants}>Blog Posts</motion.h1>
 
-          <BlogPostList>
+          <ul className="list-none p-0">
             {posts
               .sort((first, second) =>
                 compareDesc(
@@ -75,9 +49,13 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
                 )
               )
               .map((post) => (
-                <motion.li variants={childVariants} key={post.slug}>
+                <motion.li
+                  variants={childVariants}
+                  key={post.slug}
+                  className="mb-24 last:mb-0"
+                >
                   <Link href={`/blog/${post.slug}`}>
-                    <a>
+                    <a className="no-underline">
                       <Image
                         src={post.frontMatter.image ?? ''}
                         alt={post.frontMatter.imageAlt}
@@ -88,7 +66,7 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
                   </Link>
                   <h3>
                     <Link href={`/blog/${post.slug}`}>
-                      <a>{post.frontMatter.title}</a>
+                      <a className="no-underline">{post.frontMatter.title}</a>
                     </Link>
                   </h3>
                   <time>
@@ -100,22 +78,16 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
                   <p>{post.excerpt}</p>
                   <div>
                     <Link href={`/blog/${post.slug}`}>
-                      <a
-                        style={{
-                          display: 'inline-flex',
-                          alignItems: 'center',
-                          textDecoration: 'underline',
-                        }}
-                      >
-                        <span style={{ marginRight: '0.5rem' }}>Read</span>{' '}
+                      <a className="underline inline-flex items-center">
+                        <span className="mr-1">Read</span>{' '}
                         <ArrowRight size={20} />
                       </a>
                     </Link>
                   </div>
                 </motion.li>
               ))}
-          </BlogPostList>
-        </Wrapper>
+          </ul>
+        </section>
       </EnterTransition>
     </Layout>
   );

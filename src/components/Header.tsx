@@ -1,83 +1,55 @@
 import { FunctionComponent } from 'react';
-import styled from 'styled-components';
 import Link from 'next/link';
 import { Moon, Sun } from 'react-feather';
+import colors from 'tailwindcss/colors';
 
-import { ContentWrapper } from './ContentWrapper';
-import { theme } from '../styles/theme';
+import ContentWrapper from './ContentWrapper';
 import { usePerfectDarkMode } from 'next-plugin-perfect-dark-mode';
+import { useRouter } from 'next/router';
 
-const Wrapper = styled.div``;
+const NavLink: FunctionComponent<{ href: string; text: string }> = ({
+  href,
+  text,
+}) => {
+  const router = useRouter();
 
-const Nav = styled.nav`
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  border-bottom: 1px solid ${(props) => props.theme.colors.lightgrey};
-  padding-bottom: 0.5rem;
+  // TODO: Probably a better check to do here
+  const isActive = router.pathname.includes(href);
 
-  a {
-    text-decoration: none;
-    border-radius: 5px;
+  return (
+    <Link href={href}>
+      <a
+        className={`no-underline rounded p-2 ${isActive ? 'bg-gray-400' : ''}`}
+      >
+        {text}
+      </a>
+    </Link>
+  );
+};
 
-    &.active {
-      background-color: ${(props) => props.theme.colors.lightgrey};
-    }
-  }
-
-  span {
-    flex: 1;
-    margin-right: 1em;
-  }
-
-  ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    align-items: flex-end;
-    margin: 0;
-
-    li {
-      margin-right: 1rem;
-
-      button {
-        border: none;
-        background: none;
-        color: inherit;
-        display: flex;
-      }
-
-      a {
-        padding: 5px;
-      }
-    }
-  }
-`;
-
-export const Header: FunctionComponent = () => {
+export const Header = () => {
   const { mode, updateMode } = usePerfectDarkMode();
 
   return (
-    <Wrapper>
+    <div>
       <ContentWrapper>
-        <Nav className="nav">
-          <span>
-            <Link href="/">
-              <a>Kyle Pollich</a>
-            </Link>
+        <nav className="flex flex-wrap items-center border-b-1 border-gray-400">
+          <span className="flex-1 mr-4">
+            <NavLink href="/" text="Kyle Pollich" />
           </span>
 
-          <ul>
-            <li>
-              <Link href="/blog">
-                <a>Blog</a>
-              </Link>
+          <ul className="p-0 list-none flex items-end m0">
+            <li className="mr-1">
+              <NavLink href="/blog" text="Blog" />
             </li>
 
-            <li>
+            <li className="mr-1">
               <button
+                className="border-none bg-none text-current flex"
                 onClick={() =>
-                  updateMode((mode) => (mode === 'dark' ? 'light' : 'dark'))
+                  updateMode((mode) =>
+                    mode === 'dark' ? colors.white : colors.black
+                  )
                 }
                 title={
                   mode === 'dark'
@@ -86,11 +58,7 @@ export const Header: FunctionComponent = () => {
                 }
               >
                 {mode === 'dark' ? (
-                  <Sun
-                    color={
-                      mode === 'dark' ? theme.colors.white : theme.colors.black
-                    }
-                  />
+                  <Sun color={mode === 'dark' ? colors.white : colors.black} />
                 ) : (
                   <Moon
                     style={{
@@ -101,8 +69,8 @@ export const Header: FunctionComponent = () => {
               </button>
             </li>
           </ul>
-        </Nav>
+        </nav>
       </ContentWrapper>
-    </Wrapper>
+    </div>
   );
 };

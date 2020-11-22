@@ -7,16 +7,6 @@ import { Layout } from '../layouts';
 import { MetaTags } from '../components/MetaTags';
 import { getUsesContent } from '../content';
 
-const Content = styled.div`
-  p {
-    margin: 0;
-  }
-
-  img {
-    width: 100%;
-  }
-`;
-
 interface Props {
   source: any;
   frontMatter: any;
@@ -41,7 +31,7 @@ const UsesPage: React.FunctionComponent<Props> = ({ source }) => {
           and gadgets, so don't consider this list exhaustive or complete.
         </p>
 
-        <Content>{mdxContent}</Content>
+        <article>{mdxContent}</article>
       </section>
     </Layout>
   );
