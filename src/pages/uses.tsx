@@ -54,7 +54,8 @@ export async function getStaticProps() {
   const mdxContent = await renderToString(content, {
     scope: data,
     mdxOptions: {
-      remarkPlugins: [require('remark-prism'), require('remark-slug')],
+      remarkPlugins: [require('remark-slug')],
+      rehypePlugins: [require('@mapbox/rehype-prism')],
     },
   });
 
