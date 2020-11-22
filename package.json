@@ -14,7 +14,6 @@
     "next": "^10.0.2",
     "next-mdx-remote": "^1.0.0",
     "next-plugin-perfect-dark-mode": "^0.0.19",
-    "nprogress": "^0.2.0",
     "polished": "^3.6.6",
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.21.0",
