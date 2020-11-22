@@ -208,8 +208,9 @@ console.log(sum); // 20
 `reduce()` is useful for aggregating data about an array. For instance, determining the unique values for some string, and calculating how many times each value appears. Because of its relative complexity, workflows involving `reduce()` may often be represented more coherently with standard loops or a `forEach()`. Let's compare/contract an aggregation workflow with a plain loop and `reduce()` below:
 
 ```js
-// Let's say we want to derive a new data structure from this array of users. We want an object keyed
-// by email, where each value is an array of the user's post titles
+// Let's say we want to derive a new data structure from this array of users.
+// We want an object keyed by email, where each value is an array of
+// the user's post titles
 const users = [
   {
     id: 1,
@@ -255,7 +256,8 @@ const result2 = users.reduce((acc, curr) => {
 There are a few other Array methods that are commonly used, and are a bit more straightforward than those we've looked at above. It's time for a ⚡lightning round ⚡!
 
 ```js
-// `.some` - return true as long as at least one element satisfies the condition returned by the callback
+// `.some` - return true as long as at least one element satisfies the condition
+// returned by the callback
 const hasEvenNumber = [1, 2, 3, 4].some((num) => num % 2 === 0);
 console.log(hasEvenNumber); // true
 
