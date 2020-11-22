@@ -11,11 +11,7 @@ import {
 } from '../../components/EnterTransition';
 import { MetaTags } from '../../components/MetaTags';
 import { Layout } from '../../layouts';
-import {
-  getAllPostSlugs,
-  renderMdxForFile,
-  renderMdxForPostSlug,
-} from '../../utils';
+import { getAllPostSlugs, renderMdxForPostSlug } from '../../content';
 
 const MarkdownContentWrapper = styled.article`
   img {

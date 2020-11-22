@@ -1,15 +1,26 @@
 // import App from "next/app";
 import type { AppProps /*, AppContext */ } from 'next/app';
+import Router from 'next/router';
+import NProgress from 'nprogress';
 import { lighten } from 'polished';
 import 'prism-theme-night-owl';
+import 'nprogress/nprogress.css';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
 import '../styles/normalize.css';
 import { theme } from '../styles/theme';
 import { typescaleStyles } from '../styles/typescale';
 
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => NProgress.done());
+Router.events.on('routeChangeError', () => NProgress.done());
+
 const GlobalStyle = createGlobalStyle`
   ${typescaleStyles}
+
+  #nprogress .bar {
+    background: ${(props) => props.theme.colors.blue};
+  }
 
   @media (prefers-color-scheme: light) {
     :root {

@@ -1,14 +1,17 @@
-import styled from 'styled-components';
 import { compareDesc, format } from 'date-fns';
-import Link from 'next/link';
-import Image from 'next/image';
-
-import { Layout } from '../layouts';
-import { EnterTransition, childVariants } from '../components/EnterTransition';
-import { ArrowRight } from 'react-feather';
 import { motion } from 'framer-motion';
-import { MetaTags } from '../components/MetaTags';
-import { getAllPostSlugs, renderMdxForPostSlug } from '../utils';
+import Image from 'next/image';
+import Link from 'next/link';
+import { ArrowRight } from 'react-feather';
+
+import styled from 'styled-components';
+import {
+  childVariants,
+  EnterTransition,
+} from '../../components/EnterTransition';
+import { MetaTags } from '../../components/MetaTags';
+import { getAllPostData } from '../../content';
+import { Layout } from '../../layouts';
 
 const Wrapper = styled.section`
   display: flex;
@@ -38,6 +41,7 @@ const BlogPostList = styled.ul`
 interface Props {
   posts: Array<{
     slug: string;
+    excerpt: string;
     frontMatter: {
       title: string;
       subtitle: string;
@@ -72,7 +76,7 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
               )
               .map((post) => (
                 <motion.li variants={childVariants} key={post.slug}>
-                  <Link href={`/posts/${post.slug}`}>
+                  <Link href={`/blog/${post.slug}`}>
                     <a>
                       <Image
                         src={post.frontMatter.image ?? ''}
@@ -83,7 +87,7 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
                     </a>
                   </Link>
                   <h3>
-                    <Link href={`/posts/${post.slug}`}>
+                    <Link href={`/blog/${post.slug}`}>
                       <a>{post.frontMatter.title}</a>
                     </Link>
                   </h3>
@@ -93,9 +97,9 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
                       'MMMM do, yyyy'
                     )}
                   </time>
-                  <p>{post.frontMatter.subtitle}</p>
+                  <p>{post.excerpt}</p>
                   <div>
-                    <Link href={`/posts/${post.slug}`}>
+                    <Link href={`/blog/${post.slug}`}>
                       <a
                         style={{
                           display: 'inline-flex',
@@ -118,19 +122,11 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
 };
 
 export async function getStaticProps() {
-  const slugs = getAllPostSlugs();
-
-  const posts = await Promise.all(
-    slugs.map(async (slug) => {
-      const { frontMatter } = await renderMdxForPostSlug(slug);
-
-      return { slug, frontMatter };
-    })
-  );
+  const postData = getAllPostData();
 
   return {
     props: {
-      posts,
+      posts: postData,
     },
   };
 }

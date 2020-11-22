@@ -5,7 +5,7 @@ import renderToString from 'next-mdx-remote/render-to-string';
 
 import { Layout } from '../layouts';
 import { MetaTags } from '../components/MetaTags';
-import { getUsesContent } from '../utils';
+import { getUsesContent } from '../content';
 
 const Content = styled.div`
   p {
