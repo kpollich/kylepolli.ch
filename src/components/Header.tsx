@@ -73,11 +73,6 @@ export const Header: FunctionComponent = () => {
                 <a>Blog</a>
               </Link>
             </li>
-            <li>
-              <Link href="/contact">
-                <a>Contact</a>
-              </Link>
-            </li>
 
             <li>
               <button
