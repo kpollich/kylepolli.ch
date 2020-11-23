@@ -4,7 +4,7 @@ import Head from 'next/head';
 const SITE_URL = 'https://www.kylepollich.com';
 
 const defaults = {
-  title: 'Kyle Pollich',
+  title: 'Kyle Pollich | Lancaster, PA Fullstack Developer',
   image: '',
   description: 'Lancaster, PA Full Stack Developer',
   twitterUsername: '@kylepollich',
