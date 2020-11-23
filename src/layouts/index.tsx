@@ -1,19 +1,15 @@
 import Head from 'next/head';
-import {
-  InjectPerfectDarkMode,
-  usePerfectDarkMode,
-} from 'next-plugin-perfect-dark-mode';
+import colors from 'tailwindcss/colors';
 
 import ContentWrapper from '../components/ContentWrapper';
 import { Header } from '../components/Header';
+import { useColorTheme } from '../context/ColorThemeContext';
 
 export const Layout: React.FunctionComponent = ({ children }) => {
-  const { mode } = usePerfectDarkMode();
+  const { colorTheme } = useColorTheme();
 
   return (
     <>
-      <InjectPerfectDarkMode />
-
       <Head>
         <title>Kyle Pollich - Full Stack Developer</title>
         <link
@@ -28,10 +24,13 @@ export const Layout: React.FunctionComponent = ({ children }) => {
           name="description"
           content="Kyle Pollich - Full Stack Developer"
         />
-        <meta name="theme-color" content={mode === 'light' ? '#FFF' : '#333'} />
+        <meta
+          name="theme-color"
+          content={colorTheme === 'light' ? colors.white : colors.gray[800]}
+        />
       </Head>
 
-      <div className="theme-transition-wrapper">
+      <div className="transition-colors">
         <Header />
 
         <ContentWrapper>{children}</ContentWrapper>

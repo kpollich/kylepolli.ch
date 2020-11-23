@@ -5142,14 +5142,6 @@ next-mdx-remote@^1.0.0:
     "@mdx-js/mdx" "^1.6.16"
     "@mdx-js/react" "^1.6.16"
 
-next-plugin-perfect-dark-mode@^0.0.19:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/next-plugin-perfect-dark-mode/-/next-plugin-perfect-dark-mode-0.0.19.tgz#edad05d7ae07185ff546e357fea6992efb3c155a"
-  integrity sha512-5IUUru9I1Jt8Umq5L9VOywVfoKrRtBhQi2utDNkRL2a6yipvlZKwz2d4ziroIh/a7eN2QEsm7zUDd6v29EKmkg==
-  dependencies:
-    perfect-dark-mode "*"
-    react-perfect-dark-mode "*"
-
 next-tick@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
@@ -5608,11 +5600,6 @@ pbkdf2@^3.0.3:
     ripemd160 "^2.0.1"
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
-
-perfect-dark-mode@*:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/perfect-dark-mode/-/perfect-dark-mode-0.0.19.tgz#219f156a7bdad15c1e108af9d698aee03773fd76"
-  integrity sha512-H/Kdg0f40kuluJ7BkMHiusoQu7W/oTlyBLSBdPvj+UI7zJR6iSFaz5x01oaW/o1dJwBItu9dytBwSaIbUdFRnA==
 
 picomatch@^2.0.4, picomatch@^2.2.1:
   version "2.2.2"
@@ -6073,13 +6060,6 @@ react-is@^16.7.0, react-is@^16.8.1:
   version "16.12.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.12.0.tgz#2cc0fe0fba742d97fd527c42a13bec4eeb06241c"
   integrity sha512-rPCkf/mWBtKc97aLL9/txD8DZdemK0vkA3JMLShjlJB3Pj3s+lpf1KaBzMfQrAmhMQB0n1cU/SUGgKKBCe837Q==
-
-react-perfect-dark-mode@*:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/react-perfect-dark-mode/-/react-perfect-dark-mode-0.0.19.tgz#a665131eafb9454b5cbc04dbc491e678a4dcd0e2"
-  integrity sha512-RchakTzl5M50inyRjAbmFyFuYL/Pb/rz2FqDULrQu4GtxPXlcSJwbISEKSd6GDUVCJY6G73oxAokb9IBlYOrrw==
-  dependencies:
-    perfect-dark-mode "*"
 
 react-refresh@0.8.3:
   version "0.8.3"

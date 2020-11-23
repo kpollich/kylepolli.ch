@@ -1,16 +1,17 @@
-import { FunctionComponent } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { FunctionComponent } from 'react';
 import { Moon, Sun } from 'react-feather';
 import colors from 'tailwindcss/colors';
 
+import { useColorTheme } from '../context/ColorThemeContext';
 import ContentWrapper from './ContentWrapper';
-import { usePerfectDarkMode } from 'next-plugin-perfect-dark-mode';
-import { useRouter } from 'next/router';
 
-const NavLink: FunctionComponent<{ href: string; text: string }> = ({
-  href,
-  text,
-}) => {
+const NavLink: FunctionComponent<{
+  href: string;
+  text: string;
+  hasActiveState?: boolean;
+}> = ({ href, text, hasActiveState = false }) => {
   const router = useRouter();
 
   // TODO: Probably a better check to do here
@@ -19,7 +20,9 @@ const NavLink: FunctionComponent<{ href: string; text: string }> = ({
   return (
     <Link href={href}>
       <a
-        className={`no-underline rounded p-2 ${isActive ? 'bg-gray-400' : ''}`}
+        className={`no-underline rounded p-2 text-lg hover:text-cyan-600 ${
+          hasActiveState && isActive ? 'bg-gray-400' : ''
+        }`}
       >
         {text}
       </a>
@@ -28,41 +31,42 @@ const NavLink: FunctionComponent<{ href: string; text: string }> = ({
 };
 
 export const Header = () => {
-  const { mode, updateMode } = usePerfectDarkMode();
+  const { colorTheme, setColorTheme } = useColorTheme();
 
   return (
     <div>
       <ContentWrapper>
-        <nav className="flex flex-wrap items-center border-b-1 border-gray-400">
+        <nav className="flex flex-wrap items-center text-lg">
           <span className="flex-1 mr-4">
             <NavLink href="/" text="Kyle Pollich" />
           </span>
 
           <ul className="p-0 list-none flex items-end m0">
             <li className="mr-1">
-              <NavLink href="/blog" text="Blog" />
+              <NavLink href="/blog" text="Blog" hasActiveState />
             </li>
 
             <li className="mr-1">
               <button
                 className="border-none bg-none text-current flex"
                 onClick={() =>
-                  updateMode((mode) =>
-                    mode === 'dark' ? colors.white : colors.black
-                  )
+                  setColorTheme(colorTheme === 'light' ? 'dark' : 'light')
                 }
                 title={
-                  mode === 'dark'
+                  colorTheme === 'dark'
                     ? 'Switch to light mode'
                     : 'Switch to dark mode'
                 }
               >
-                {mode === 'dark' ? (
-                  <Sun color={mode === 'dark' ? colors.white : colors.black} />
+                {colorTheme === 'dark' ? (
+                  <Sun
+                    color={colorTheme === 'dark' ? colors.white : colors.black}
+                  />
                 ) : (
                   <Moon
                     style={{
-                      visibility: mode === undefined ? 'hidden' : 'visible',
+                      visibility:
+                        colorTheme === undefined ? 'hidden' : 'visible',
                     }}
                   />
                 )}

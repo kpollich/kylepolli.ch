@@ -1,14 +1,16 @@
+const colors = require('tailwindcss/colors');
+
 module.exports = {
   purge: [
     './src/components/**/*.{js,ts,jsx,tsx}',
     './src/pages/**/*.{js,ts,jsx,tsx}',
+    './src/layouts/**/*.{js,ts,jsx,tsx}',
   ],
-  darkMode: 'media', // 'media' or 'class'
+  darkMode: 'class',
   theme: {
-    extend: {
-      colors: {
-        'accent-1': '#333',
-      },
+    colors: {
+      ...colors,
+      gray: colors.trueGray,
     },
   },
   variants: {
