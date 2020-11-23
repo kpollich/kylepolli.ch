@@ -9,7 +9,7 @@ const IndexPage: React.FunctionComponent = () => {
   return (
     <Layout>
       <MetaTags
-        title="Kyle Pollich | Lancaster, PA Full Stack Developer"
+        title="Lancaster, PA Full Stack Developer"
         description="Senior full stack developer focused on React, TypeScript, and web technologies"
       />
 
