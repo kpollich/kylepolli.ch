@@ -24,7 +24,13 @@ export const ColorThemeProvider: FunctionComponent = ({ children }) => {
   const localStorageKey = 'theme';
 
   useEffect(() => {
-    setColorTheme(window.localStorage.getItem(localStorageKey));
+    const fromLocalStorage = window.localStorage.getItem(
+      localStorageKey
+    ) as ColorTheme | null;
+
+    if (fromLocalStorage) {
+      setColorTheme(fromLocalStorage);
+    }
   }, []);
 
   useEffect(() => {
