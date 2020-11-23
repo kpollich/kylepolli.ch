@@ -1,7 +1,7 @@
-import styled from 'styled-components';
+import { FunctionComponent } from 'react';
 
-export const ContentWrapper = styled.section`
-  max-width: 1024px;
-  margin: auto;
-  padding: 2rem;
-`;
+const ContentWrapper: FunctionComponent = ({ children }) => {
+  return <section className="max-w-screen-lg p-8 m-auto">{children}</section>;
+};
+
+export default ContentWrapper;

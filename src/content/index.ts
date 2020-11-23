@@ -68,8 +68,6 @@ async function renderMdxForFile(filePath: string) {
   const fileContents = fs.readFileSync(filePath).toString();
   const { content, data } = matter(fileContents);
 
-  console.log(content);
-
   const mdxContent = await renderToString(content, {
     scope: data,
     mdxOptions: {

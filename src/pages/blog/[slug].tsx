@@ -2,7 +2,6 @@ import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
 import Image from 'next/image';
-import styled from 'styled-components';
 import hydrate from 'next-mdx-remote/hydrate';
 
 import {
@@ -12,32 +11,6 @@ import {
 import { MetaTags } from '../../components/MetaTags';
 import { Layout } from '../../layouts';
 import { getAllPostSlugs, renderMdxForPostSlug } from '../../content';
-
-const MarkdownContentWrapper = styled.article`
-  img {
-    width: 100%;
-  }
-
-  ul {
-    word-break: break-all;
-  }
-`;
-
-const Banner = styled.div`
-  margin-bottom: 2rem;
-
-  .credit {
-    color: ${(props) => props.theme.colors.darkgrey};
-  }
-`;
-
-const Title = styled.h1`
-  margin-bottom: 0.75rem;
-`;
-
-const Subtitle = styled.h3`
-  margin-top: 0;
-`;
 
 interface Props {
   content: any;
@@ -65,40 +38,51 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
         article
       />
       <EnterTransition>
-        <section>
+        <section className="max-w-screen-lg m-auto">
           {frontMatter.image && (
-            <Banner as={motion.div} variants={childVariants}>
+            <motion.div variants={childVariants} className="mb-4">
+              <h1 className="mb-8 text-5xl leading-none font-extrabold text-center">
+                {frontMatter.title}
+              </h1>
+
               <Image
+                className="rounded"
                 src={frontMatter.image}
                 alt={frontMatter.imageAlt}
                 height={576}
                 width={1024}
               />
               {frontMatter.imageCreditText && (
-                <em className="credit">
+                <em className="text-gray-500">
                   Photo by{' '}
-                  <a href={frontMatter.imageCreditLink}>
+                  <a
+                    className="text-gray-500 no-underline"
+                    href={frontMatter.imageCreditLink}
+                  >
                     {frontMatter.imageCreditText}
                   </a>
                 </em>
               )}
-            </Banner>
+            </motion.div>
           )}
 
           <motion.div variants={childVariants}>
-            <Title>{frontMatter.title}</Title>
-            <Subtitle>{frontMatter.subtitle}</Subtitle>
+            <h2 className="mb-4 text-2xl leading-none font-semibold">
+              {frontMatter.subtitle}
+            </h2>
 
-            <time>
+            <time className="italic">
               {format(new Date(frontMatter.datePublished), 'MMMM do, yyyy')}
             </time>
 
-            <hr />
+            <hr className="border-cyan-600 mt-4 mb-10" />
           </motion.div>
         </section>
 
         <motion.div variants={childVariants}>
-          <MarkdownContentWrapper>{mdxContent}</MarkdownContentWrapper>
+          <article className="markdown-content max-w-screen-lg m-auto text-lg">
+            {mdxContent}
+          </article>
         </motion.div>
       </EnterTransition>
     </Layout>

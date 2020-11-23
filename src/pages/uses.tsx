@@ -1,21 +1,10 @@
 import matter from 'gray-matter';
-import styled from 'styled-components';
 import hydrate from 'next-mdx-remote/hydrate';
 import renderToString from 'next-mdx-remote/render-to-string';
 
 import { Layout } from '../layouts';
 import { MetaTags } from '../components/MetaTags';
 import { getUsesContent } from '../content';
-
-const Content = styled.div`
-  p {
-    margin: 0;
-  }
-
-  img {
-    width: 100%;
-  }
-`;
 
 interface Props {
   source: any;
@@ -41,7 +30,7 @@ const UsesPage: React.FunctionComponent<Props> = ({ source }) => {
           and gadgets, so don't consider this list exhaustive or complete.
         </p>
 
-        <Content>{mdxContent}</Content>
+        <article>{mdxContent}</article>
       </section>
     </Layout>
   );
