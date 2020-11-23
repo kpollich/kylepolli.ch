@@ -8,10 +8,14 @@ const IndexPage: React.FunctionComponent = () => {
   return (
     <Layout>
       <EnterTransition>
-        <div className="text-lg">
+        <div>
           <motion.section variants={childVariants} className="text-center">
-            <h1 className="mb-2 text-5xl">Kyle Pollich</h1>
-            <h2 className="mb-4 text-3xl">Full Stack Developer</h2>
+            <h1 className="mb-2 text-5xl leading-none font-extrabold">
+              Kyle Pollich
+            </h1>
+            <h2 className="mb-4 text-3xl leading-none font-semibold">
+              Full Stack Developer
+            </h2>
           </motion.section>
 
           <motion.div
@@ -51,7 +55,7 @@ const IndexPage: React.FunctionComponent = () => {
 
           <motion.section
             variants={childVariants}
-            className="max-w-screen-md mx-auto text-center"
+            className="max-w-screen-md mx-auto text-center text-xl"
           >
             <p>
               I'm Kyle Pollich. I'm a full stack developer from Lancaster, PA. I
@@ -61,8 +65,14 @@ const IndexPage: React.FunctionComponent = () => {
 
             <p className="mt-4">
               I'm currently a Software Engineer at{' '}
-              <a href="https://www.ridwell.com">Ridwell</a>, a Seattle-based
-              startup that makes it easy to recycle more and waste less.
+              <a
+                href="https://www.ridwell.com"
+                className="hover:text-cyan-600 underline"
+              >
+                Ridwell
+              </a>
+              , a Seattle-based startup that makes it easy to recycle more and
+              waste less.
             </p>
 
             <p className="my-4">

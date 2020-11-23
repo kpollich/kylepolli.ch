@@ -38,8 +38,11 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
       />
 
       <EnterTransition>
-        <section className="flex flex-col items-center max-w-screen-lg m-auto">
-          <motion.h1 variants={childVariants} className="text-4xl mb-4">
+        <section className="flex flex-col items-center max-w-screen-md m-auto">
+          <motion.h1
+            variants={childVariants}
+            className="text-5xl mb-12 font-extrabold"
+          >
             Blog Posts
           </motion.h1>
 
@@ -55,21 +58,22 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
                 <motion.li
                   variants={childVariants}
                   key={post.slug}
-                  className="mb-24 last:mb-0 text-lg"
+                  className="mb-24 last:mb-0"
                 >
                   <Link href={`/blog/${post.slug}`}>
                     <a className="no-underline">
                       <Image
+                        className="m-auto"
                         src={post.frontMatter.image ?? ''}
                         alt={post.frontMatter.imageAlt}
-                        width={960}
-                        height={540}
+                        width={768}
+                        height={432}
                       />
                     </a>
                   </Link>
                   <h3>
                     <Link href={`/blog/${post.slug}`}>
-                      <a className="no-underline text-2xl">
+                      <a className="no-underline text-2xl font-bold">
                         {post.frontMatter.title}
                       </a>
                     </Link>
@@ -80,7 +84,7 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
                       'MMMM do, yyyy'
                     )}
                   </time>
-                  <p className="mt-8 mb-4">{post.excerpt}</p>
+                  <p className="mt-8 mb-4 text-lg">{post.excerpt}</p>
                   <div>
                     <Link href={`/blog/${post.slug}`}>
                       <a className="underline inline-flex items-center">

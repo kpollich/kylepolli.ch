@@ -20,7 +20,7 @@ const NavLink: FunctionComponent<{
   return (
     <Link href={href}>
       <a
-        className={`no-underline text-lg hover:text-cyan-600 ${
+        className={`no-underline text-lg hover:text-cyan-600 font-semibold ${
           hasActiveState && isActive ? 'border-b-2 border-cyan-600' : ''
         }`}
       >
@@ -36,12 +36,12 @@ export const Header = () => {
   return (
     <div>
       <ContentWrapper>
-        <nav className="flex flex-wrap items-center text-lg">
+        <nav className="flex flex-wrap items-center text-lg my-4 mx-auto max-w-screen-lg">
           <span className="flex-1 mr-4">
             <NavLink href="/" text="Kyle Pollich" />
           </span>
 
-          <ul className="p-0 list-none flex items-end m0">
+          <ul className="p-0 list-none flex items-center m0">
             <li className="mr-3">
               <NavLink href="/blog" text="Blog" hasActiveState />
             </li>

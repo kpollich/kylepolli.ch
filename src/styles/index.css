@@ -6,6 +6,59 @@ body {
   @apply dark:bg-gray-800 dark:text-white transition-colors;
 }
 
+.markdown-content h1 {
+  @apply text-5xl font-extrabold mb-4;
+}
+
+.markdown-content h2 {
+  @apply text-3xl font-bold mb-4;
+}
+
+.markdown-content h3 {
+  @apply text-2xl font-bold mb-4;
+}
+
+.markdown-content h4 {
+  @apply text-xl font-bold mb-4;
+}
+
+.markdown-content pre {
+  @apply rounded mb-4;
+}
+
+.markdown-content p {
+  @apply mb-8;
+}
+
+.markdown-content li {
+  @apply list-disc;
+}
+
+.markdown-content a {
+  @apply underline hover:text-cyan-600;
+}
+
+.markdown-content img {
+  @apply rounded;
+}
+
+.markdown-content hr {
+  @apply border-cyan-600 mt-4 mb-10;
+}
+
+.markdown-content blockquote {
+  @apply italic pl-4 relative;
+}
+
+.markdown-content blockquote:before {
+  @apply bg-cyan-600 rounded h-full left-0 absolute w-2;
+  content: '';
+}
+
+* > :not(pre) > code {
+  @apply p-0.5 rounded bg-gray-300 dark:bg-gray-600;
+}
+
 /* Start purging... */
 @tailwind components;
 /* Stop purging. */

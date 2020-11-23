@@ -1,5 +1,4 @@
 import matter from 'gray-matter';
-import styled from 'styled-components';
 import hydrate from 'next-mdx-remote/hydrate';
 import renderToString from 'next-mdx-remote/render-to-string';
 

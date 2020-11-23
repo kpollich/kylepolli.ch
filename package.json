@@ -22,7 +22,6 @@
     "react-feather": "^2.0.8",
     "remark-slug": "^6.0.0",
     "slugify": "^1.4.5",
-    "styled-components": "^5.2.0",
     "tailwindcss": "^2.0.1"
   },
   "license": "MIT",

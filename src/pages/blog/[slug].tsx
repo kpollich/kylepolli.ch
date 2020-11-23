@@ -38,10 +38,15 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
         article
       />
       <EnterTransition>
-        <section>
+        <section className="max-w-screen-lg m-auto">
           {frontMatter.image && (
             <motion.div variants={childVariants} className="mb-4">
+              <h1 className="mb-8 text-5xl leading-none font-extrabold text-center">
+                {frontMatter.title}
+              </h1>
+
               <Image
+                className="rounded"
                 src={frontMatter.image}
                 alt={frontMatter.imageAlt}
                 height={576}
@@ -62,19 +67,22 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
           )}
 
           <motion.div variants={childVariants}>
-            <h1 className="mb-3">{frontMatter.title}</h1>
-            <h2 className="mt-0">{frontMatter.subtitle}</h2>
+            <h2 className="mb-4 text-2xl leading-none font-semibold">
+              {frontMatter.subtitle}
+            </h2>
 
-            <time>
+            <time className="italic">
               {format(new Date(frontMatter.datePublished), 'MMMM do, yyyy')}
             </time>
 
-            <hr />
+            <hr className="border-cyan-600 mt-4 mb-10" />
           </motion.div>
         </section>
 
         <motion.div variants={childVariants}>
-          <article>{mdxContent}</article>
+          <article className="markdown-content max-w-screen-lg m-auto text-lg">
+            {mdxContent}
+          </article>
         </motion.div>
       </EnterTransition>
     </Layout>
