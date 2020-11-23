@@ -11,8 +11,8 @@ const defaults = {
 };
 
 interface Props {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
   article?: boolean;
 }
@@ -26,7 +26,7 @@ export const MetaTags: React.FC<Props> = ({
   const { pathname } = useRouter();
 
   const seo = {
-    title: title || defaults.title,
+    title: title ? `Kyle Pollich | ${title}` : defaults.title,
     description: description || defaults.description,
     image: `${SITE_URL}${image || defaults.image}`,
     url: `${SITE_URL}${pathname}`,
@@ -34,7 +34,7 @@ export const MetaTags: React.FC<Props> = ({
 
   return (
     <Head>
-      <title>Kyle Pollich | {title}</title>
+      <title>{seo.title}</title>
       <meta name="description" content={seo.description} />
 
       <meta name="image" content={seo.image} />

@@ -3,10 +3,13 @@ import { GitHub, Linkedin, Twitter } from 'react-feather';
 
 import { Layout } from '../layouts';
 import { EnterTransition, childVariants } from '../components/EnterTransition';
+import { MetaTags } from '../components/MetaTags';
 
 const IndexPage: React.FunctionComponent = () => {
   return (
     <Layout>
+      <MetaTags />
+
       <EnterTransition>
         <div>
           <motion.section variants={childVariants} className="text-center">
