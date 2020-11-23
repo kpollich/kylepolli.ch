@@ -36,9 +36,12 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
         title="Blog"
         description="Where I blog about web technologies and software engineering culture."
       />
+
       <EnterTransition>
-        <section className="flex flex-col items-center max-w-xl m-auto">
-          <motion.h1 variants={childVariants}>Blog Posts</motion.h1>
+        <section className="flex flex-col items-center max-w-screen-lg m-auto">
+          <motion.h1 variants={childVariants} className="text-4xl mb-4">
+            Blog Posts
+          </motion.h1>
 
           <ul className="list-none p-0">
             {posts
@@ -52,30 +55,32 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
                 <motion.li
                   variants={childVariants}
                   key={post.slug}
-                  className="mb-24 last:mb-0"
+                  className="mb-24 last:mb-0 text-lg"
                 >
                   <Link href={`/blog/${post.slug}`}>
                     <a className="no-underline">
                       <Image
                         src={post.frontMatter.image ?? ''}
                         alt={post.frontMatter.imageAlt}
-                        width={800}
-                        height={450}
+                        width={960}
+                        height={540}
                       />
                     </a>
                   </Link>
                   <h3>
                     <Link href={`/blog/${post.slug}`}>
-                      <a className="no-underline">{post.frontMatter.title}</a>
+                      <a className="no-underline text-2xl">
+                        {post.frontMatter.title}
+                      </a>
                     </Link>
                   </h3>
-                  <time>
+                  <time className="italic text-base">
                     {format(
                       new Date(post.frontMatter.datePublished),
                       'MMMM do, yyyy'
                     )}
                   </time>
-                  <p>{post.excerpt}</p>
+                  <p className="mt-8 mb-4">{post.excerpt}</p>
                   <div>
                     <Link href={`/blog/${post.slug}`}>
                       <a className="underline inline-flex items-center">

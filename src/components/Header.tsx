@@ -20,8 +20,8 @@ const NavLink: FunctionComponent<{
   return (
     <Link href={href}>
       <a
-        className={`no-underline rounded p-2 text-lg hover:text-cyan-600 ${
-          hasActiveState && isActive ? 'bg-gray-400' : ''
+        className={`no-underline text-lg hover:text-cyan-600 ${
+          hasActiveState && isActive ? 'border-b-2 border-cyan-600' : ''
         }`}
       >
         {text}
@@ -42,11 +42,11 @@ export const Header = () => {
           </span>
 
           <ul className="p-0 list-none flex items-end m0">
-            <li className="mr-1">
+            <li className="mr-3">
               <NavLink href="/blog" text="Blog" hasActiveState />
             </li>
 
-            <li className="mr-1">
+            <li>
               <button
                 className="border-none bg-none text-current flex"
                 onClick={() =>
