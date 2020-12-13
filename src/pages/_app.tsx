@@ -1,33 +1,20 @@
 import Head from 'next/head';
+import { ThemeProvider } from 'next-themes';
 import type { AppProps } from 'next/app';
 import 'prism-theme-night-owl';
 
 import '../styles/index.css';
-import { ColorThemeProvider } from '../context/ColorThemeContext';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-
-              if (localStorage.theme === "dark" || (!localStorage.theme && prefersDark)) {
-                document.querySelector('html').classList.add('dark');
-              } else {
-                document.querySelector('html').classList.add('light');
-              }`,
-          }}
-        />
-
         <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
-      <ColorThemeProvider>
+      <ThemeProvider attribute="class">
         <Component {...pageProps} />
-      </ColorThemeProvider>
+      </ThemeProvider>
     </>
   );
 }

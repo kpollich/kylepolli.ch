@@ -14,6 +14,7 @@
     "gray-matter": "^4.0.2",
     "next": "^10.0.2",
     "next-mdx-remote": "^1.0.0",
+    "next-themes": "^0.0.10",
     "polished": "^3.6.6",
     "prism-theme-night-owl": "^1.4.0",
     "prismjs": "^1.21.0",

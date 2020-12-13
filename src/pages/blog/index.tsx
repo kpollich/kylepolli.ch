@@ -88,7 +88,7 @@ const BlogPage: React.FunctionComponent<Props> = ({ posts }) => {
                   <div>
                     <Link href={`/blog/${post.slug}`}>
                       <a className="underline inline-flex items-center">
-                        <span className="mr-1">Read</span>{' '}
+                        <span className="mr-1 hover:text-cyan-600">Read</span>{' '}
                         <ArrowRight size={20} />
                       </a>
                     </Link>

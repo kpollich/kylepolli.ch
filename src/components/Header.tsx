@@ -1,10 +1,10 @@
+import { useTheme } from 'next-themes';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useEffect, useState } from 'react';
 import { Moon, Sun } from 'react-feather';
 import colors from 'tailwindcss/colors';
 
-import { useColorTheme } from '../context/ColorThemeContext';
 import ContentWrapper from './ContentWrapper';
 
 const NavLink: FunctionComponent<{
@@ -31,7 +31,12 @@ const NavLink: FunctionComponent<{
 };
 
 export const Header = () => {
-  const { colorTheme, setColorTheme } = useColorTheme();
+  const { theme, setTheme } = useTheme();
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <div>
@@ -47,30 +52,25 @@ export const Header = () => {
             </li>
 
             <li>
-              <button
-                className="border-none bg-none text-current flex"
-                onClick={() =>
-                  setColorTheme(colorTheme === 'light' ? 'dark' : 'light')
-                }
-                title={
-                  colorTheme === 'dark'
-                    ? 'Switch to light mode'
-                    : 'Switch to dark mode'
-                }
-              >
-                {colorTheme === 'dark' ? (
-                  <Sun
-                    color={colorTheme === 'dark' ? colors.white : colors.black}
-                  />
-                ) : (
-                  <Moon
-                    style={{
-                      visibility:
-                        colorTheme === undefined ? 'hidden' : 'visible',
-                    }}
-                  />
-                )}
-              </button>
+              {isMounted && (
+                <button
+                  className="border-none bg-none text-current flex"
+                  onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                  title={
+                    theme === 'dark'
+                      ? 'Switch to light mode'
+                      : 'Switch to dark mode'
+                  }
+                >
+                  {theme === 'dark' ? (
+                    <Sun
+                      color={theme === 'dark' ? colors.white : colors.black}
+                    />
+                  ) : (
+                    <Moon />
+                  )}
+                </button>
+              )}
             </li>
           </ul>
         </nav>
