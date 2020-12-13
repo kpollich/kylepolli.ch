@@ -3,7 +3,7 @@
 /* Write your own custom base styles here */
 
 body {
-  @apply dark:bg-gray-800 dark:text-white transition-colors;
+  @apply dark:bg-gray-800 dark:text-white;
 }
 
 .markdown-content h1 {

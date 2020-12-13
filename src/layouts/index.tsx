@@ -22,11 +22,9 @@ export const Layout: React.FunctionComponent = ({ children }) => {
         />
       </Head>
 
-      <div className="transition-colors">
-        <Header />
+      <Header />
 
-        <ContentWrapper>{children}</ContentWrapper>
-      </div>
+      <ContentWrapper>{children}</ContentWrapper>
     </>
   );
 };
