@@ -1,13 +1,9 @@
 import Head from 'next/head';
-import { useTheme } from 'next-themes';
-import colors from 'tailwindcss/colors';
 
 import ContentWrapper from '../components/ContentWrapper';
 import { Header } from '../components/Header';
 
 export const Layout: React.FunctionComponent = ({ children }) => {
-  const { theme } = useTheme();
-
   return (
     <>
       <Head>
@@ -23,10 +19,6 @@ export const Layout: React.FunctionComponent = ({ children }) => {
         <meta
           name="description"
           content="Kyle Pollich - Full Stack Developer"
-        />
-        <meta
-          name="theme-color"
-          content={theme === 'light' ? colors.white : colors.gray[800]}
         />
       </Head>
 
