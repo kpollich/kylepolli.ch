@@ -53,7 +53,7 @@ export const Header = () => {
 
             <li>
               <button
-                className="border-none dark:bg-gray-600 bg-gray-300 p-1 rounded text-current flex"
+                className="border-none dark:bg-gray-600 bg-gray-300 p-1 rounded text-current flex h-8 w-8 items-center justify-center"
                 onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
                 title={
                   theme === 'dark'
