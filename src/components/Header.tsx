@@ -52,25 +52,24 @@ export const Header = () => {
             </li>
 
             <li>
-              {isMounted && (
-                <button
-                  className="border-none bg-none text-current flex"
-                  onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-                  title={
-                    theme === 'dark'
-                      ? 'Switch to light mode'
-                      : 'Switch to dark mode'
-                  }
-                >
-                  {theme === 'dark' ? (
+              <button
+                className="border-none dark:bg-gray-600 bg-gray-300 p-1 rounded text-current flex"
+                onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                title={
+                  theme === 'dark'
+                    ? 'Switch to light mode'
+                    : 'Switch to dark mode'
+                }
+              >
+                {isMounted &&
+                  (theme === 'dark' ? (
                     <Sun
                       color={theme === 'dark' ? colors.white : colors.black}
                     />
                   ) : (
                     <Moon />
-                  )}
-                </button>
-              )}
+                  ))}
+              </button>
             </li>
           </ul>
         </nav>
