@@ -7,27 +7,27 @@ body {
 }
 
 .markdown-content h1 {
-  @apply text-5xl font-extrabold mb-4;
+  @apply text-5xl font-extrabold my-4;
 }
 
 .markdown-content h2 {
-  @apply text-3xl font-bold mb-4;
+  @apply text-3xl font-bold my-4;
 }
 
 .markdown-content h3 {
-  @apply text-2xl font-bold mb-4;
+  @apply text-2xl font-bold my-4;
 }
 
 .markdown-content h4 {
-  @apply text-xl font-bold mb-4;
+  @apply text-xl font-bold my-4;
 }
 
 .markdown-content pre {
-  @apply rounded mb-4;
+  @apply rounded my-8;
 }
 
 .markdown-content p {
-  @apply mb-8;
+  @apply my-8;
 }
 
 .markdown ul {
