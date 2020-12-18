@@ -55,10 +55,10 @@ export function renderMdxForPostSlug(slug: string) {
 }
 
 /**
- * Get content for the /uses page
+ * Render MDX content for /uses
  */
-export function getUsesContent() {
-  return fs.readFileSync(path.resolve(USES_PATH, 'uses.mdx')).toString();
+export function renderMdxForUses() {
+  return renderMdxForFile(path.resolve(USES_PATH, 'uses.mdx'));
 }
 
 /**

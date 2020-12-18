@@ -4,15 +4,15 @@ import renderToString from 'next-mdx-remote/render-to-string';
 
 import { Layout } from '../layouts';
 import { MetaTags } from '../components/MetaTags';
-import { getUsesContent } from '../content';
+import { renderMdxForPostSlug, renderMdxForUses } from '../content';
 
 interface Props {
-  source: any;
-  frontMatter: any;
+  content: any;
+  frontMatter?: any;
 }
 
-const UsesPage: React.FunctionComponent<Props> = ({ source }) => {
-  const mdxContent = hydrate(source, { components: {} });
+const UsesPage: React.FunctionComponent<Props> = ({ content }) => {
+  const mdxContent = hydrate(content, { components: {} });
 
   return (
     <Layout>
@@ -30,25 +30,23 @@ const UsesPage: React.FunctionComponent<Props> = ({ source }) => {
           and gadgets, so don't consider this list exhaustive or complete.
         </p>
 
-        <article>{mdxContent}</article>
+        <article className="markdown-content max-w-screen-lg m-auto text-lg">
+          {mdxContent}
+        </article>
       </section>
     </Layout>
   );
 };
 
-export async function getStaticProps() {
-  const usesContent = getUsesContent();
+export const getStaticProps = async () => {
+  const { mdxContent, frontMatter } = await renderMdxForUses();
 
-  const { content, data } = matter(usesContent);
-  const mdxContent = await renderToString(content, {
-    scope: data,
-    mdxOptions: {
-      remarkPlugins: [require('remark-slug')],
-      rehypePlugins: [require('@mapbox/rehype-prism')],
+  return {
+    props: {
+      content: mdxContent,
+      frontMatter,
     },
-  });
-
-  return { props: { source: mdxContent, frontMatter: data } };
-}
+  };
+};
 
 export default UsesPage;

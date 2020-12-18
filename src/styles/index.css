@@ -30,6 +30,14 @@ body {
   @apply mb-8;
 }
 
+.markdown ul {
+  @apply list-inside;
+}
+
+.markdown-content ul ul {
+  @apply pl-8 list-inside;
+}
+
 .markdown-content li {
   @apply list-disc;
 }
