@@ -16,8 +16,10 @@ const IndexPage: React.FunctionComponent = () => {
       <EnterTransition>
         <div>
           <motion.section variants={childVariants} className="text-center">
-            <h1 className="mb-2 text-5xl leading-none font-extrabold">
-              Kyle Pollich
+            <h1 className="text-9xl text-white font-bold mx-auto max-w-6xl mb-2">
+              <span className="text-transparent bg-gradient-to-r bg-clip-text from-cyan-600 to-purple-500">
+                Kyle Pollich
+              </span>
             </h1>
             <h2 className="mb-4 text-3xl leading-none font-semibold">
               Full Stack Developer

@@ -8,9 +8,11 @@ module.exports = {
   ],
   darkMode: 'class',
   theme: {
-    colors: {
-      ...colors,
-      gray: colors.trueGray,
+    extend: {
+      colors: {
+        gray: colors.trueGray,
+        cyan: colors.cyan,
+      },
     },
   },
   variants: {
