@@ -80,7 +80,7 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
         </section>
 
         <motion.div variants={childVariants}>
-          <article className="markdown-content max-w-screen-lg m-auto text-lg">
+          <article className="prose prose-lg dark:prose-light max-w-screen-lg m-auto">
             {mdxContent}
           </article>
         </motion.div>
