@@ -29,7 +29,8 @@
     "dev": "next dev",
     "format": "prettier --write '**/*.{js,ts,tsx,md,mdx}'",
     "lint": "eslint src --ext .ts --ext .tsx",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.{ts,tsx,json,css}": [
@@ -52,10 +53,5 @@
     "prettier": "^2.2.1",
     "prompts": "^2.4.1",
     "typescript": "^4.2.4"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
