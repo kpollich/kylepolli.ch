@@ -1,7 +1,7 @@
 import fs from 'fs';
-import matter, { GrayMatterOption } from 'gray-matter';
+import matter from 'gray-matter';
 import path from 'path';
-import renderToString from 'next-mdx-remote/render-to-string';
+import { serialize } from 'next-mdx-remote/serialize';
 
 export const CONTENT_PATH = 'src/content';
 export const POSTS_PATH = path.join(CONTENT_PATH, 'posts');
@@ -68,7 +68,7 @@ async function renderMdxForFile(filePath: string) {
   const fileContents = fs.readFileSync(filePath).toString();
   const { content, data } = matter(fileContents);
 
-  const mdxContent = await renderToString(content, {
+  const mdxContent = await serialize(content, {
     scope: data,
     mdxOptions: {
       remarkPlugins: [require('remark-slug')],

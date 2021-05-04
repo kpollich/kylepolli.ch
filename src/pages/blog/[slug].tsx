@@ -2,7 +2,8 @@ import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import { NextPage } from 'next';
 import Image from 'next/image';
-import hydrate from 'next-mdx-remote/hydrate';
+import { MDXRemote } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
 
 import {
   childVariants,
@@ -27,8 +28,6 @@ interface Props {
 }
 
 const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
-  const mdxContent = hydrate(content, { components: {} });
-
   return (
     <Layout>
       <MetaTags
@@ -81,7 +80,7 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
 
         <motion.div variants={childVariants}>
           <article className="prose prose-lg dark:prose-light max-w-screen-lg m-auto">
-            {mdxContent}
+            <MDXRemote {...content} components={{}} />
           </article>
         </motion.div>
       </EnterTransition>

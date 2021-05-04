@@ -72,15 +72,27 @@ const IndexPage: React.FunctionComponent = () => {
             </p>
 
             <p className="mt-4">
-              I'm currently a Software Engineer at{' '}
+              I'm currently a Senior JavaScript Engineer at{' '}
               <a
-                href="https://www.ridwell.com"
+                href="https://www.elastic.co/"
                 className="hover:text-cyan-600 underline"
+                target="_blank"
+                rel="noopener"
               >
-                Ridwell
+                Elastic
+              </a>{' '}
+              working on{' '}
+              <a
+                href="https://www.elastic.co/guide/en/fleet/current/fleet-overview.html"
+                target="_blank"
+                rel="noopener"
+                className="underline hover:text-cyan-600"
+              >
+                Fleet
               </a>
-              , a Seattle-based startup that makes it easy to recycle more and
-              waste less.
+              , a single, unified way to add monitoring for logs, metrics, and
+              other types of data from your infrastructure to your Elastic
+              stack.
             </p>
 
             <p className="my-4">

@@ -1,10 +1,8 @@
-import matter from 'gray-matter';
-import hydrate from 'next-mdx-remote/hydrate';
-import renderToString from 'next-mdx-remote/render-to-string';
+import { MDXRemote } from 'next-mdx-remote';
 
 import { Layout } from '../layouts';
 import { MetaTags } from '../components/MetaTags';
-import { renderMdxForPostSlug, renderMdxForUses } from '../content';
+import { renderMdxForUses } from '../content';
 
 interface Props {
   content: any;
@@ -12,8 +10,6 @@ interface Props {
 }
 
 const UsesPage: React.FunctionComponent<Props> = ({ content }) => {
-  const mdxContent = hydrate(content, { components: {} });
-
   return (
     <Layout>
       <MetaTags
@@ -30,7 +26,7 @@ const UsesPage: React.FunctionComponent<Props> = ({ content }) => {
           thoughts, and try to stay productive. I'm always trying out new apps
           and gadgets, so don't consider this list exhaustive or complete.
         </p>
-        {mdxContent}
+        <MDXRemote {...content} components={{}} />
       </article>
     </Layout>
   );

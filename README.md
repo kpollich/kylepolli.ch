@@ -6,14 +6,14 @@ Built with [Next](https://nextjs.org/) + [Tailwind](https://tailwindcss.com/) an
 
 ## Running locally
 
-1.  Install dependencies with [yarn](https://yarnpkg.com/)
+1. Install dependencies via `npm`
 
 ```sh
-$ yarn
+$ npm i
 ```
 
-2.  Start the local development server on `localhost:8000` with `gatsby develop`
+2. Start the local Next.js server
 
 ```sh
-$ yarn dev
+$ npm run dev
 ```
