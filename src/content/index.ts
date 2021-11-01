@@ -2,6 +2,7 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
 import { serialize } from 'next-mdx-remote/serialize';
+import rehypeSlug from 'rehype-slug';
 
 export const CONTENT_PATH = 'src/content';
 export const POSTS_PATH = path.join(CONTENT_PATH, 'posts');
@@ -71,8 +72,7 @@ async function renderMdxForFile(filePath: string) {
   const mdxContent = await serialize(content, {
     scope: data,
     mdxOptions: {
-      remarkPlugins: [require('remark-slug')],
-      rehypePlugins: [require('@mapbox/rehype-prism')],
+      rehypePlugins: [require('@mapbox/rehype-prism'), rehypeSlug],
     },
   });
 
