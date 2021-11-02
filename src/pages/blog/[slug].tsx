@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import { MDXRemote } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
 
 import {
   childVariants,
