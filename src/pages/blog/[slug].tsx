@@ -36,7 +36,7 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
         article
       />
       <EnterTransition>
-        <section className="max-w-screen-lg m-auto">
+        <section className="max-w-screen-lg m-auto dark:prose-invert">
           {frontMatter.image && (
             <motion.div variants={childVariants} className="mb-4">
               <h1 className="mb-8 text-5xl leading-none font-extrabold text-center">
@@ -78,7 +78,7 @@ const PostPage: NextPage<Props> = ({ content, frontMatter }) => {
         </section>
 
         <motion.div variants={childVariants}>
-          <article className="prose prose-lg dark:prose-light max-w-screen-lg m-auto">
+          <article className="prose prose-lg dark:prose-invert max-w-screen-lg m-auto">
             <MDXRemote {...content} components={{}} />
           </article>
         </motion.div>

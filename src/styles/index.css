@@ -3,7 +3,7 @@
 /* Write your own custom base styles here */
 
 body {
-  @apply dark:bg-gray-800 dark:text-white;
+  @apply dark:bg-neutral-800 dark:text-white;
 }
 
 :not(pre) > code {

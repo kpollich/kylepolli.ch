@@ -22,7 +22,7 @@ const IndexPage: React.FunctionComponent = () => {
               </span>
             </h1>
             <h2 className="mb-4 text-3xl leading-none font-semibold">
-              Full Stack Developer
+              Full-Stack Software Engineer
             </h2>
           </motion.section>
 
@@ -63,11 +63,11 @@ const IndexPage: React.FunctionComponent = () => {
 
           <motion.section
             variants={childVariants}
-            className="max-w-screen-md mx-auto text-center text-xl"
+            className="max-w-screen-md mx-auto text-2xl leading-normal flex-col space-y-8"
           >
             <p>
-              I'm Kyle Pollich. I'm a full stack developer from Lancaster, PA. I
-              love working with web technologies, and I'm particularly
+              I'm Kyle Pollich, a full-stack software engineer from Lancaster,
+              PA. I love working with web technologies, and I'm particularly
               passionate about JavaScript development.
             </p>
 
@@ -90,9 +90,25 @@ const IndexPage: React.FunctionComponent = () => {
               >
                 Fleet
               </a>
-              , a single, unified way to add monitoring for logs, metrics, and
-              other types of data from your infrastructure to your Elastic
-              stack.
+              , a unified interface within{' '}
+              <a
+                href="https://www.elastic.co/kibana/"
+                target="_blank"
+                rel="noopener"
+                className="underline hover:text-cyan-600"
+              >
+                Kibana
+              </a>{' '}
+              for centrally managing{' '}
+              <a
+                href="https://www.elastic.co/guide/en/fleet/current/elastic-agent-installation.html"
+                target="_blank"
+                rel="noopener"
+                className="underline hover:text-cyan-600"
+              >
+                Elastic Agent
+              </a>
+              .
             </p>
 
             <p className="my-4">

@@ -8,14 +8,7 @@ export const Layout: React.FunctionComponent = ({ children }) => {
     <>
       <Head>
         <title>Kyle Pollich - Full Stack Developer</title>
-        <link
-          href="https://fonts.googleapis.com/css?family=Lato&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap"
-          rel="stylesheet"
-        />
+
         <meta
           name="description"
           content="Kyle Pollich - Full Stack Developer"
