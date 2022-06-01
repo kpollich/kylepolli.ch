@@ -72,7 +72,7 @@ const IndexPage: React.FunctionComponent = () => {
             </p>
 
             <p className="mt-4">
-              I'm currently a Senior Software Engineer at{' '}
+              I'm currently a Tech Lead at{' '}
               <a
                 href="https://www.elastic.co/"
                 className="hover:text-cyan-600 underline"
