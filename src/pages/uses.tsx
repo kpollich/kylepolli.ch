@@ -19,7 +19,7 @@ const UsesPage: React.FunctionComponent<Props> = ({ content }) => {
         and gadgets, so don't consider this list exhaustive or complete."
       />
 
-      <article className="prose prose-lg dark:prose-light max-w-screen-lg m-auto">
+      <article className="prose prose-lg dark:prose-invert max-w-screen-lg m-auto">
         <h1>Uses</h1>
         <p>
           These are some of the things I use to write code, organize my
