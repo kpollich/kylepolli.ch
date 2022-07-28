@@ -1,9 +1,7 @@
 import { FunctionComponent } from 'react';
 
-const ContentWrapper: FunctionComponent = ({
+const ContentWrapper: FunctionComponent<{ children: React.ReactNode }> = ({
   children,
-}: {
-  children?: React.ReactNode;
 }) => {
   return <section className="max-w-screen-lg p-8 m-auto">{children}</section>;
 };

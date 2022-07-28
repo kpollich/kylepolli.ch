@@ -1,4 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { ReactNode } from 'react';
 
 const variants = {
   hidden: {
@@ -30,7 +31,9 @@ export const childVariants = {
   },
 };
 
-export const EnterTransition: React.FunctionComponent = ({ children }) => {
+export const EnterTransition: React.FunctionComponent<{
+  children: React.ReactNode;
+}> = ({ children }) => {
   return (
     <AnimatePresence exitBeforeEnter>
       <motion.div
