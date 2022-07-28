@@ -3,7 +3,9 @@ import Head from 'next/head';
 import ContentWrapper from '../components/ContentWrapper';
 import { Header } from '../components/Header';
 
-export const Layout: React.FunctionComponent = ({ children }) => {
+export const Layout: React.FunctionComponent<{ children: React.ReactNode }> = ({
+  children,
+}) => {
   return (
     <>
       <Head>
