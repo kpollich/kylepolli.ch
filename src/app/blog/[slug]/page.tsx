@@ -20,7 +20,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
   return (
-    <article className="py-8">
+    <article>
       <div>
         <h1 className="text-6xl font-bold max-w-4xl">{post.title}</h1>
         <Spacer size="xs" />
