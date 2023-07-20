@@ -1,0 +1,13 @@
+---
+const linkClass = "hover:text-cyan-600 decoration-cyan-600 underline-offset-4 decoration-2";
+---
+
+<nav class="flex space-x-2 px-16 py-8 text-lg">
+  <a href="/" class={Astro.url.pathname === "/" ? `${linkClass} underline` : linkClass}>Home</a>
+  <a
+    href="/blog"
+    class={Astro.url.pathname.startsWith("/blog") ? `${linkClass} underline` : linkClass}
+  >
+    Blog
+  </a>
+</nav>

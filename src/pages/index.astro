@@ -1,50 +1,122 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { GithubIcon, LinkedinIcon, TwitterIcon } from "astro-feather";
+
+import Spacer from "../components/Spacer.astro";
+import BaseLayout from "../layouts/BaseLayout.astro";
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header title={SITE_TITLE} />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/pages/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout>
+  <div>
+    <h1 class="text-6xl font-bold">Kyle Pollich</h1>
+
+    <Spacer size="xs" />
+
+    <h2 class="text-xl">Full stack software engineer</h2>
+
+    <Spacer size="small" />
+
+    <div class="flex space-x-4">
+      <a
+        title="GitHub"
+        href="https://github.com/kpollich"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-cyan-600"
+      >
+        <GithubIcon />
+      </a>
+
+      <a
+        title="LinkedIn"
+        href="https://www.linkedin.com/in/kyle-pollich/"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-cyan-600"
+      >
+        <LinkedinIcon />
+      </a>
+
+      <a
+        title="Twitter"
+        href="https://twitter.com/kylepollich"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-cyan-600"
+      >
+        <TwitterIcon />
+      </a>
+    </div>
+
+    <Spacer size="xs" />
+
+    <hr class="max-w-lg border-t-2 border-cyan-600" />
+
+    <Spacer size="medium" />
+
+    <section class="max-w-2xl">
+      <p>{`I'm Kyle Pollich, a full-stack software engineer from Lancaster, PA. `}</p>
+
+      <p class="mt-4">
+        {`I'm currently a Tech Lead at `}
+        <a
+          href="https://www.elastic.co/"
+          class="hover:text-cyan-600 underline"
+          target="_blank"
+          rel="noopener"
+        >
+          Elastic
+        </a>{" "}
+        working on{" "}
+        <a
+          href="https://www.elastic.co/guide/en/fleet/current/fleet-overview.html"
+          target="_blank"
+          rel="noopener"
+          class="underline hover:text-cyan-600"
+        >
+          Fleet
+        </a>
+        , a unified interface within{" "}
+        <a
+          href="https://www.elastic.co/kibana/"
+          target="_blank"
+          rel="noopener"
+          class="underline hover:text-cyan-600"
+        >
+          Kibana
+        </a>{" "}
+        for centrally managing{" "}
+        <a
+          href="https://www.elastic.co/guide/en/fleet/current/elastic-agent-installation.html"
+          target="_blank"
+          rel="noopener"
+          class="underline hover:text-cyan-600"
+        >
+          Elastic Agent
+        </a>
+        .
+      </p>
+
+      <p class="my-4">
+        {`If you're interested in my professional work, head over to my `}
+        <a
+          href="https://www.linkedin.com/in/kyle-pollich/"
+          target="_blank"
+          rel="noopener"
+          class="underline hover:text-cyan-600"
+        >
+          LinkedIn
+        </a>{" "}
+        or{" "}
+        <a
+          href="https://www.github.com/kpollich"
+          target="_blank"
+          rel="noopener"
+          class="underline hover:text-cyan-600"
+        >
+          GitHub
+        </a>{" "}
+        profiles.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,21 @@
+---
+import "@fontsource/inter";
+
+import BaseHead from "../components/BaseHead.astro";
+import Navigation from "../components/Navigation.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Navigation />
+
+    <main class="flex min-h-screen flex-col px-16">
+      <slot />
+    </main>
+  </body>
+</html>
