@@ -1,11 +1,13 @@
 ---
+import { format } from "date-fns";
+
 import { getCollection } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Spacer from "../../components/Spacer.astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.date.valueOf() - b.data.date.valueOf()
-);
+const posts = (await getCollection("blog"))
+  .sort((a, b) => a.data.date.valueOf() - b.data.date.valueOf())
+  .reverse();
 ---
 
 <BaseLayout>
@@ -14,14 +16,19 @@ const posts = (await getCollection("blog")).sort(
 
     <Spacer size="medium" />
 
-    <ul>
+    <ul class="flex flex-col">
       {
         posts.map((post) => (
-          <li>
+          <li class="w-fit">
             <a href={`/blog/${post.slug}`} class="hover:text-cyan-600 text-2xl">
               <div>
                 <h3>{post.data.title}</h3>
-                <p class="text-sm">{post.data.subtitle}</p>
+                <p class="text-base">{post.data.subtitle}</p>
+                <p class="text-sm">
+                  <time datetime={post.data.date.toString()} class="mb-1 text-s">
+                    {format(post.data.date, "LLLL d, yyyy")}
+                  </time>
+                </p>
               </div>
             </a>
 
