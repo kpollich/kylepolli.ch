@@ -1,0 +1,34 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Spacer from "../../components/Spacer.astro";
+
+const posts = (await getCollection("blog")).sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf()
+);
+---
+
+<BaseLayout>
+  <section>
+    <h1 class="text-6xl font-bold">Blog posts</h1>
+
+    <Spacer size="medium" />
+
+    <ul>
+      {
+        posts.map((post) => (
+          <li>
+            <a href={`/blog/${post.slug}`} class="hover:text-cyan-600 text-2xl">
+              <div>
+                <h3>{post.data.title}</h3>
+                <p class="text-sm">{post.data.subtitle}</p>
+              </div>
+            </a>
+
+            <Spacer size="small" />
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</BaseLayout>

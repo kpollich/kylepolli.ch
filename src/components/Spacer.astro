@@ -1,0 +1,14 @@
+---
+interface Props {
+  size: "xs" | "small" | "medium" | "large";
+}
+
+const sizeMap = {
+  xs: "mb-2",
+  small: "mb-4",
+  medium: "mb-8",
+  large: "mb-16",
+};
+---
+
+<div class={sizeMap[Astro.props.size]}></div>

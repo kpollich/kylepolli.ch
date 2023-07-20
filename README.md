@@ -1,3 +1,3 @@
 # kylepollich.com
 
-Personal site + blog. Built with Next.js + Tailwind.
+I rewrote this site with Astro to see how it goes 🤷‍♀️
