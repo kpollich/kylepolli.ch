@@ -19,15 +19,15 @@ const { title, subtitle, date } = Astro.props;
   <body>
     <Navigation />
 
-    <main class="flex min-h-screen flex-col px-16">
+    <main class="flex flex-col min-h-screen px-4 md:px-16">
       <div>
-        <h1 class="text-6xl font-bold max-w-4xl">{title}</h1>
+        <h1 class="max-w-4xl text-6xl font-bold">{title}</h1>
 
         <Spacer size="xs" />
 
         <h2 class="text-xl">{subtitle}</h2>
 
-        <time datetime={date.toString()} class="mb-1 text-s text-gray-400">
+        <time datetime={date.toString()} class="mb-1 text-gray-400 text-s">
           {format(date, "LLLL d, yyyy")}
         </time>
       </div>

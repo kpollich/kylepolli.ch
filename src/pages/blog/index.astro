@@ -20,7 +20,7 @@ const posts = (await getCollection("blog"))
       {
         posts.map((post) => (
           <li class="w-fit">
-            <a href={`/blog/${post.slug}`} class="hover:text-cyan-600 text-2xl">
+            <a href={`/blog/${post.slug}`} class="text-2xl hover:text-cyan-600">
               <div>
                 <h3>{post.data.title}</h3>
                 <p class="text-base">{post.data.subtitle}</p>
@@ -32,7 +32,7 @@ const posts = (await getCollection("blog"))
               </div>
             </a>
 
-            <Spacer size="small" />
+            <Spacer size="medium" />
           </li>
         ))
       }
