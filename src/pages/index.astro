@@ -54,68 +54,65 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     <Spacer size="medium" />
 
     <section class="max-w-2xl">
-      <p>{`I'm Kyle Pollich, a full-stack software engineer from Lancaster, PA. `}</p>
+      <p>I'm Kyle Pollich, a full-stack software engineer from Lancaster, PA.</p>
 
       <p class="mt-4">
-        {`I'm currently a Tech Lead at `}
+        I'm currently a Tech Lead at
+        <!--
+            Astro likes to add needless whitespace within these anchor tags when they include newlines,
+            so please excuse the weird formatting:
+            https://github.com/withastro/astro/issues/5737
+        -->
         <a
           href="https://www.elastic.co/"
           class="underline hover:text-cyan-600"
           target="_blank"
-          rel="noopener"
-        >
-          Elastic
-        </a>{" "}
-        working on{" "}
+          rel="noopener">Elastic</a
+        > working on
         <a
           href="https://www.elastic.co/guide/en/fleet/current/fleet-overview.html"
           target="_blank"
           rel="noopener"
           class="underline hover:text-cyan-600"
         >
-          Fleet
-        </a>
-        , a unified interface within{" "}
+          Fleet</a
+        >, a unified interface within
         <a
           href="https://www.elastic.co/kibana/"
           target="_blank"
           rel="noopener"
           class="underline hover:text-cyan-600"
         >
-          Kibana
-        </a>{" "}
-        for centrally managing{" "}
+          Kibana</a
+        > for centrally managing
         <a
           href="https://www.elastic.co/guide/en/fleet/current/elastic-agent-installation.html"
           target="_blank"
           rel="noopener"
           class="underline hover:text-cyan-600"
         >
-          Elastic Agent
-        </a>
-        .
+          Elastic Agent</a
+        >.
       </p>
 
       <p class="my-4">
-        {`If you're interested in my professional work, head over to my `}
+        If you're interested in my professional work, head over to my
         <a
           href="https://www.linkedin.com/in/kyle-pollich/"
           target="_blank"
           rel="noopener"
           class="underline hover:text-cyan-600"
         >
-          LinkedIn
-        </a>{" "}
-        or{" "}
+          LinkedIn</a
+        > or
         <a
           href="https://www.github.com/kpollich"
           target="_blank"
           rel="noopener"
           class="underline hover:text-cyan-600"
         >
-          GitHub
-        </a>{" "}
-        profiles.
+          GitHub</a
+        > profiles.
       </p>
     </section>
   </div>
