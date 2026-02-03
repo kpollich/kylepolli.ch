@@ -1,0 +1,23 @@
+---
+import "@fontsource/inter";
+
+import BaseHead from "../components/BaseHead.astro";
+import Navigation from "../components/Navigation.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <BaseHead title={`Resume | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Navigation />
+
+    <main class="flex flex-col min-h-screen px-4 md:px-16 pb-32">
+      <article class="prose prose-lg prose-neutral dark:prose-invert max-w-4xl">
+        <slot />
+      </article>
+    </main>
+  </body>
+</html>
