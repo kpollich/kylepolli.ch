@@ -1,0 +1,76 @@
+---
+title: What my two years of management taught me
+subtitle: Reflecting on my first formal engineering management role 
+date: 07/01/2026
+---
+
+In the summer of 2026, Elastic [laid off about 7% of its staff](https://www.elastic.co/blog/ceo-ash-kulkarni-announcement-to-elastic-employees), mainly focused in engineering. As a result of the restructuring, I stepped away from my management role and back into an individual contributor role as a tech lead. I felt it'd be a good opportunity to reflect on my experience as a manager, things I learned, and what I hope to take back with me as I swing back on the [engineer/manager pendulum](https://charity.wtf/2017/05/11/the-engineer-manager-pendulum/).
+
+## Delivering critical feedback
+
+Direct feedback is worth delivering immediately, even if that means an awkward conversation. It's better to deal with a single awkward conversation up front that sets expectations and gets someone back on track rather than trying to slowly affect change over time through smaller, less intimidating conversations.
+
+I found myself coming back to this quote from Joe Abercrombie's _The Blade Itself_ constantly during my time as a manager:
+
+> "Once you've got a task to do, it's better to do it than live with the fear of it."
+
+Conflict avoidance is a tough skill to unlearn, but doing so is necessary to be an effective manager. I read some of Kim Scott's _Radical Candor_ as a way to try and work through this, and it helped a bit. Though I felt like the book started saying the same things over and over around 30% of the way through and didn't wind up finishing it 😅.
+
+## Brute force doesn't work on people problems
+
+As an individual contributor, it was pretty common for me to come up against a brick wall of a blocker (e.g. another team couldn't resolve a dependency I had on their codebase) and respond by saying "fine, I'll do it myself." A few days later I'd have a hacky PR up against their codebase that was most of the way there, and I'd have an easier time asking for someone to spend an hour reviewing my code rather than implementing the change from scratch. This model does not work for organizational, strategic, or political problems.
+
+No amount of do it yourself moxie is ever going to get two PMs and a tech lead to go from heated disagreement to harmonious alignment. There's no magic prototype or perfect GitHub issue description I could bash my head against over a late night to make this happen. There are no shortcuts to driving consensus or aligning on roadmap priorities, and these aren't problems that can be solved through sheer willpower by a single manager. Trying to do this cost me a lot of time and energy, and it was a painful lesson to learn.
+
+## Delegation and trust
+
+Delegation is a necessary tool for growing the people around you in any kind of leadership role. As a manager, I had to unlearn the sense that I was bothering people when I asked them to do something. My job was quite literally telling other people what to do and when, and the engineers on my teams knew and expected this.
+
+At the same time, if I make every micro decision about who works on what when, I'm adding a ton of work to my own plate, creating a bottleneck, and denying people growth opportunities.
+
+One of the best things I did with my teams during my tenure as a manager was move them away from a prescriptive work assignment model to a more industry standard self assignment workflow. We'd prioritize a sprint of work, groom the items as a team to make sure we were all familiar with them and they all met our definition of "ready to work," then it was up to the engineers on the team to assign themselves to work items. I'd still chat with everybody regularly in their one on ones to identify good opportunities for certain engineers, which they could earmark ahead of time, but in general the work assignment process became wholly autonomous. This resulted in us getting _more_ work done in every sprint and better knowledge sharing across various siloed areas of our product over time.
+
+Building a clear system where it's obvious what we're supposed to be working on next and then trusting the team to execute on it with strong results is something I'm really proud of from my tenure as a manager.
+
+## One-on-ones are overpowered
+
+One-on-ones are the single best use of a manager's time that exists. From tactical check-ins that expand upon a standup update to dedicated coaching plans, each one-on-one should be tailored to the engineer in question. Some folks are in "business as usual" mode while others are on rapid growth trajectories. Choose your battles as a manager, and treat every one-on-one as the highest leverage time you have available to work with each engineer and build a stronger team.
+
+The recent industry push to have less managers with more reports (e.g. 15+ reports) worries me a lot because of this. More reports means reducing one-on-one cadences, which means less effective managers by definition.
+
+## Absorbing vs escalating
+
+Calibrating my sense to when to absorb dysfunction and unblock engineers myself vs when to escalate took multiple failures to get right. Finding the right balance of proactivity around communication of setbacks, missing requirements, blockers, etc is not easy when problems are often not solely technical. A model of "forgiveness not permission" with frequent open communication is what I eventually figured out. For example if two PMs had conflicting opinions and we wound up blocked on a key project because of it, I would drop something like this into a leadership Slack channel:
+
+> Hey @pm-1 @pm-2, we're blocked on [feature 1] for [project x] because we haven't been able to align on the UX for editing vs deleting. [Engineer] built a working prototype based on "option A" in @pm-2's proposal [here] that we think is feasible, but we need to clarify if the behavior is acceptable and what to do about reverting edits. Can we meet tomorrow to align here?
+> cc @my-manager
+
+Messages like this became really common for me. My goals with these messages were to:
+- Get the blocker resolved by getting the right people in a room together
+- Make as much engineering progress as possible and show a visible, ideally interactive prototype/demo that made it clear what we were thinking and what we needed clarified
+- Keep my own manager in the loop so they could intervene if I needed air cover
+
+The overall approach here is something like "we've taken this as far as we can (here's visual proof of this), but we need these exact questions answered, and we'd like to create a calendar event where the right people will answer these questions."
+
+## Process
+
+I love tinkering with engineering processes, and this is something I've always done even as an IC. That being said, process is a tool for building great teams and great products, it's not sacred. A little process goes a long way. My teams got really far with a meeting cadence that boiled down to a single hour long weekly catch-all meeting for ongoing work check-in, issue grooming, upcoming iteration planning, unblocking, technical discussions, etc. Overall, being somewhat allergic to meetings as a manager will generally endear you to your engineers while also encouraging better async communication, which has a ton of benefits.
+
+Incidents are a really valuable place to inject lightweight process. Introducing consistent incident response practices, escalation criteria, and RCA docs/meetings were huge ways we turned chaos into valuable signals that we could act on to make meaningful improvements. Incidents _will_ happen if your team works on a product that has any usage, so plan around this and use the incidents to make your team better.
+
+## Technical judgment
+
+You need enough familiarity with your codebase to make sound decisions, but I was a bit surprised at how high level my understanding could be to still make good technical calls on how and when things were done amongst my teams. One of the teams I managed was a cloud native service team working with Go and Kubernetes, which is unfamiliar territory for me. Still, I was able to ask good questions, understand high level boxes and arrows, and drive meaningful technical discussions without ever being a day to day individual contributor to this codebase outside of a few one line PRs and config changes.
+
+In today's agentic world, estimates and engineering capacity are total fantasies based on nothing. They were always this way, to be fair, but AI has only made them even worse (this is something AI seems to be really good at).
+
+Cultivating a team culture where eagerness and skepticism balance one another is a way to build a resilient team. You don't want a team full of grumpy folks that refuse all change, but you also don't want a team of hypebeasts who spend their weekends burning tokens on some new JavaScript framework that you'll half migrate to before abandoning entirely for WASM or something in two months.
+
+"Two weeks of coding can save you an hour of planning" rings true forever and always. Invest in planning and grooming. Use AI as a sounding board to make technical requirements and tradeoffs clear before you start writing (or generating code). Measure twice, cut once.
+
+## Back to an IC role
+
+I'm cautiously looking forward to heading back to an IC role with all of these learnings from my time as a manager, even if the circumstances that put me here are less than ideal. I'd be remiss if I didn't mention Charity Majors' [great article](https://charity.wtf/2017/05/11/the-engineer-manager-pendulum/) about the pendulum between IC and manager roles. I feel like there are growth opportunities on both sides of that pendulum, and I'm grateful to get the chance to operate on both types of roles with the same domain over multiple years.
+
+It's also worth mentioning that being a manager is hard. It's hard to spend most of your time in meetings. It's hard to be accountable for big important projects that you're actually building yourself. It's hard to navigate challenging conversations about personal circumstances or performance issues or hiring/firing type decisions that impact real peoples' lives. I'm a little relieved to be getting at least a bit of a break from those types of things to let my burnout meter recharge a bit. I really enjoyed my time as a manager, and it's hard to beat the pride I felt when an engineer on my team nailed a big project or landed a promotion, but at the same time I think I'm ready to swing back on that pendulum.
+
