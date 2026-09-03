@@ -20,23 +20,25 @@ const { title, subtitle, date } = Astro.props;
     <Navigation />
 
     <main class="flex flex-col min-h-screen px-4 md:px-16 pb-32">
-      <div>
-        <h1 class="max-w-4xl text-6xl font-bold">{title}</h1>
+      <div class="w-full max-w-3xl mx-auto">
+        <div>
+          <h1 class="text-6xl font-bold">{title}</h1>
 
-        <Spacer size="xs" />
+          <Spacer size="xs" />
 
-        <h2 class="text-xl">{subtitle}</h2>
+          <h2 class="text-xl">{subtitle}</h2>
 
-        <time datetime={date.toString()} class="mb-1 text-gray-400 text-s">
-          {format(date, "LLLL d, yyyy")}
-        </time>
+          <time datetime={date.toString()} class="mb-1 text-gray-400 text-s">
+            {format(date, "LLLL d, yyyy")}
+          </time>
+        </div>
+
+        <Spacer size="medium" />
+
+        <article class="prose prose-lg prose-neutral dark:prose-invert max-w-none">
+          <slot />
+        </article>
       </div>
-
-      <Spacer size="medium" />
-
-      <article class="prose prose-lg prose-neutral dark:prose-invert">
-        <slot />
-      </article>
     </main>
   </body>
 </html>
