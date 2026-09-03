@@ -19,9 +19,9 @@ const { title, subtitle, date } = Astro.props;
   <body>
     <Navigation />
 
-    <main class="flex flex-col min-h-screen px-4 md:px-16 pb-32">
+    <main class="flex flex-col min-h-screen w-full max-w-3xl mx-auto px-4 md:px-16 pb-32">
       <div>
-        <h1 class="max-w-4xl text-6xl font-bold">{title}</h1>
+        <h1 class="text-6xl font-bold">{title}</h1>
 
         <Spacer size="xs" />
 
@@ -34,7 +34,7 @@ const { title, subtitle, date } = Astro.props;
 
       <Spacer size="medium" />
 
-      <article class="prose prose-lg prose-neutral dark:prose-invert">
+      <article class="prose prose-lg prose-neutral dark:prose-invert max-w-none">
         <slot />
       </article>
     </main>
